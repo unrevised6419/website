@@ -6,6 +6,9 @@ name: Node.js CI
 on:
   push:
     branches: [ main ]
+    
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   build:
@@ -19,7 +22,13 @@ jobs:
       with:
         node-version: 16.x
         cache: 'npm'
-    - run: git config user.name "Andrew Luca"
-    - run: git config user.email "1881266+iamandrewluca@users.noreply.github.com"
     - run: npm ci
-    - run: npm run deploy --if-present
+    - run: npm run build
+    - run: |
+        git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+        npx gh-pages -d dist -u "github-actions-bot <support+actions@github.com>"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
+    
+   
