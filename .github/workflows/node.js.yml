@@ -19,5 +19,7 @@ jobs:
       with:
         node-version: 16.x
         cache: 'npm'
+    - run: git config user.name "Andrew Luca"
+    - run: git config user.email "1881266+iamandrewluca@users.noreply.github.com"
     - run: npm ci
     - run: npm run deploy --if-present
