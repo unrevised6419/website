@@ -1,0 +1,13 @@
+{
+	"editor.renderWhitespace": "all",
+	"editor.formatOnSave": true,
+	"[json][jsonc][vue][md][html][css]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	}
+}
