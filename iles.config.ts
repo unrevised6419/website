@@ -1,5 +1,6 @@
 import { defineConfig } from "iles";
 import images, { hdPreset } from "@islands/images";
+import Critters from "critters";
 
 export default defineConfig({
 	siteUrl: "https://iamandrewluca.com/",
@@ -15,4 +16,10 @@ export default defineConfig({
 			}),
 		}),
 	],
+	ssg: {
+		async beforePageRender(page, config) {
+			let critters = new Critters({ path: config.outDir });
+			page.rendered = await critters.process(page.rendered);
+		},
+	},
 });
