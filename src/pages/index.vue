@@ -29,6 +29,8 @@ import IconGitHub from "../components/icons/IconGitHub.vue";
 import IconLinkedin from "../components/icons/IconLinkedin.vue";
 import IconDev from "../components/icons/IconDev.vue";
 import IconTelegram from "../components/icons/IconTelegram.vue";
+import IconInstagram from "@/components/icons/IconInstagram.vue";
+import IconOnlyFans from "@/components/icons/IconOnlyFans.vue";
 
 let socials = [
 	{
@@ -60,6 +62,16 @@ let socials = [
 		url: "/telegram",
 		title: "Telegram",
 		icon: IconTelegram,
+	},
+	{
+		url: "/instagram",
+		title: "Instagram",
+		icon: IconInstagram,
+	},
+	{
+		url: "/onlyfans",
+		title: "OnlyFans",
+		icon: IconOnlyFans,
 	},
 ];
 </script>
