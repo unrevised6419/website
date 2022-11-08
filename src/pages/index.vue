@@ -6,7 +6,7 @@
 			alt="My profile picture"
 		/>
 		<h1 class="mb-3 text-3xl">Andrew Luca</h1>
-		<code class="rounded bg-gray-200 p-1 text-sm">All In Developer</code>
+		<code class="rounded bg-gray-200 p-1 text-sm">❤️ All In Developer</code>
 		<hr class="my-5" />
 		<ul class="flex flex-wrap justify-center gap-3">
 			<li v-for="social in socials" :key="social.url">
