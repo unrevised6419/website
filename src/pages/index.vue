@@ -1,14 +1,16 @@
 <template>
 	<div class="rounded-2xl bg-white p-10 text-center shadow-2xl">
 		<Picture
-			src="@/assets/me.jpg?preset=profile"
+			src="https://gravatar.com/avatar/3d8d36a4c7e54969b9659a9f46d2f392?size=512"
 			class="mx-auto mb-5 h-32 w-32 rounded-full shadow-xl"
 			alt="My profile picture"
 		/>
 		<h1 class="mb-3 text-3xl">Andrew Luca</h1>
-		<code class="rounded bg-gray-200 p-1 text-sm">❤️ All In Developer</code>
+		<span class="rounded bg-gray-200 py-2 px-3 text-sm">
+			❤️&nbsp;&nbsp;<code>All In Developer</code>
+		</span>
 		<hr class="my-5" />
-		<ul class="flex flex-wrap justify-center gap-3">
+		<ul class="flex max-w-xs flex-wrap justify-center gap-2">
 			<li v-for="social in socials" :key="social.url">
 				<a
 					:href="social.url"
@@ -31,12 +33,18 @@ import IconDev from "../components/icons/IconDev.vue";
 import IconTelegram from "../components/icons/IconTelegram.vue";
 import IconInstagram from "@/components/icons/IconInstagram.vue";
 import IconOnlyFans from "@/components/icons/IconOnlyFans.vue";
+import IconMastodon from "@/components/icons/IconMastodon.vue";
 
 let socials = [
 	{
 		url: "/twitter",
 		title: "Twitter",
 		icon: IconTwitter,
+	},
+	{
+		url: "/mastodon",
+		title: "Mastodon",
+		icon: IconMastodon,
 	},
 	{
 		url: "/youtube",
