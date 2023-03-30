@@ -6,7 +6,7 @@
 			alt="My profile picture"
 		/>
 		<h1 class="mb-3 text-3xl">Andrew Luca</h1>
-		<span class="rounded bg-gray-200 py-2 px-3 text-sm">
+		<span class="rounded bg-gray-200 px-3 py-2 text-sm">
 			❤️&nbsp;&nbsp;<code>All In Developer</code>
 		</span>
 		<hr class="my-5" />
@@ -34,6 +34,7 @@ import IconTelegram from "../components/icons/IconTelegram.vue";
 import IconInstagram from "@/components/icons/IconInstagram.vue";
 import IconOnlyFans from "@/components/icons/IconOnlyFans.vue";
 import IconMastodon from "@/components/icons/IconMastodon.vue";
+import IconGitLab from "@/components/icons/IconGitLab.vue";
 
 let socials = [
 	{
@@ -55,6 +56,11 @@ let socials = [
 		url: "/github",
 		title: "GitHub",
 		icon: IconGitHub,
+	},
+	{
+		url: "/gitlab",
+		title: "GitLab",
+		icon: IconGitLab,
 	},
 	{
 		url: "/linkedin",
