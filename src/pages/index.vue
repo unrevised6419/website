@@ -35,6 +35,7 @@ import IconInstagram from "@/components/icons/IconInstagram.vue";
 import IconOnlyFans from "@/components/icons/IconOnlyFans.vue";
 import IconMastodon from "@/components/icons/IconMastodon.vue";
 import IconGitLab from "@/components/icons/IconGitLab.vue";
+import IconBlueSky from "@/components/icons/IconBlueSky.vue";
 
 let socials = [
 	{
@@ -46,6 +47,11 @@ let socials = [
 		url: "/mastodon",
 		title: "Mastodon",
 		icon: IconMastodon,
+	},
+	{
+		url: "/bluesky",
+		title: "BlueSky",
+		icon: IconBlueSky,
 	},
 	{
 		url: "/youtube",
