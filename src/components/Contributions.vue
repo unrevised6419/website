@@ -3,7 +3,7 @@
 		<div class="min-h-[259px] min-w-[924px] p-10">
 			<div ref="contributionsGraphRef" />
 			<div class="text-sm">
-				<span>Data from:</span>
+				<span>Sources:</span>
 				<ul class="ml-1 inline-flex gap-1">
 					<li v-for="(provider, index) in providers">
 						<a
