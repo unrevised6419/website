@@ -31,3 +31,4 @@ dist-ssr
 
 components.d.ts
 composables.d.ts
+src/data.json

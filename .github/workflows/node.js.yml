@@ -24,7 +24,6 @@ jobs:
           node-version: 18.x
           cache: "npm"
       - run: npm ci
-      - run: npx tsx scripts/stats-fetch.ts
       - run: npm run build
       - run: |
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
