@@ -31,4 +31,5 @@ dist-ssr
 
 components.d.ts
 composables.d.ts
-src/data.json
+public/contributions.html
+public/contributions.css

@@ -7,7 +7,8 @@
 		"preview": "iles preview --open --port 5050",
 		"typecheck": "vue-tsc --noEmit",
 		"prepare": "husky install",
-		"postinstall": "npx tsx scripts/stats-fetch.ts"
+		"postinstall": "npm run generate-empty-tailwind && npx tsx scripts/stats-fetch.ts",
+		"generate-empty-tailwind": "npx tailwindcss -c scripts/empty-tailwind.config.js -o ./public/contributions.css --minify"
 	},
 	"engines": {
 		"node": ">= 18.0.0",
@@ -24,6 +25,7 @@
 		"cheerio": "^1.0.0-rc.12",
 		"critters": "^0.0.19",
 		"gh-pages": "^5.0.0",
+		"happy-dom": "^9.20.3",
 		"husky": "^8.0.3",
 		"iles": "^0.9.5",
 		"lint-staged": "^13.2.2",

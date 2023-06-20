@@ -1,14 +1,54 @@
+import { document } from "./patch-window";
 import { writeFile } from "node:fs/promises";
-import { getAggregateContributions } from "./contributions";
+import Calendar, { Props } from "react-activity-calendar";
+import { cloneElement, createElement } from "react";
+import { createRoot } from "react-dom/client";
 import { providers } from "../src/utils/providers";
+import { getAggregateContributions } from "./contributions";
+
+const link = document.createElement("link") as unknown as HTMLLinkElement;
+link.rel = "stylesheet";
+link.href = "contributions.css";
+// @ts-expect-error
+document.head.appendChild(link);
+
+const element = document.createElement("div") as unknown as Element;
+// @ts-expect-error
+document.body.appendChild(element);
+
+function onLoad() {
+	writeFile(
+		"public/contributions.html",
+		document.documentElement.outerHTML,
+		"utf-8",
+	);
+}
 
 async function main() {
-	let result = await getAggregateContributions(providers);
-	await writeFile("src/data.json", JSON.stringify(result), "utf-8");
+	let data = await getAggregateContributions(providers);
+
+	let props: Props = {
+		data: data as Props["data"],
+		theme: {
+			light: ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"],
+		},
+		labels: {
+			totalCount: `{{count}} contributions in the last year`,
+		},
+		colorScheme: "light",
+		renderBlock: (element, activity) => {
+			return cloneElement(element, {
+				children: createElement("title", {
+					children: `${activity.count} contributions on ${activity.date}`,
+				}),
+			});
+		},
+	};
+
+	let reactElement = createElement(Calendar, props);
+	createRoot(element).render(
+		createElement("div", { ref: onLoad }, reactElement),
+	);
 }
 
 main().catch((error) => console.error(error));
-
-// fetch("https://git.jagaad.com/users/iamandrewluca/calendar.json")
-// 	.then((response) => response.text())
-// 	.then((data) => console.log(data));

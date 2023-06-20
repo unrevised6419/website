@@ -18,7 +18,7 @@
 				<Socials />
 			</div>
 		</div>
-		<Contributions client:load />
+		<Contributions />
 	</div>
 </template>
 
