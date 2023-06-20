@@ -22,4 +22,8 @@ export default defineConfig({
 			page.rendered = await critters.process(page.rendered);
 		},
 	},
+	vue: {
+		// Iles does not work if disabling reactivityTransform
+		// reactivityTransform: false,
+	},
 });

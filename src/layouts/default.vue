@@ -3,7 +3,7 @@
 		class="flex h-screen items-center justify-center bg-green-900 p-3"
 		:style="{ backgroundImage: url }"
 	>
-		<div class="relative">
+		<div class="relative max-w-full">
 			<slot />
 		</div>
 	</div>
