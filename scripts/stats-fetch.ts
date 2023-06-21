@@ -6,14 +6,12 @@ import { createRoot } from "react-dom/client";
 import { providers } from "../src/utils/providers";
 import { getAggregateContributions } from "./contributions";
 
-const link = document.createElement("link") as unknown as HTMLLinkElement;
-link.rel = "stylesheet";
-link.href = "contributions.css";
-// @ts-expect-error
+const link = document.createElement("link");
+link.setAttribute("rel", "stylesheet");
+link.setAttribute("href", "contributions.css");
 document.head.appendChild(link);
 
-const element = document.createElement("div") as unknown as Element;
-// @ts-expect-error
+const element = document.createElement("div");
 document.body.appendChild(element);
 
 function onLoad() {
@@ -46,7 +44,7 @@ async function main() {
 	};
 
 	let reactElement = createElement(Calendar, props);
-	createRoot(element).render(
+	createRoot(element as unknown as Element).render(
 		createElement("div", { ref: onLoad }, reactElement),
 	);
 }
