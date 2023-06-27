@@ -4,7 +4,7 @@
 			class="mb-5 grid grid-cols-1 rounded-2xl bg-white p-10 shadow-2xl md:grid-cols-3"
 		>
 			<div class="border-b p-5 text-center md:border-b-0 md:border-r">
-				<Picture
+				<img
 					src="https://gravatar.com/avatar/3d8d36a4c7e54969b9659a9f46d2f392?size=512"
 					class="mx-auto mb-5 h-32 w-32 rounded-full shadow-xl"
 					alt="My profile picture"
