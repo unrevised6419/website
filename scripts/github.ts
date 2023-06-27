@@ -1,5 +1,5 @@
-import { AnyNode, BasicAcceptedElems, load } from "cheerio";
-import { Contribution, Fetcher, Provider } from "./contributions";
+import { type AnyNode, type BasicAcceptedElems, load } from "cheerio";
+import type { Contribution, Fetcher, Provider } from "./contributions";
 
 export let fetchContributions: Fetcher = async (
 	provider: Provider,

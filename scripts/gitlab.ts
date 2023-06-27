@@ -1,4 +1,4 @@
-import { Contribution, Fetcher, Provider } from "./contributions";
+import type { Contribution, Fetcher, Provider } from "./contributions";
 
 export let fetchContributions: Fetcher = async (
 	provider: Provider,

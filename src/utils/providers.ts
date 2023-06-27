@@ -1,4 +1,4 @@
-import { Provider } from "../../scripts/contributions";
+import type { Provider } from "../../scripts/contributions";
 
 export let providers: Provider[] = [
 	{

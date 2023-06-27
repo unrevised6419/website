@@ -1,5 +1,11 @@
-<template>
-	<div>
+---
+import Layout from "../layouts/Layout.astro";
+import { Socials } from "../components/Socials";
+import { Contributions } from "../components/Contributions";
+---
+
+<Layout>
+	<main>
 		<div
 			class="mb-5 grid grid-cols-1 rounded-2xl bg-white p-10 shadow-2xl md:grid-cols-3"
 		>
@@ -19,10 +25,5 @@
 			</div>
 		</div>
 		<Contributions />
-	</div>
-</template>
-
-<script lang="ts" setup>
-import Socials from "~/components/Socials.vue";
-import Contributions from "~/components/Contributions.vue";
-</script>
+	</main>
+</Layout>

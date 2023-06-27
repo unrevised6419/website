@@ -1,35 +1,24 @@
-# Logs
-logs
-*.log
+# build output
+dist/
+
+# generated types
+.astro/
+
+# dependencies
+node_modules/
+
+# logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-lerna-debug.log*
 
-node_modules
+# environment variables
+.env
+.env.production
+
+# macOS-specific files
 .DS_Store
-dist
-dist-ssr
-*.local
 
-/cypress/videos/
-/cypress/screenshots/
-
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-!.vscode/settings.json
-.idea
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-
-.iles-ssg-temp/
-
-components.d.ts
-composables.d.ts
-public/contributions.html
-public/contributions.css
+src/data.json
+src/react-activity-calendar.css

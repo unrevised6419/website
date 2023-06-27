@@ -1,8 +1,8 @@
 {
 	"recommendations": [
+		"astro-build.astro-vscode",
 		"esbenp.prettier-vscode",
-		"bradlc.vscode-tailwindcss",
-		"vue.vscode-typescript-vue-plugin",
-		"vue.volar"
-	]
+		"bradlc.vscode-tailwindcss"
+	],
+	"unwantedRecommendations": []
 }
