@@ -18,7 +18,7 @@ export let fetchContributions: Fetcher = async (
 	let data = await fetch(url.href);
 
 	let $ = load(await data.text());
-	let $days = $(".js-calendar-graph-svg .ContributionCalendar-day");
+	let $days = $(".js-calendar-graph-table .ContributionCalendar-day");
 
 	let parseDay = (day: BasicAcceptedElems<AnyNode>): Contribution => {
 		let $day = $(day);
