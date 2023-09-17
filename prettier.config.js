@@ -1,5 +1,7 @@
-module.exports = {
-	...require("@allindevelopers/prettier-config"),
+import baseConfig from "@allindevelopers/prettier-config" assert { type: "json" };
+
+export default {
+	...baseConfig,
 	plugins: ["prettier-plugin-astro", "prettier-plugin-tailwindcss"],
 	overrides: [
 		{
