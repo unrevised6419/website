@@ -29,15 +29,18 @@ export async function getAggregateContributions(
 	let promises = providers.map((p) => ProviderFetcherMap[p.provider](p));
 	let data = await Promise.all(promises);
 
-	let combined = data.flat().reduce((acc, [date, count]) => {
-		if (!acc[date]) {
-			acc[date] = 0;
-		}
+	let combined = data.flat().reduce(
+		(acc, [date, count]) => {
+			if (!acc[date]) {
+				acc[date] = 0;
+			}
 
-		acc[date] += count;
+			acc[date] += count;
 
-		return acc;
-	}, {} as Record<string, number>);
+			return acc;
+		},
+		{} as Record<string, number>,
+	);
 
 	let sorted = Object.entries(combined).sort(
 		(c1, c2) => new Date(c1[0]).getTime() - new Date(c2[0]).getTime(),

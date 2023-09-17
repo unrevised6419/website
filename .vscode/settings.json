@@ -1,7 +1,8 @@
 {
 	"editor.renderWhitespace": "all",
 	"editor.formatOnSave": true,
-	"[json][jsonc][vue][md][html][css][typescript][javascript][astro][typescriptreact]": {
+	"prettier.documentSelectors": ["**/*.astro"],
+	"[json][jsonc][vue][md][html][css][typescript][javascript][astro][typescriptreact][astro]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	}
 }
