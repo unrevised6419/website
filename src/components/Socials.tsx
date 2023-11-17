@@ -52,15 +52,16 @@ let socials = [
 
 export function Socials() {
 	return (
-		<ul className="mx-auto grid grid-cols-3 gap-3 sm:grid-cols-4">
+		<ul className="mx-auto flex max-w-md flex-wrap justify-center gap-4">
 			{socials.map((social) => (
-				<li key={social.url}>
+				<li key={social.url} className="w-full sm:w-32">
 					<a
 						href={social.url}
 						title={social.title}
-						className="flex items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300"
+						className="flex w-full items-center justify-center gap-1 rounded-full bg-gray-200 px-3 py-2 hover:bg-green-300"
 					>
-						<social.icon className="m-2.5 h-6 w-6 text-gray-600" />
+						<social.icon className="h-6 w-6 shrink-0 text-gray-600" />
+						<span className="text-sm">{social.title}</span>
 					</a>
 				</li>
 			))}
