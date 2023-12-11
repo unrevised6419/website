@@ -27,30 +27,17 @@ export async function getAggregateContributions(
 	providers: Array<Provider>,
 ): Promise<Activity[]> {
 	let promises = providers.map((p) => ProviderFetcherMap[p.provider](p));
-	let data = await Promise.all(promises);
+	let data = (await Promise.all(promises)).flat();
+	let combined: Record<string, number> = {};
 
-	let combined = data.flat().reduce(
-		(acc, [date, count]) => {
-			if (!acc[date]) {
-				acc[date] = 0;
-			}
+	for (let [date, count] of data) {
+		combined[date] ??= 0;
+		combined[date] += count;
+	}
 
-			acc[date] += count;
-
-			return acc;
-		},
-		{} as Record<string, number>,
-	);
-
-	let sorted = Object.entries(combined).sort(
-		(c1, c2) => new Date(c1[0]).getTime() - new Date(c2[0]).getTime(),
-	);
-
-	return sorted.map(([date, count]) => ({
-		date,
-		count,
-		level: getLevel(count),
-	}));
+	return Object.entries(combined)
+		.toSorted((c1, c2) => new Date(c1[0]).getTime() - new Date(c2[0]).getTime())
+		.map(([date, count]) => ({ date, count, level: getLevel(count) }));
 }
 
 // GitLab Levels

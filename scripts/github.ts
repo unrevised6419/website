@@ -1,4 +1,4 @@
-import { type AnyNode, type BasicAcceptedElems, load } from "cheerio";
+import { type AnyNode, load, type Cheerio } from "cheerio";
 import type { Contribution, Fetcher, Provider } from "./contributions";
 
 export let fetchContributions: Fetcher = async (
@@ -16,31 +16,29 @@ export let fetchContributions: Fetcher = async (
 	url.searchParams.set("to", to);
 
 	let data = await fetch(url.href);
-
 	let $ = load(await data.text());
 	let $days = $(".js-calendar-graph-table .ContributionCalendar-day");
 
-	let parseDay = (day: BasicAcceptedElems<AnyNode>): Contribution => {
-		let $day = $(day);
-		let date = $day.attr("data-date");
-
-		if (!date) {
-			throw Error("Unable to parse date attribute");
-		}
-
-		let countMatch = $day
-			.text()
-			.trim()
-			.match(/^[1-9]+\s/) ?? ["0"];
-
-		let count = parseInt(countMatch[0]);
-
-		if (isNaN(count)) {
-			throw Error("Unable to parse contribution count for day");
-		}
-
-		return [date, count];
-	};
-
-	return $days.get().map((day) => parseDay(day));
+	return $days.get().map((day) => parseDay($(day)));
 };
+
+function parseDay($day: Cheerio<AnyNode>): Contribution {
+	let date = $day.attr("data-date");
+
+	if (!date) {
+		throw Error("Unable to parse date attribute");
+	}
+
+	let countMatch = $day
+		.text()
+		.trim()
+		.match(/^[1-9]+\s/) ?? ["0"];
+
+	let count = parseInt(countMatch[0]);
+
+	if (isNaN(count)) {
+		throw Error("Unable to parse contribution count for day");
+	}
+
+	return [date, count];
+}
