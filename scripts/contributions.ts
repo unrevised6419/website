@@ -36,7 +36,7 @@ export async function getAggregateContributions(
 	}
 
 	return Object.entries(combined)
-		.toSorted((c1, c2) => new Date(c1[0]).getTime() - new Date(c2[0]).getTime())
+		.sort((c1, c2) => new Date(c1[0]).getTime() - new Date(c2[0]).getTime())
 		.map(([date, count]) => ({ date, count, level: getLevel(count) }));
 }
 
