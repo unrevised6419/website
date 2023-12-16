@@ -1,35 +1,35 @@
-import { type AnyNode, load, type Cheerio } from "cheerio";
+import { type AnyNode, load, type Cheerio, type CheerioAPI } from "cheerio";
 import type { Contribution, Fetcher, Provider } from "./contributions";
 
 export let fetchContributions: Fetcher = async (
 	provider: Provider,
 ): Promise<Contribution[]> => {
-	let fromDate = new Date();
-	fromDate.setFullYear(fromDate.getFullYear() - 1);
-	let from = `${fromDate.getFullYear()}-${fromDate.getMonth()}-${fromDate.getDate()}`;
+	let href = `${provider.origin}/${provider.username}`;
 
-	let toDate = new Date();
-	let to = `${toDate.getFullYear()}-${toDate.getMonth()}-${toDate.getDate()}`;
+	console.log(`Fetching contributions from ${href}`);
 
-	let url = new URL(`${provider.origin}/${provider.username}`);
-	url.searchParams.set("from", from);
-	url.searchParams.set("to", to);
-
-	let data = await fetch(url.href);
+	let data = await fetch(href, { cache: "no-store" });
 	let $ = load(await data.text());
 	let $days = $(".js-calendar-graph-table .ContributionCalendar-day");
 
-	return $days.get().map((day) => parseDay($(day)));
+	let contributions = $days.get().map((day) => parseDay($(day), $));
+
+	console.log(
+		`Fetched ${contributions.length} contributions from ${provider.name}`,
+	);
+
+	return contributions;
 };
 
-function parseDay($day: Cheerio<AnyNode>): Contribution {
+function parseDay($day: Cheerio<AnyNode>, $: CheerioAPI): Contribution {
 	let date = $day.attr("data-date");
 
 	if (!date) {
 		throw Error("Unable to parse date attribute");
 	}
 
-	let countMatch = $day
+	let id = $day.attr("id");
+	let countMatch = $(`tool-tip[for="${id}"]`)
 		.text()
 		.trim()
 		.match(/^[1-9]+\s/) ?? ["0"];
