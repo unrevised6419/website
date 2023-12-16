@@ -52,16 +52,18 @@ let socials = [
 
 export function Socials() {
 	return (
-		<ul className="mx-auto flex max-w-md flex-wrap justify-center gap-4">
+		<ul className="mx-auto flex max-w-md flex-wrap justify-center gap-2 sm:gap-4">
 			{socials.map((social) => (
 				<li key={social.url} className="w-full sm:w-32">
 					<a
 						href={social.url}
 						title={social.title}
-						className="flex w-full items-center justify-center gap-1 rounded-full bg-gray-200 px-3 py-2 hover:bg-green-300"
+						className="flex w-full items-center justify-center gap-1 rounded-full bg-gray-200 py-2 pl-3 pr-4 hover:bg-green-300"
 					>
 						<social.icon className="h-6 w-6 shrink-0 text-gray-600" />
-						<span className="text-sm">{social.title}</span>
+						<span className="w-14 text-xs sm:w-auto sm:text-sm">
+							{social.title}
+						</span>
 					</a>
 				</li>
 			))}
