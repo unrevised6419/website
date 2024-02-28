@@ -1,0 +1,41 @@
+---
+import { providers } from "../utils/providers";
+import { intersperse } from "../utils";
+---
+
+<div class="overflow-x-auto rounded-2xl bg-white shadow-2xl">
+	<div class="min-h-[259px] min-w-[924px] p-10">
+		<slot />
+
+		<div class="text-sm">
+			<span>Sources:</span>
+			<ul class="ml-1 inline-flex gap-1">
+				{
+					intersperse(
+						providers.map((provider) => (
+							<li>
+								{provider.access === "public" && (
+									<a
+										href={`${provider.origin}/${provider.username}`}
+										target="_blank"
+										rel="noopener"
+										class="text-blue-800 underline"
+									>
+										{provider.name}
+									</a>
+								)}
+
+								{provider.access === "file" && (
+									<span class="cursor-not-allowed text-blue-800">
+										{provider.name}
+									</span>
+								)}
+							</li>
+						)),
+						<li class="-ml-1">,</li>,
+					)
+				}
+			</ul>
+		</div>
+	</div>
+</div>
