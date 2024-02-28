@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import { Socials } from "../components/Socials";
 import { Contributions } from "../components/Contributions";
+import { CalendarCountTextUpdate } from "../components/CalendarCountTextUpdate";
 import { avatarUrl } from "../utils";
 ---
 
@@ -18,8 +19,9 @@ import { avatarUrl } from "../utils";
 					height={256}
 					format="webp"
 					class="mx-auto mb-5 h-32 w-32 rounded-full bg-avatar-blur bg-cover bg-no-repeat shadow-xl"
-					alt="My profile picture"
+					alt="Andrei Luca"
 					fetchpriority="high"
+					loading="eager"
 				/>
 				<h1 class="mb-3 text-3xl">Andrei Luca</h1>
 				<a
@@ -34,5 +36,6 @@ import { avatarUrl } from "../utils";
 			</div>
 		</div>
 		<Contributions />
+		<CalendarCountTextUpdate client:load />
 	</main>
 </Layout>
