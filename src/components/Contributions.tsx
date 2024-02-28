@@ -31,15 +31,22 @@ export function Contributions() {
 					<span>Sources:</span>
 					<ul className="ml-1 inline-flex gap-1">
 						{providers.map((provider, index) => (
-							<li key={index}>
-								<a
-									href={`${provider.origin}/${provider.username}`}
-									target="_blank"
-									rel="noopener"
-									className="text-blue-800"
-								>
-									{provider.name}
-								</a>
+							<li key={provider.id}>
+								{provider.access === "public" && (
+									<a
+										href={`${provider.origin}/${provider.username}`}
+										target="_blank"
+										rel="noopener"
+										className="text-blue-800 underline"
+									>
+										{provider.name}
+									</a>
+								)}
+								{provider.access === "file" && (
+									<span className="cursor-not-allowed text-blue-800">
+										{provider.name}
+									</span>
+								)}
 								{index < providers.length - 1 && <span>,</span>}
 							</li>
 						))}

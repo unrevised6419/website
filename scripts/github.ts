@@ -4,6 +4,10 @@ import type { Contribution, Fetcher, Provider } from "./contributions";
 export let fetchContributions: Fetcher = async (
 	provider: Provider,
 ): Promise<Contribution[]> => {
+	if (provider.type !== "github") throw Error("Provider type should be GitHub");
+	if (provider.access === "file")
+		throw Error("File GitHub provider not implemented");
+
 	let href = `${provider.origin}/${provider.username}`;
 
 	console.log(`Fetching contributions from ${href}`);

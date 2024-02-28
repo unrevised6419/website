@@ -2,15 +2,29 @@ import { fetchContributions as fetchContributionsGitHub } from "./github";
 import { fetchContributions as fetchContributionsGitLab } from "./gitlab";
 
 type ProviderType = "github" | "gitlab";
-export type Provider = {
+type ProviderAccess = "public" | "file";
+
+type BaseProvider = {
+	id: string;
+	access: ProviderAccess;
 	name: string;
 	type: ProviderType;
-	username: string;
-	origin: string;
 };
 
+export interface PublicProvider extends BaseProvider {
+	access: "public";
+	username: string;
+	origin: string;
+}
+
+export interface FileProvider extends BaseProvider {
+	access: "file";
+}
+
+export type Provider = PublicProvider | FileProvider;
+
 export type Level = 0 | 1 | 2 | 3 | 4;
-export type Contribution = [year: string, count: number];
+export type Contribution = [date: string, count: number];
 export interface Activity {
 	date: string;
 	count: number;
