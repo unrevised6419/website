@@ -3,19 +3,19 @@ import type { Provider } from "../../scripts/contributions";
 export let providers: Provider[] = [
 	{
 		name: "GitHub",
-		provider: "github",
+		type: "github",
 		username: "iamandrewluca",
 		origin: "https://github.com",
 	},
 	{
 		name: "GitLab",
-		provider: "gitlab",
+		type: "gitlab",
 		username: "iamandrewluca",
 		origin: "https://gitlab.com",
 	},
 	{
 		name: "GitLab Jagaad",
-		provider: "gitlab",
+		type: "gitlab",
 		username: "iamandrewluca",
 		origin: "https://git.jagaad.com",
 	},

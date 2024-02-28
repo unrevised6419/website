@@ -4,7 +4,7 @@ import { fetchContributions as fetchContributionsGitLab } from "./gitlab";
 type ProviderType = "github" | "gitlab";
 export type Provider = {
 	name: string;
-	provider: ProviderType;
+	type: ProviderType;
 	username: string;
 	origin: string;
 };
@@ -26,7 +26,7 @@ let ProviderFetcherMap: Record<ProviderType, Fetcher> = {
 export async function getAggregateContributions(
 	providers: Array<Provider>,
 ): Promise<Activity[]> {
-	let promises = providers.map((p) => ProviderFetcherMap[p.provider](p));
+	let promises = providers.map((p) => ProviderFetcherMap[p.type](p));
 	let data = (await Promise.all(promises)).flat();
 	let combined: Record<string, number> = {};
 
