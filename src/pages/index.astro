@@ -2,10 +2,11 @@
 import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import Socials from "../components/Socials.astro";
-import Contributions from "../components/Contributions.astro";
 import { CalendarCountTextUpdate } from "../components/CalendarCountTextUpdate";
-import { avatarUrl } from "../utils";
+import { avatarUrl, intersperse } from "../utils";
 import { Calendar } from "../components/Calendar";
+import { providers } from "../utils/providers";
+import Provider from "../components/Provider.astro";
 ---
 
 <Layout>
@@ -36,11 +37,25 @@ import { Calendar } from "../components/Calendar";
 				<Socials />
 			</div>
 		</div>
-		<Contributions>
-			<Calendar>
-				<!-- Who the fuck does this 🤣 -->
-				<CalendarCountTextUpdate client:load />
-			</Calendar>
-		</Contributions>
+		<div class="overflow-x-auto rounded-2xl bg-white shadow-2xl">
+			<div class="min-h-[259px] min-w-[924px] p-10">
+				<Calendar>
+					<!-- Who the fuck does this 🤣 -->
+					<CalendarCountTextUpdate client:load />
+				</Calendar>
+
+				<div class="text-sm">
+					<span>Sources:</span>
+					<ul class="ml-1 inline-flex gap-1">
+						{
+							intersperse(
+								providers.map((provider) => <Provider provider={provider} />),
+								<li class="-ml-1">,</li>,
+							)
+						}
+					</ul>
+				</div>
+			</div>
+		</div>
 	</main>
 </Layout>

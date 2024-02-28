@@ -1,0 +1,30 @@
+---
+import { type Provider } from "../../scripts/contributions";
+
+interface Props {
+	provider: Provider;
+}
+
+let { provider } = Astro.props;
+---
+
+<li>
+	{
+		provider.access === "public" && (
+			<a
+				href={`${provider.origin}/${provider.username}`}
+				target="_blank"
+				rel="noopener"
+				class="text-blue-800 underline"
+			>
+				{provider.name}
+			</a>
+		)
+	}
+
+	{
+		provider.access === "file" && (
+			<span class="cursor-not-allowed text-blue-800">{provider.name}</span>
+		)
+	}
+</li>
