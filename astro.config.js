@@ -6,5 +6,11 @@ import critters from "astro-critters";
 // https://astro.build/config
 export default defineConfig({
 	site: "https://iamandrewluca.com/",
-	integrations: [react(), tailwind(), critters()],
+	integrations: [
+		react(),
+		tailwind(),
+		critters({
+			Exclude: (file) => !file.endsWith("dist/index.html"),
+		}),
+	],
 });
