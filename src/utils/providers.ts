@@ -21,21 +21,19 @@ let publicProviders: PublicProvider[] = [
 		username: "iamandrewluca",
 		origin: "https://gitlab.com",
 	},
-	{
-		id: "gitlab-jagaad",
-		access: "public",
-		name: "GitLab Jagaad",
-		type: "gitlab",
-		username: "iamandrewluca",
-		origin: "https://git.jagaad.com",
-	},
 ];
 
 let fileProviders: FileProvider[] = [
 	{
-		id: "gitlab-private-1",
+		id: "gitlab-jagaad",
 		access: "file",
-		name: "GitLab Private 1",
+		name: "GitLab Jagaad",
+		type: "gitlab",
+	},
+	{
+		id: "gitlab-lm",
+		access: "file",
+		name: "GitLab LM",
 		type: "gitlab",
 	},
 ];
