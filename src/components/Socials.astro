@@ -1,5 +1,5 @@
 ---
-import IconTwitter from "../components/icons/IconTwitter.astro";
+import IconX from "../components/icons/IconX.astro";
 import IconYouTube from "../components/icons/IconYouTube.astro";
 import IconGitHub from "../components/icons/IconGitHub.astro";
 import IconLinkedin from "../components/icons/IconLinkedin.astro";
@@ -10,59 +10,58 @@ import IconGitLab from "./icons/IconGitLab.astro";
 
 let socials = [
 	{
-		url: "/twitter",
-		title: "Twitter",
-		icon: IconTwitter,
+		url: "/x",
+		title: "x.com",
+		icon: IconX,
 	},
 	{
 		url: "/youtube",
-		title: "YouTube",
+		title: "youtube.com",
 		icon: IconYouTube,
 	},
 	{
 		url: "/github",
-		title: "GitHub",
+		title: "github.com",
 		icon: IconGitHub,
 	},
 	{
 		url: "/gitlab",
-		title: "GitLab",
+		title: "gitlab.com",
 		icon: IconGitLab,
 	},
 	{
 		url: "/linkedin",
-		title: "Linkedin",
+		title: "linkedin.com",
 		icon: IconLinkedin,
 	},
 	{
 		url: "/dev",
-		title: "Dev",
+		title: "dev.to",
 		icon: IconDev,
 	},
 	{
 		url: "/telegram",
-		title: "Telegram",
+		title: "t.me",
 		icon: IconTelegram,
 	},
 	{
 		url: "/onlyfans",
-		title: "OnlyFans",
+		title: "onlyfans.com",
 		icon: IconOnlyFans,
 	},
 ];
 ---
 
-<ul class="mx-auto flex max-w-md flex-wrap justify-center gap-2 sm:gap-4">
+<ul class="mx-auto grid grid-cols-4 gap-2 sm:max-w-md">
 	{
 		socials.map((social) => (
-			<li class="w-full sm:w-32">
+			<li>
 				<a
 					href={social.url}
 					title={social.title}
-					class="flex w-full items-center justify-center gap-1 rounded-full bg-gray-200 py-2 pl-3 pr-4 hover:bg-green-300"
+					class="inline-grid size-10 place-content-center rounded bg-gray-200 hover:bg-green-300"
 				>
 					<social.icon class="h-6 w-6 shrink-0 text-gray-600" />
-					<span class="w-14 text-xs sm:w-auto sm:text-sm">{social.title}</span>
 				</a>
 			</li>
 		))
