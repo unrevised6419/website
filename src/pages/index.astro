@@ -1,11 +1,12 @@
 ---
-import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import Socials from "../components/Socials.astro";
-import { avatarUrl, intersperse } from "../utils";
+import { intersperse } from "../utils";
 import { Calendar } from "../components/Calendar";
 import { providers } from "../utils/providers";
 import Provider from "../components/Provider.astro";
+import avatarSrc from "../assets/avatar.jpg";
 ---
 
 <Layout>
@@ -14,15 +15,12 @@ import Provider from "../components/Provider.astro";
 			class="mb-5 grid grid-cols-1 rounded-2xl bg-white p-10 shadow-2xl md:grid-cols-3"
 		>
 			<div class="border-b p-5 text-center md:border-b-0 md:border-r">
-				<Image
-					src={avatarUrl}
+				<Picture
+					src={avatarSrc}
 					width={256}
 					height={256}
-					format="webp"
 					class="mx-auto mb-5 h-32 w-32 rounded-full bg-avatar-blur bg-cover bg-no-repeat shadow-xl"
 					alt="Andrei Luca"
-					fetchpriority="high"
-					loading="eager"
 				/>
 				<h1 class="mb-3 text-3xl">Andrei Luca</h1>
 				<a
@@ -37,7 +35,7 @@ import Provider from "../components/Provider.astro";
 			</div>
 		</div>
 		<div class="overflow-x-auto rounded-2xl bg-white shadow-2xl">
-			<div class="min-h-[259px] min-w-[924px] p-10">
+			<div class="min-h-[259px] min-w-[940px] p-10">
 				<Calendar />
 				<script>
 					let selector = ".react-activity-calendar__count";
