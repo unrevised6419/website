@@ -3,10 +3,6 @@ import IconX from "../components/icons/IconX.astro";
 import IconYouTube from "../components/icons/IconYouTube.astro";
 import IconGitHub from "../components/icons/IconGitHub.astro";
 import IconLinkedin from "../components/icons/IconLinkedin.astro";
-import IconDev from "../components/icons/IconDev.astro";
-import IconTelegram from "../components/icons/IconTelegram.astro";
-import IconOnlyFans from "./icons/IconOnlyFans.astro";
-import IconGitLab from "./icons/IconGitLab.astro";
 
 let socials = [
 	{
@@ -25,34 +21,14 @@ let socials = [
 		icon: IconGitHub,
 	},
 	{
-		url: "/gitlab",
-		title: "gitlab.com",
-		icon: IconGitLab,
-	},
-	{
 		url: "/linkedin",
 		title: "linkedin.com",
 		icon: IconLinkedin,
 	},
-	{
-		url: "/dev",
-		title: "dev.to",
-		icon: IconDev,
-	},
-	{
-		url: "/telegram",
-		title: "t.me",
-		icon: IconTelegram,
-	},
-	{
-		url: "/onlyfans",
-		title: "onlyfans.com",
-		icon: IconOnlyFans,
-	},
 ];
 ---
 
-<ul class="mx-auto grid grid-cols-4 gap-2 sm:max-w-md">
+<ul class="mx-auto inline-grid grid-cols-4 gap-2 sm:max-w-md">
 	{
 		socials.map((social) => (
 			<li>
