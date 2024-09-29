@@ -1,4 +1,4 @@
-# iamandrewluca.com
+# [luca.md](https://luca.md/)
 
 ```
 npm create astro@latest -- --template basics
