@@ -1,13 +1,10 @@
-import { type FunctionComponent, cloneElement } from "react";
-import RAC, { type Props } from "react-activity-calendar";
+import { cloneElement } from "react";
+import { ActivityCalendar } from "react-activity-calendar";
 import data from "../data.json";
-
-// @ts-expect-error library has a strange CJS export that changes on dev/prod
-let ReactActivityCalendar: FunctionComponent<Props> = RAC.default ?? RAC;
 
 export function Calendar() {
 	return (
-		<ReactActivityCalendar
+		<ActivityCalendar
 			data={data}
 			theme={{
 				light: ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"],

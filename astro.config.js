@@ -1,7 +1,7 @@
 import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import react from "@astrojs/react";
-import critters from "astro-critters";
+import inline from "@playform/inline";
 
 // https://astro.build/config
 export default defineConfig({
@@ -9,7 +9,7 @@ export default defineConfig({
 	integrations: [
 		react(),
 		tailwind(),
-		critters({
+		inline({
 			Exclude: (file) => !file.endsWith("dist/index.html"),
 		}),
 	],
