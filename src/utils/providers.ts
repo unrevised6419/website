@@ -14,11 +14,11 @@ let publicProviders: PublicProvider[] = [
 		origin: "https://github.com",
 	},
 	{
-		id: "gitlab-iamandrewluca",
+		id: "gitlab-covenant3195",
 		access: "public",
 		name: "GitLab",
 		type: "gitlab",
-		username: "iamandrewluca",
+		username: "covenant3195",
 		origin: "https://gitlab.com",
 	},
 ];
