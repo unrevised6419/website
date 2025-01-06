@@ -1,16 +1,14 @@
 ---
-import IconYouTube from "../components/icons/IconYouTube.astro";
 import IconGitHub from "../components/icons/IconGitHub.astro";
 import IconLinkedin from "../components/icons/IconLinkedin.astro";
 
 let socials = [
 	{ url: "/github", title: "github.com", icon: IconGitHub },
 	{ url: "/linkedin", title: "linkedin.com", icon: IconLinkedin },
-	{ url: "/youtube", title: "youtube.com", icon: IconYouTube },
 ];
 ---
 
-<ul class="mx-auto inline-grid grid-cols-4 gap-2 sm:max-w-md">
+<ul class="mx-auto inline-grid grid-cols-2 gap-2 sm:max-w-md">
 	{
 		socials.map((social) => (
 			<li>
