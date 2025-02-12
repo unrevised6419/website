@@ -13,7 +13,7 @@
 		"preview": "astro preview",
 		"astro": "astro",
 		"prepare": "husky",
-		"postinstall": "patch-package; npx tsx scripts/stats-fetch.ts"
+		"postinstall": "npx tsx scripts/stats-fetch.ts"
 	},
 	"dependencies": {
 		"@allindevelopers/prettier-config": "^1.0.0",
@@ -29,7 +29,6 @@
 		"cheerio": "1.0.0-rc.12",
 		"husky": "^9.1.6",
 		"lint-staged": "^15.2.10",
-		"patch-package": "^8.0.0",
 		"prettier": "^3.3.3",
 		"prettier-plugin-astro": "^0.14.1",
 		"prettier-plugin-tailwindcss": "^0.6.8",
