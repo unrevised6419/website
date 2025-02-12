@@ -1,4 +1,5 @@
-import { type AnyNode, load, type Cheerio, type CheerioAPI } from "cheerio";
+import { load, type Cheerio, type CheerioAPI } from "cheerio";
+import { type AnyNode } from "domhandler";
 import type { Contribution, Fetcher, Provider } from "./contributions";
 
 export let fetchContributions: Fetcher = async (
