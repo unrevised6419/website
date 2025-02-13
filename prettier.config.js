@@ -1,4 +1,4 @@
-import baseConfig from "@allindevelopers/prettier-config" assert { type: "json" };
+import baseConfig from "@allindevelopers/prettier-config" with { type: "json" };
 
 export default {
 	...baseConfig,
