@@ -6,11 +6,11 @@ import type {
 
 let publicProviders: PublicProvider[] = [
 	{
-		id: "github-iamandrewluca",
+		id: "github-unrevised6419",
 		access: "public",
 		name: "GitHub",
 		type: "github",
-		username: "iamandrewluca",
+		username: "unrevised6419",
 		origin: "https://github.com",
 	},
 	{
