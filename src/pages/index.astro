@@ -14,18 +14,20 @@ import avatarSrc from "../assets/avatar.jpg";
 		<div
 			class="mb-5 grid grid-cols-1 rounded-2xl bg-white p-10 shadow-2xl md:grid-cols-3"
 		>
-			<div class="border-b p-5 text-center md:border-b-0 md:border-r">
+			<div
+				class="border-b border-gray-200 p-5 text-center md:border-r md:border-b-0"
+			>
 				<Picture
 					src={avatarSrc}
 					width={256}
 					height={256}
-					class="mx-auto mb-5 h-32 w-32 rounded-full bg-avatar-blur bg-cover bg-no-repeat shadow-xl"
+					class="bg-avatar-blur mx-auto mb-5 h-32 w-32 rounded-full bg-cover bg-no-repeat shadow-xl"
 					alt="Andrei Luca"
 				/>
 				<h1 class="mb-3 text-3xl">Andrei Luca</h1>
 				<a
 					href="https://github.com/allindevelopers"
-					class="inline-block rounded bg-gray-200 px-3 py-2 text-sm hover:bg-green-300"
+					class="inline-block rounded-sm bg-gray-200 px-3 py-2 text-sm hover:bg-green-300"
 				>
 					❤️&nbsp;&nbsp;<code>All In Developer</code>
 				</a>
