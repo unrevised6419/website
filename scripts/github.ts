@@ -9,11 +9,12 @@ export let fetchContributions: Fetcher = async (
 	if (provider.access === "file")
 		throw Error("File GitHub provider not implemented");
 
-	let href = `${provider.origin}/${provider.username}`;
+	let href = `${provider.origin}/${provider.username}?tab=contributions`;
 
-	console.log(`Fetching contributions from ${href}`);
-
-	let data = await fetch(href, { cache: "no-store" });
+	let data = await fetch(href, {
+		cache: "no-store",
+		headers: { "x-requested-with": "XMLHttpRequest" },
+	});
 	let $ = load(await data.text());
 	let $days = $(".js-calendar-graph-table .ContributionCalendar-day");
 

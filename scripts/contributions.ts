@@ -44,14 +44,21 @@ export async function getAggregateContributions(
 	let data = (await Promise.all(promises)).flat();
 	let combined: Record<string, number> = {};
 
+	const oneYearAgo = new Date();
+	oneYearAgo.setUTCFullYear(oneYearAgo.getUTCFullYear() - 1);
+	const oneYearAgoString = oneYearAgo.toISOString().split("T")[0] as string;
+
 	for (let [date, count] of data) {
+		if (date < oneYearAgoString) continue;
 		combined[date] ??= 0;
 		combined[date] += count;
 	}
 
-	return Object.entries(combined)
+	const entries = Object.entries(combined);
+
+	return entries
 		.sort((c1, c2) => new Date(c1[0]).getTime() - new Date(c2[0]).getTime())
-		.map(([date, count]) => ({ date, count, level: getLevel(count) }));
+		.map(([date, count]) => ({ date, level: getLevel(count), count }));
 }
 
 // GitLab Levels

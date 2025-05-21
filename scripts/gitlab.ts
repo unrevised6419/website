@@ -26,8 +26,6 @@ let fetchContributionsInternal: Fetcher = async (
 
 	let href = `${provider.origin}/users/${provider.username}/calendar.json`;
 
-	console.log(`Fetching contributions from ${href}`);
-
 	let response = await fetch(href, { cache: "no-store" });
 	let data: Record<string, number> = await response.json();
 

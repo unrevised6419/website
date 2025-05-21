@@ -4,7 +4,7 @@ import { getAggregateContributions } from "./contributions";
 
 async function main() {
 	let data = await getAggregateContributions(providers);
-	await writeFile("src/data.json", JSON.stringify(data, null, 2), "utf-8");
+	await writeFile("src/data.json", JSON.stringify(data, null, "\t"), "utf-8");
 }
 
 main().catch((error) => console.error(error));
