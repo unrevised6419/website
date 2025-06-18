@@ -9,6 +9,9 @@
 	"scripts": {
 		"dev": "astro dev",
 		"start": "astro dev",
+		"generate-resume-html": "resumed render --theme jsonresume-theme-even --output=public/resume.html public/resume.json",
+		"generate-resume-pdf": "resumed export --theme jsonresume-theme-even --output=public/resume.pdf public/resume.json",
+		"generate-resume": "npm run generate-resume-html && npm run generate-resume-pdf",
 		"build": "astro check && tsc --noEmit && astro build",
 		"preview": "astro preview",
 		"astro": "astro",
@@ -29,13 +32,16 @@
 		"cheerio": "^1.0.0",
 		"domhandler": "^5.0.3",
 		"husky": "^9.1.7",
+		"jsonresume-theme-even": "^0.23.0",
 		"lint-staged": "^15.5.1",
 		"prettier": "^3.5.3",
 		"prettier-plugin-astro": "^0.14.1",
 		"prettier-plugin-tailwindcss": "^0.6.11",
+		"puppeteer": "^24.10.1",
 		"react": "^19.1.0",
 		"react-activity-calendar": "^2.7.10",
 		"react-dom": "^19.1.0",
+		"resumed": "^6.0.0",
 		"tailwindcss": "^4.1.4",
 		"tailwindcss-animated": "^2.0.0",
 		"tsx": "^4.19.3",
@@ -43,7 +49,7 @@
 	},
 	"lint-staged": {
 		"scripts/contributions/*.json": "npx tsx scripts/l10n-sort.ts",
-		"*": "npx prettier --write --ignore-path .gitignore --ignore-unknown"
+		"*": "npx prettier --write --ignore-unknown"
 	},
 	"commitlint": {
 		"extends": [
