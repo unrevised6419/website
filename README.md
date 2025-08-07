@@ -1,4 +1,4 @@
-# [luca.md](https://luca.md/)
+# [all1n.dev](https://all1n.dev/)
 
 ```
 npm create astro@latest -- --template basics

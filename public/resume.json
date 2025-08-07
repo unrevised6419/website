@@ -4,8 +4,8 @@
 	"basics": {
 		"name": "Andrei L",
 		"label": "Principal Engineer at Jagaad",
-		"image": "https://luca.md/avatar.jpg",
-		"url": "https://luca.md",
+		"image": "https://all1n.dev/avatar.jpg",
+		"url": "https://all1n.dev",
 		"summary": "I'm a full-stack developer who blends clean architecture with real-world impact. Whether it's Vue/Nuxt, React/Next.js, or Node.js, I build scalable systems that just work. With sharp skills in Docker, Strapi, and DevOps, I'm as comfortable in CI/CD pipelines as I am optimizing user flows.",
 		"location": {
 			"countryCode": "MD"
@@ -32,7 +32,7 @@
 		{
 			"name": "Jagaad",
 			"position": "Principal Engineer",
-			"startDate": "2024-03",
+			"startDate": "2021-10",
 			"endDate": "2025-06",
 			"summary": "Worked on diverse projects using modern technologies, implementing DevOps practices and CI/CD pipelines to streamline development. Ensured high-quality code and efficient delivery through strong team management and collaboration.",
 			"url": "https://jagaad.com/"
@@ -41,12 +41,14 @@
 			"name": "BonusX (Jagaad)",
 			"position": "Full Stack Developer",
 			"startDate": "2025-07",
+			"summary": "I develop React/TypeScript applications and NestJS microservices for BonusX's platform helping citizens access 600+ government benefits and services. I build responsive user interfaces and APIs for user profile management and benefit matching algorithms. Our platform delivers seamless user experience through intelligent product recommendations and real-time application processing.",
 			"url": "https://bonusx.it/"
 		},
 		{
 			"name": "Scaling Platform (Jagaad)",
 			"position": "Technical Lead",
 			"startDate": "2025-06",
+			"summary": "Built a talent-client matching platform using Laravel + Vue.js. Developed project management, talent discovery, client onboarding, multi-language support, and admin dashboards. Implemented resource proposal workflows and automated systems. Technologies: PHP 8.2, Laravel 10, Vue 3, Inertia.js, MySQL, Docker.",
 			"url": "https://scaling.jagaad.com/"
 		},
 		{
@@ -282,84 +284,84 @@
 			"name": "🧶 Implicit CLSX in React",
 			"publisher": "https://dev.to",
 			"releaseDate": "2021-12-02",
-			"url": "https://dev.to/iamandrewluca/implicit-clsx-in-react-2212",
+			"url": "https://dev.to/paramount3545/implicit-clsx-in-react-2212",
 			"summary": "Using clsx or classnames in React lately has become a trend with utility-first CSS frameworks like Tailwind CSS, where you have to write a lot of classes, and sometimes also with conditionals."
 		},
 		{
 			"name": "☢️ HTML Comment in React",
 			"publisher": "https://dev.to",
 			"releaseDate": "2021-11-26",
-			"url": "https://dev.to/iamandrewluca/html-comment-in-react-5243",
+			"url": "https://dev.to/paramount3545/html-comment-in-react-5243",
 			"summary": "HTML Comment is not valid in JSX, and you learn that you have to use a JavaScript comment."
 		},
 		{
 			"name": "🎄 Render in Vue, 16+ ways",
 			"publisher": "https://dev.to",
 			"releaseDate": "2021-11-23",
-			"url": "https://dev.to/iamandrewluca/render-in-vue-16-ways-d50",
+			"url": "https://dev.to/paramount3545/render-in-vue-16-ways-d50",
 			"summary": "In this blog post I will show you 16 ways how to render something in Vue"
 		},
 		{
 			"name": "🥑 Put your React on a diet",
 			"publisher": "https://dev.to",
 			"releaseDate": "2021-10-22",
-			"url": "https://dev.to/iamandrewluca/put-your-react-on-a-diet-3c6d",
+			"url": "https://dev.to/paramount3545/put-your-react-on-a-diet-3c6d",
 			"summary": "For a long time I heard people complaining that React & ReactDOM has a huge size, and everyone recommended to use Preact instead."
 		},
 		{
 			"name": "🗜️ Optimal Tuple vs Record",
 			"publisher": "https://dev.to",
 			"releaseDate": "2021-10-13",
-			"url": "https://dev.to/iamandrewluca/tuple-vs-record-optimization-mkn",
+			"url": "https://dev.to/paramount3545/tuple-vs-record-optimization-mkn",
 			"summary": "Compiled code that uses tuples is far smaller than one using record."
 		},
 		{
 			"name": "🧬 JSX at lowest level",
 			"publisher": "https://dev.to",
 			"releaseDate": "2021-10-07",
-			"url": "https://dev.to/iamandrewluca/jsx-at-lowest-level-371b",
+			"url": "https://dev.to/paramount3545/jsx-at-lowest-level-371b",
 			"summary": "So we all heard that JSX is a specific JavaScript syntax that is used by React to render components."
 		},
 		{
 			"name": "🔗 Next.js, Universal and Nuxt.js static redirects",
 			"publisher": "https://dev.to",
 			"releaseDate": "2021-10-04",
-			"url": "https://dev.to/iamandrewluca/next-js-universal-and-nuxt-js-static-redirects-3cl6",
+			"url": "https://dev.to/paramount3545/next-js-universal-and-nuxt-js-static-redirects-3cl6",
 			"summary": "HTML Redirections are a way to make redirects using a meta tag in your HTML head when you don't have control over the server."
 		},
 		{
 			"name": "🍂 Remove gone git branches",
 			"publisher": "https://dev.to",
 			"releaseDate": "2021-09-30",
-			"url": "https://dev.to/iamandrewluca/remove-gone-git-branches-36eh",
+			"url": "https://dev.to/paramount3545/remove-gone-git-branches-36eh",
 			"summary": "Alias for removing local branches that are gone on remote"
 		},
 		{
 			"name": "🔍 Bookmarklets + Browser Search Engine",
 			"publisher": "https://dev.to",
 			"releaseDate": "2021-09-29",
-			"url": "https://dev.to/iamandrewluca/bookmarklets-browser-search-engine-2m30",
+			"url": "https://dev.to/paramount3545/bookmarklets-browser-search-engine-2m30",
 			"summary": "Feel the power of bookmarklets and custom search engine of your browser..."
 		},
 		{
 			"name": "🔐 Private Route in react-router v6",
 			"publisher": "https://dev.to",
 			"releaseDate": "2021-09-23",
-			"url": "https://dev.to/iamandrewluca/private-route-in-react-router-v6-lg5",
+			"url": "https://dev.to/paramount3545/private-route-in-react-router-v6-lg5",
 			"summary": "Taking a look at v6 docs it seems that things changed a little bit, and we need to think a little bit different about it."
 		},
 		{
 			"name": "🔺 Flat React Doom Pyramid in 1LOC",
 			"publisher": "https://dev.to",
 			"releaseDate": "2021-09-22",
-			"url": "https://dev.to/iamandrewluca/flat-react-doom-pyramid-in-1loc-3j7p",
+			"url": "https://dev.to/paramount3545/flat-react-doom-pyramid-in-1loc-3j7p",
 			"summary": "Everyone was happy when React Team announced the new stable Context API, and everyone ditched Redux. But that's not the point."
 		},
 		{
 			"name": "🔧 Git remote readd alias",
 			"publisher": "https://dev.to",
 			"releaseDate": "2021-07-12",
-			"url": "https://dev.to/iamandrewluca/git-remote-readd-alias-184c",
+			"url": "https://dev.to/paramount3545/git-remote-readd-alias-184c",
 			"summary": "When you work on a project that has a repository that allows forks, and with time has more and more recurring contributors, your git remotes starts to add up..."
 		},
 		{
@@ -387,56 +389,56 @@
 			"name": "Configure MSW in NX",
 			"publisher": "https://dev.to",
 			"releaseDate": "2020-06-23",
-			"url": "https://dev.to/iamandrewluca/configure-msw-in-nx-3jd3",
+			"url": "https://dev.to/paramount3545/configure-msw-in-nx-3jd3",
 			"summary": "A guide on how to configure MSW (Mock Service Worker) in an NX workspace for effective API mocking in development."
 		},
 		{
 			"name": "🔥 How to merge a pull request",
 			"publisher": "https://dev.to",
 			"releaseDate": "2020-03-03",
-			"url": "https://dev.to/iamandrewluca/how-to-merge-a-pull-request-3230",
+			"url": "https://dev.to/paramount3545/how-to-merge-a-pull-request-3230",
 			"summary": "Rules to take into consideration when merging a pull request"
 		},
 		{
 			"name": "React.lazy without default export",
 			"publisher": "https://dev.to",
 			"releaseDate": "2019-05-24",
-			"url": "https://dev.to/iamandrewluca/react-lazy-without-default-export-4b65",
+			"url": "https://dev.to/paramount3545/react-lazy-without-default-export-4b65",
 			"summary": "A guide on how to use React.lazy without a default export"
 		},
 		{
 			"name": "Override DOM input typed character",
 			"publisher": "https://dev.to",
 			"releaseDate": "2019-05-15",
-			"url": "https://dev.to/iamandrewluca/wip-override-dom-input-typed-character-4611",
+			"url": "https://dev.to/paramount3545/wip-override-dom-input-typed-character-4611",
 			"summary": "A guide on how to override the DOM input typed character"
 		},
 		{
 			"name": "TypeScript function overloading",
 			"publisher": "https://dev.to",
 			"releaseDate": "2019-03-28",
-			"url": "https://dev.to/iamandrewluca/typescript-function-overloading-hd0",
+			"url": "https://dev.to/paramount3545/typescript-function-overloading-hd0",
 			"summary": "A guide on how to use function overloading in TypeScript"
 		},
 		{
 			"name": "Typed fetch Response in TypeScript",
 			"publisher": "https://dev.to",
 			"releaseDate": "2018-11-23",
-			"url": "https://dev.to/iamandrewluca/typed-fetch-response-in-typescript-1eh1",
+			"url": "https://dev.to/paramount3545/typed-fetch-response-in-typescript-1eh1",
 			"summary": "A guide on how to use typed fetch responses in TypeScript"
 		},
 		{
 			"name": "Create Own React.Fragment",
 			"publisher": "https://dev.to",
 			"releaseDate": "2018-09-18",
-			"url": "https://dev.to/iamandrewluca/create-own-reactfragment-17e8",
+			"url": "https://dev.to/paramount3545/create-own-reactfragment-17e8",
 			"summary": "A guide on how to create your own React.Fragment"
 		},
 		{
 			"name": "Nesting and overriding new React Context API",
 			"publisher": "https://dev.to",
 			"releaseDate": "2018-07-06",
-			"url": "https://dev.to/iamandrewluca/nesting-and-overriding-new-react-context-api-220i",
+			"url": "https://dev.to/paramount3545/nesting-and-overriding-new-react-context-api-220i",
 			"summary": "A guide on how to nest and override the new React Context API"
 		}
 	]
