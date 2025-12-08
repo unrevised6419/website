@@ -2,15 +2,17 @@
 import IconGitHub from "../components/icons/IconGitHub.astro";
 import IconLinkedin from "../components/icons/IconLinkedin.astro";
 import IconDev from "../components/icons/IconDev.astro";
+import IconResume from "../components/icons/IconResume.astro";
 
 let socials = [
+	{ url: "/resume", title: "Resume", icon: IconResume },
 	{ url: "/github", title: "github.com", icon: IconGitHub },
 	{ url: "/linkedin", title: "linkedin.com", icon: IconLinkedin },
 	{ url: "/dev", title: "dev.to", icon: IconDev },
 ];
 ---
 
-<ul class="mx-auto inline-grid grid-cols-3 gap-2 sm:max-w-md">
+<ul class="mx-auto inline-grid grid-flow-col gap-2">
 	{
 		socials.map((social) => (
 			<li>

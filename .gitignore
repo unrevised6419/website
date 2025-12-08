@@ -21,3 +21,5 @@ pnpm-debug.log*
 .DS_Store
 
 src/data.json
+public/resume.pdf
+public/resume.html

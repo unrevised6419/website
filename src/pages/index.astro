@@ -1,76 +1,47 @@
 ---
-import { Picture } from "astro:assets";
+import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
-import Socials from "../components/Socials.astro";
-import { intersperse } from "../utils";
-import { Calendar } from "../components/Calendar";
-import { providers } from "../utils/providers";
-import Provider from "../components/Provider.astro";
-import avatarSrc from "../assets/avatar.jpg";
+
+const posts = await getCollection("blog");
+const sortedPosts = posts.toSorted((a, b) => {
+	const aDate = a.data.created_at || a.data.edited_at;
+	const bDate = b.data.created_at || b.data.edited_at;
+	return bDate.getTime() - aDate.getTime();
+});
 ---
 
 <Layout>
-	<main>
-		<div
-			class="mb-5 grid grid-cols-1 rounded-2xl bg-white p-10 shadow-2xl md:grid-cols-3"
-		>
-			<div
-				class="border-b border-gray-200 p-5 text-center md:border-r md:border-b-0"
-			>
-				<Picture
-					src={avatarSrc}
-					width={256}
-					height={256}
-					class="bg-avatar-blur mx-auto mb-5 h-32 w-32 rounded-full bg-cover bg-no-repeat shadow-xl"
-					alt="Andrei L"
-				/>
-				<h1 class="mb-3 text-3xl">Andrei L</h1>
-				<a
-					href="https://github.com/allindevelopers"
-					class="inline-block rounded-sm bg-gray-200 px-3 py-2 text-sm hover:bg-green-300"
-				>
-					❤️&nbsp;&nbsp;<code>All In Developer</code>
-				</a>
-			</div>
-			<div class="col-span-2 flex items-center p-5">
-				<Socials />
-			</div>
-		</div>
-		<div class="overflow-x-auto rounded-2xl bg-white shadow-2xl">
-			<div class="min-h-[259px] min-w-[940px] p-10">
-				<Calendar />
-				<script>
-					let selector = ".react-activity-calendar__count";
-					let element = globalThis.document.querySelector(selector);
-					let textContent = element?.textContent;
-
-					if (element && textContent) {
-						let count = Number.parseInt(textContent);
-						let countPerDay = Math.round(count / 365);
-
-						let html = String.raw;
-
-						element.innerHTML = html`
-							<span>${textContent}</span>
-							<span class="animate-fade-down animate-delay-1000">
-								Almost ${countPerDay} per day 🚀
-							</span>
-						`;
-					}
-				</script>
-
-				<div class="text-sm">
-					<span>Sources:</span>
-					<ul class="ml-1 inline-flex gap-1">
-						{
-							intersperse(
-								providers.map((provider) => <Provider provider={provider} />),
-								<li class="-ml-1">,</li>,
-							)
-						}
-					</ul>
-				</div>
-			</div>
-		</div>
-	</main>
+	<ul role="list" class="divide-y divide-gray-200">
+		{
+			sortedPosts.map((post) => (
+				<li class="relative bg-white px-6 py-5 focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-inset hover:bg-gray-50">
+					<div class="flex justify-between space-x-3">
+						<div class="min-w-0 flex-1">
+							<a href={`/posts/${post.id}`} class="block focus:outline-hidden">
+								<span aria-hidden="true" class="absolute inset-0" />
+								<p class="truncate font-medium text-gray-900">
+									{post.data.title}
+								</p>
+							</a>
+						</div>
+						<time
+							datetime={(
+								post.data.created_at ?? post.data.edited_at
+							)?.toISOString()}
+							class="shrink-0 text-sm whitespace-nowrap text-gray-500"
+						>
+							{(
+								post.data.created_at ?? post.data.edited_at
+							)?.toLocaleDateString()}
+						</time>
+					</div>
+					<div class="mt-1">
+						<p class="line-clamp-2 text-sm text-gray-600">
+							{post.data.description}
+						</p>
+					</div>
+				</li>
+			))
+		}
+	</ul>
 </Layout>
