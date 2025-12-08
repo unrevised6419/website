@@ -27,7 +27,7 @@ let fetchContributionsInternal: Fetcher = async (
 	let href = `${provider.origin}/users/${provider.username}/calendar.json`;
 
 	let response = await fetch(href, { cache: "no-store" });
-	let data: Record<string, number> = await response.json();
+	let data = (await response.json()) as Record<string, number>;
 
 	let contributions = Object.entries(data).map<Contribution>(
 		([date, count]) => [date, count],

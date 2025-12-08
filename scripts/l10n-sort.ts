@@ -14,7 +14,10 @@ const existingFiles = files
 
 existingFiles.forEach((path) => {
 	console.log("Sorting:", path);
-	const strings = JSON.parse(readFileSync(path, "utf8"));
+	const strings = JSON.parse(readFileSync(path, "utf8")) as Record<
+		string,
+		string
+	>;
 	const entries = Object.entries(strings);
 	const sortedEntries = entries.sort(([a], [b]) => a.localeCompare(b));
 	const sortedStrings = Object.fromEntries(sortedEntries);

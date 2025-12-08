@@ -11,11 +11,43 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+
+const metadata = [
+	{
+		name: "Created At",
+		value: post.data.created_at.toLocaleDateString(),
+	},
+	post.data.edited_at && {
+		name: "Updated At",
+		value: post.data.edited_at.toLocaleDateString(),
+	},
+	post.data.published_at && {
+		name: "Published At",
+		value: post.data.published_at.toLocaleDateString(),
+	},
+].filter(Boolean);
 ---
 
 <Layout>
-	<div class="prose prose-invert px-6 py-5">
-		<h1>{post.data.title}</h1>
-		<Content />
+	<div class="px-6 py-5">
+		<div class="prose prose-invert">
+			<h1>{post.data.title}</h1>
+			<Content />
+		</div>
+
+		<div class="mt-6 border-t border-white/5">
+			<dl class="divide-y divide-white/5">
+				{
+					metadata.map((item) => (
+						<div class="px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">
+							<dt class="text-sm/6 font-medium text-white">{item.name}</dt>
+							<dd class="mt-1 text-sm/6 text-gray-400 sm:col-span-2 sm:mt-0">
+								{item.value}
+							</dd>
+						</div>
+					))
+				}
+			</dl>
+		</div>
 	</div>
 </Layout>
