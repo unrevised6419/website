@@ -1,5 +1,7 @@
 ---
+import { Picture } from "astro:assets";
 import "../styles/global.css";
+import Socials from "../components/Socials.astro";
 ---
 
 <!doctype html>
@@ -13,13 +15,48 @@ import "../styles/global.css";
 		<meta name="generator" content={Astro.generator} />
 		<title>Andrei L | All In Developer</title>
 	</head>
-	<body>
-		<div
-			class="bg-hexagon-pattern flex min-h-screen items-center justify-center bg-green-900 p-3"
+	<body class="bg-hexagon-pattern min-h-screen bg-green-900 p-4">
+		<main
+			class="mx-auto max-w-prose rounded-lg bg-white shadow-sm dark:bg-gray-800/50 dark:shadow-none dark:outline dark:-outline-offset-1 dark:outline-white/10"
 		>
-			<div class="relative max-w-full">
+			<div class="border-b border-gray-200 px-6 py-5 dark:border-white/10">
+				<div
+					class="-mt-4 -ml-4 flex flex-wrap items-center justify-between sm:flex-nowrap"
+				>
+					<div class="mt-4 ml-4">
+						<div class="flex items-center">
+							<a class="shrink-0" href="/">
+								<Picture
+									src="https://avatars.githubusercontent.com/u/67485880"
+									width={256}
+									height={256}
+									class="size-16 rounded-full bg-gray-50 dark:bg-gray-800 dark:outline dark:-outline-offset-1 dark:outline-white/10"
+									alt="Andrei L"
+								/>
+							</a>
+							<div class="ml-4">
+								<h3
+									class="text-base font-semibold text-gray-900 dark:text-white"
+								>
+									<a href="/">Andrei L</a>
+								</h3>
+								<p class="text-sm text-gray-500 dark:text-gray-400">
+									<a href="https://github.com/allindevelopers">
+										❤️&nbsp;&nbsp;<code>All In Developer</code>
+									</a>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="mt-4 ml-4 flex shrink-0">
+						<Socials />
+					</div>
+				</div>
+			</div>
+
+			<div>
 				<slot />
 			</div>
-		</div>
+		</main>
 	</body>
 </html>

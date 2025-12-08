@@ -9,15 +9,14 @@ export function Calendar() {
 			theme={{
 				light: ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"],
 			}}
-			labels={{
-				totalCount: `{{count}} contributions in the last year 😱`,
-			}}
 			colorScheme="light"
+			showColorLegend={false}
+			showTotalCount={false}
 			renderBlock={(element, activity) => {
-				// Do not inline `title`
+				// Do not inline `title` because it cannot receive React children.
 				// Warning: A title element received an array with more than 1 element as children.
-				let title = `${activity.count} contributions on ${activity.date}`;
-				return cloneElement(element, {}, <title>{title}</title>);
+				let description = `${activity.count} contributions on ${activity.date}`;
+				return cloneElement(element, {}, <title>{description}</title>);
 			}}
 		/>
 	);
