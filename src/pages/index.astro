@@ -1,7 +1,6 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
-import { Calendar } from "../components/Calendar";
 
 const posts = await getCollection("blog");
 const sortedPosts = posts.toSorted((a, b) => {
@@ -12,12 +11,6 @@ const sortedPosts = posts.toSorted((a, b) => {
 ---
 
 <Layout>
-	<div class="overflow-x-auto border-b border-gray-200 dark:border-white/10">
-		<div class="min-w-[892px] px-6 pt-3 pb-5">
-			<Calendar />
-		</div>
-	</div>
-
 	<ul role="list" class="divide-y divide-gray-200">
 		{
 			sortedPosts.map((post) => (
