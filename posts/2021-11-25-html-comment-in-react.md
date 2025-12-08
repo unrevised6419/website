@@ -115,5 +115,3 @@ And that's how you trick React into rendering a HTML Comment!
 Feeeling like a hacker now? 🤣
 
 ![haker typing](https://media.giphy.com/media/YQitE4YNQNahy/giphy.gif)
-
-Cover Photo by <a href="https://unsplash.com/@florianolv?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Florian Olivo</a> on <a href="https://unsplash.com/s/photos/html?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>

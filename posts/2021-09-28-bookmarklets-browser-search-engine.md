@@ -129,5 +129,3 @@ Here is again my current list of [Bookmarklets](https://gist.github.com/iamandre
 If you have any crazy idea that could fill that list, I would be glad to implement it, if of course it will be possible 😃
 
 Thanks for reaching the bottom 😀
-
-Cover Photo by <a href="https://unsplash.com/@dlerman6?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Daniel Lerman</a> on <a href="https://unsplash.com/s/photos/search?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>

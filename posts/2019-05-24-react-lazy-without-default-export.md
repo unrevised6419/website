@@ -80,5 +80,3 @@ What are we doing here, is just chaining the `Promise` returned by `import()` an
 Please keep in mind that component imported with `React.lazy` should be rendered inside a `React.Suspense`
 
 https://reactjs.org/docs/code-splitting.html#suspense
-
-Cover Photo by <a href="https://unsplash.com/@scottkelley?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Scott Kelley</a> on <a href="https://unsplash.com/s/photos/sloth?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>

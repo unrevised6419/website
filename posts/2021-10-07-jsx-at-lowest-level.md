@@ -132,5 +132,3 @@ Have a feeling that noone is reading these articles 😀
 Thanks reader if you are here! ♥️
 
 ---
-
-Cover Photo by <a href="https://unsplash.com/@alexkixa?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Alexandre Debiève</a> on <a href="https://unsplash.com/s/photos/transistor?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>

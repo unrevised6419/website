@@ -175,5 +175,3 @@ That's all for today. Happy coding! 🎉 🎊 ✨
 Keep your users secure!
 
 ![secure](https://media.giphy.com/media/IeKgCDlpTqRQbZEhBF/giphy.gif?cid=ecf05e4762b1bae6n9tm1kc51orxm9k9gvfanxp8ohfmk1xv&rid=giphy.gif&ct=g)
-
-Cover Photo by <a href="https://unsplash.com/@jemjoyrussia?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Maxim Zhgulev</a> on <a href="https://unsplash.com/s/photos/lock?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>

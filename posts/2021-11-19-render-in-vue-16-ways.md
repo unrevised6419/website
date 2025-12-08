@@ -244,5 +244,3 @@ https://github.com/unrevised6419/vue-render-everywhere
 
 That's all for today. Thanks for reading my blog posts!
 Never stop learning. Bye! 👋
-
-Cover Photo by <a href="https://unsplash.com/@dcemr_e?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Joshua Eckstein</a> on <a href="https://unsplash.com/s/photos/crayons?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>

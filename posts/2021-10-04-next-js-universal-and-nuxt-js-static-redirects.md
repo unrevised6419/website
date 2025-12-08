@@ -154,5 +154,3 @@ Will generate all above files. You can add this step as a post build step.
 That's all for today! Thanks for reading my blog posts!
 
 ---
-
-Cover Photo by <a href="https://unsplash.com/@javiertenenbaum?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Javier Quiroga</a> on <a href="https://unsplash.com/s/photos/turn?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>

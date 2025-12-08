@@ -23,5 +23,3 @@ We should use each of them depending of the situation:
 - If PR has more commits but every commit has an explicit title what has been done, each commit is a single unit, then use `Create a merge commit` so each commit will be visible in default branch
 
 If you want to read more about how to write correct commit messages, follow the link https://conventionalcommits.org
-
-Cover Photo by <a href="https://unsplash.com/@pinewatt?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">pine watt</a> on <a href="https://unsplash.com/s/photos/merge?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>

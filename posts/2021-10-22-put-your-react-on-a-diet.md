@@ -101,5 +101,3 @@ That's all for today! Bye!
 ![girl sliding](https://media.giphy.com/media/m9eG1qVjvN56H0MXt8/giphy.gif)
 
 ---
-
-Cover Photo by <a href="https://unsplash.com/@brookelark?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Brooke Lark</a> on <a href="https://unsplash.com/s/photos/diet?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>

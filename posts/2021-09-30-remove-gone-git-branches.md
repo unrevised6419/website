@@ -169,5 +169,3 @@ Are you still here? 😊 Thanks for reading my blog posts! 🎉 🎈
 ---
 
 Initial idea by <a href="https://twitter.com/devgummibeer">Tom Witkowski</a> on <a href="https://twitter.com/devgummibeer/status/1425014391561412629">Twitter</a>
-
-Cover Photo by <a href="https://unsplash.com/@birtiishar?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Birti Ishar</a> on <a href="https://unsplash.com/s/photos/gone?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>

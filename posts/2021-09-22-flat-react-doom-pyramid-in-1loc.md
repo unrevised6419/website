@@ -128,5 +128,3 @@ Sandboxes experiments:
 Thanks for coming to my TED talk! :)
 
 ![](https://media.giphy.com/media/QDK1pCI43lGhO/giphy.gif?cid=ecf05e478jdspbhzx3jws7luarz9le5riffo2evh0rp1e5uc&rid=giphy.gif&ct=g)
-
-Cover Photo by <a href="https://unsplash.com/@laukev?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Kévin et Laurianne Langlais</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>

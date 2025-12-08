@@ -149,5 +149,3 @@ I think React team when released hooks took this into consideration for hooks th
 Thanks for reaching the end of this blog post 🙏
 
 ---
-
-Cover Photo by <a href="https://unsplash.com/@pietromattia?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Pietro Mattia</a> on <a href="https://unsplash.com/s/photos/sprint?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>

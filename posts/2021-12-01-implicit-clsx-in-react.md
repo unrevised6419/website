@@ -141,5 +141,3 @@ I played around with TypeScript version, but couldn't make it work because of ty
 And we are done! Thanks for reading my blog posts!
 
 ![](https://media.giphy.com/media/d2Z4rTi11c9LRita/giphy.gif)
-
-Cover Photo by <a href="https://unsplash.com/@modernafflatusphotography?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Ash from Modern Afflatus</a> on <a href="https://unsplash.com/s/photos/inception?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
