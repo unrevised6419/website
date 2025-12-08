@@ -11,24 +11,22 @@ const sortedPosts = posts.toSorted((a, b) => {
 ---
 
 <Layout>
-	<ul role="list" class="divide-y divide-gray-200">
+	<ul role="list" class="divide-y divide-white/10">
 		{
 			sortedPosts.map((post) => (
-				<li class="relative bg-white px-6 py-5 focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-inset hover:bg-gray-50">
+				<li class="relative px-6 py-5 focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-inset hover:bg-white/5">
 					<div class="flex justify-between space-x-3">
 						<div class="min-w-0 flex-1">
 							<a href={`/posts/${post.id}`} class="block focus:outline-hidden">
 								<span aria-hidden="true" class="absolute inset-0" />
-								<p class="truncate font-medium text-gray-900">
-									{post.data.title}
-								</p>
+								<p class="truncate font-medium">{post.data.title}</p>
 							</a>
 						</div>
 						<time
 							datetime={(
 								post.data.created_at ?? post.data.edited_at
 							)?.toISOString()}
-							class="shrink-0 text-sm whitespace-nowrap text-gray-500"
+							class="shrink-0 text-sm whitespace-nowrap"
 						>
 							{(
 								post.data.created_at ?? post.data.edited_at
@@ -36,9 +34,7 @@ const sortedPosts = posts.toSorted((a, b) => {
 						</time>
 					</div>
 					<div class="mt-1">
-						<p class="line-clamp-2 text-sm text-gray-600">
-							{post.data.description}
-						</p>
+						<p class="line-clamp-2 text-sm">{post.data.description}</p>
 					</div>
 				</li>
 			))

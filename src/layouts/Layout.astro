@@ -43,52 +43,46 @@ function classNames(...classes: any[]) {
 		<meta name="generator" content={Astro.generator} />
 		<title>Andrei L | All In Developer</title>
 	</head>
-	<body class="bg-hexagon-pattern min-h-screen bg-green-900 p-4">
+	<body class="bg-hexagon-pattern min-h-screen bg-green-900 p-4 text-white">
 		<main
-			class="mx-auto max-w-prose rounded-lg bg-white shadow-sm dark:bg-gray-800/50 dark:shadow-none dark:outline dark:-outline-offset-1 dark:outline-white/10"
+			class="mx-auto max-w-prose rounded-lg bg-gray-800/50 shadow-sm outline -outline-offset-1 outline-white/10"
 		>
-			<div class="border-b border-gray-200 px-6 py-5 dark:border-white/10">
+			<div class="border-b border-white/10 p-6">
 				<div
-					class="-mt-4 -ml-4 flex flex-wrap items-center justify-between sm:flex-nowrap"
+					class="flex flex-wrap items-center justify-between gap-6 sm:flex-nowrap"
 				>
-					<div class="mt-4 ml-4">
-						<div class="flex items-center">
-							<a class="shrink-0" href="/">
-								<Picture
-									src="https://avatars.githubusercontent.com/u/67485880"
-									width={256}
-									height={256}
-									class="size-16 rounded-full bg-gray-50 dark:bg-gray-800 dark:outline dark:-outline-offset-1 dark:outline-white/10"
-									alt="Andrei L"
-								/>
-							</a>
-							<div class="ml-4">
-								<h3
-									class="text-base font-semibold text-gray-900 dark:text-white"
-								>
-									<a href="/">Andrei L</a>
-								</h3>
-								<p class="text-sm text-gray-500 dark:text-gray-400">
-									<a href="https://github.com/allindevelopers">
-										❤️&nbsp;&nbsp;<code>All In Developer</code>
-									</a>
-								</p>
-							</div>
+					<div class="flex grow items-center">
+						<a class="shrink-0" href="/">
+							<Picture
+								src="https://avatars.githubusercontent.com/u/67485880"
+								width={256}
+								height={256}
+								class="size-16 rounded-2xl bg-gray-800 outline -outline-offset-1 outline-white/10"
+								alt="Andrei L"
+							/>
+						</a>
+						<div class="ml-4">
+							<h3 class="text-base font-semibold">
+								<a href="/">Andrei L</a>
+							</h3>
+							<p class="text-sm text-gray-400">
+								<a href="https://github.com/allindevelopers">
+									❤️&nbsp;&nbsp;<code>All In Developer</code>
+								</a>
+							</p>
 						</div>
 					</div>
-					<div class="mt-4 ml-4 flex shrink-0">
-						<Socials />
-					</div>
+					<Socials />
 				</div>
 			</div>
 
-			<nav class="border-b border-gray-200 dark:border-white/10">
+			<nav class="border-b border-white/10">
 				<div>
 					<div class="grid grid-cols-1 sm:hidden">
 						<select
 							id="pageChange"
 							aria-label="Select a tab"
-							class="col-start-1 row-start-1 w-full appearance-none bg-white py-2 pr-8 pl-3 text-base text-gray-900 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 dark:bg-white/5 dark:text-gray-100 dark:outline-white/10 dark:*:bg-gray-800 dark:focus:outline-indigo-500"
+							class="col-start-1 row-start-1 w-full appearance-none bg-white/5 py-2 pr-8 pl-3 text-base text-gray-100 outline-white/10 *:bg-gray-800 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500"
 						>
 							{
 								tabs.map((tab) => (
@@ -110,13 +104,13 @@ function classNames(...classes: any[]) {
 						</script>
 						<ChevronDownIcon
 							aria-hidden="true"
-							className="pointer-events-none col-start-1 row-start-1 mr-2 size-5 self-center justify-self-end fill-gray-500 dark:fill-gray-400"
+							className="pointer-events-none col-start-1 row-start-1 mr-2 size-5 self-center justify-self-end fill-gray-400"
 						/>
 					</div>
 					<div class="hidden overflow-x-auto sm:block">
 						<nav
 							aria-label="Tabs"
-							class="isolate flex divide-x divide-gray-200 bg-white dark:divide-white/10 dark:bg-gray-800/50 dark:outline dark:-outline-offset-1 dark:outline-white/10"
+							class="isolate flex divide-x divide-white/10 bg-gray-800/50 outline -outline-offset-1 outline-white/10"
 						>
 							{
 								tabs.map((tab) => {
@@ -128,9 +122,9 @@ function classNames(...classes: any[]) {
 												aria-current={isCurrent ? "page" : undefined}
 												class={classNames(
 													isCurrent
-														? "text-gray-900 dark:text-white"
-														: "text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white",
-													"group relative px-4 py-4 text-center text-sm font-medium hover:bg-gray-50 focus:z-10 dark:hover:bg-white/5",
+														? "text-white"
+														: "text-gray-400 hover:text-white",
+													"group relative px-4 py-4 text-center text-sm font-medium hover:bg-white/5 focus:z-10",
 													tab.disabled ? "cursor-wait opacity-50" : "",
 												)}
 											>
@@ -138,9 +132,7 @@ function classNames(...classes: any[]) {
 												<span
 													aria-hidden="true"
 													class={classNames(
-														isCurrent
-															? "bg-indigo-500 dark:bg-indigo-400"
-															: "bg-transparent",
+														isCurrent ? "bg-indigo-400" : "bg-transparent",
 														"absolute inset-x-0 bottom-0 h-0.5",
 													)}
 												/>

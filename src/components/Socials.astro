@@ -1,29 +1,36 @@
 ---
 import IconGitHub from "../components/icons/IconGitHub.astro";
 import IconLinkedin from "../components/icons/IconLinkedin.astro";
-import IconDev from "../components/icons/IconDev.astro";
-import IconResume from "../components/icons/IconResume.astro";
-
-let socials = [
-	{ url: "/resume", title: "Resume", icon: IconResume },
-	{ url: "/github", title: "github.com", icon: IconGitHub },
-	{ url: "/linkedin", title: "linkedin.com", icon: IconLinkedin },
-	{ url: "/dev", title: "dev.to", icon: IconDev },
-];
 ---
 
-<ul class="mx-auto inline-grid grid-flow-col gap-2">
-	{
-		socials.map((social) => (
-			<li>
-				<a
-					href={social.url}
-					title={social.title}
-					class="inline-grid size-10 place-content-center rounded-sm bg-gray-200 hover:bg-green-300"
-				>
-					<social.icon class="h-6 w-6 shrink-0 text-gray-600" />
-				</a>
-			</li>
-		))
-	}
+<ul class="inline-grid grid-flow-col gap-2">
+	<li>
+		<a
+			href="/linkedin"
+			title="LinkedIn"
+			class="inline-grid size-10 place-content-center rounded-sm bg-gray-200 hover:bg-green-300"
+		>
+			<IconLinkedin class="h-6 w-6 shrink-0 text-gray-600" />
+		</a>
+	</li>
+
+	<li>
+		<a
+			href="/github"
+			title="GitHub"
+			class="inline-grid size-10 place-content-center rounded-sm bg-gray-200 hover:bg-green-300"
+		>
+			<IconGitHub class="h-6 w-6 shrink-0 text-gray-600" />
+		</a>
+	</li>
+
+	<li>
+		<a
+			href="/resume"
+			title="Resume"
+			class="inline-grid h-10 place-content-center rounded-sm bg-gray-200 px-2 hover:bg-green-300"
+		>
+			<strong class="h-6 shrink-0 text-gray-600">RESUME</strong>
+		</a>
+	</li>
 </ul>
