@@ -8,22 +8,11 @@ const tabs = [
 	{
 		name: "Posts",
 		href: "/",
-		disabled: false,
+		exact: true,
 	},
 	{
 		name: "Contributions",
 		href: "/contributions",
-		disabled: false,
-	},
-	{
-		name: "Experience",
-		href: "/experience",
-		disabled: true,
-	},
-	{
-		name: "Recommendations",
-		href: "/recommendations",
-		disabled: true,
 	},
 ];
 
@@ -63,7 +52,7 @@ function classNames(...classes: any[]) {
 						</a>
 						<div class="ml-4">
 							<h3 class="text-base font-semibold">
-								<a href="/">Andrei L</a>
+								<a href="/">all1n.dev</a>
 							</h3>
 							<p class="text-sm text-gray-400">
 								<a href="https://github.com/allindevelopers">
@@ -88,7 +77,11 @@ function classNames(...classes: any[]) {
 								tabs.map((tab) => (
 									<option
 										value={tab.href}
-										selected={tab.href === Astro.url.pathname}
+										selected={
+											tab.exact
+												? tab.href === Astro.url.pathname
+												: Astro.url.pathname.startsWith(tab.href)
+										}
 									>
 										{tab.name}
 									</option>
@@ -114,18 +107,19 @@ function classNames(...classes: any[]) {
 						>
 							{
 								tabs.map((tab) => {
-									const isCurrent = tab.href === Astro.url.pathname;
+									const isCurrent = tab.exact
+										? tab.href === Astro.url.pathname
+										: Astro.url.pathname.startsWith(tab.href);
 									return (
 										<Fragment>
 											<a
-												href={tab.disabled ? undefined : tab.href}
+												href={tab.href}
 												aria-current={isCurrent ? "page" : undefined}
 												class={classNames(
 													isCurrent
 														? "text-white"
 														: "text-gray-400 hover:text-white",
 													"group relative px-4 py-4 text-center text-sm font-medium hover:bg-white/5 focus:z-10",
-													tab.disabled ? "cursor-wait opacity-50" : "",
 												)}
 											>
 												<span>{tab.name}</span>
