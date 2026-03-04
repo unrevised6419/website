@@ -33,7 +33,7 @@
 			"name": "Jagaad",
 			"position": "Principal Engineer",
 			"startDate": "2021-10",
-			"endDate": "2025-06",
+			"endDate": "2025-12",
 			"summary": "Worked on diverse projects using modern technologies, implementing DevOps practices and CI/CD pipelines to streamline development. Ensured high-quality code and efficient delivery through strong team management and collaboration.",
 			"url": "https://jagaad.com/"
 		},
@@ -41,6 +41,7 @@
 			"name": "BonusX (Jagaad)",
 			"position": "Full Stack Developer",
 			"startDate": "2025-07",
+			"endDate": "2025-11",
 			"summary": "I develop React/TypeScript applications and NestJS microservices for BonusX's platform helping citizens access 600+ government benefits and services. I build responsive user interfaces and APIs for user profile management and benefit matching algorithms. Our platform delivers seamless user experience through intelligent product recommendations and real-time application processing.",
 			"url": "https://bonusx.it/"
 		},
@@ -48,6 +49,7 @@
 			"name": "Scaling Platform (Jagaad)",
 			"position": "Technical Lead",
 			"startDate": "2025-06",
+			"endDate": "2025-08",
 			"summary": "Built a talent-client matching platform using Laravel + Vue.js. Developed project management, talent discovery, client onboarding, multi-language support, and admin dashboards. Implemented resource proposal workflows and automated systems. Technologies: PHP 8.2, Laravel 10, Vue 3, Inertia.js, MySQL, Docker.",
 			"url": "https://scaling.jagaad.com/"
 		},
@@ -161,7 +163,7 @@
 	"volunteer": [
 		{
 			"position": "Open Source Contributor",
-			"organization": "All In Developers",
+			"organization": "All In Developer",
 			"startDate": "2018-01",
 			"url": "https://github.com/all1ndev/"
 		},
