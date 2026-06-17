@@ -16,31 +16,10 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - name: Install, build, and upload your site
+        uses: withastro/action@v5
         with:
           node-version: 24.x
-          cache: npm
-      # Puppeteer's own Chrome downloader extracts a corrupt/partial tree on this
-      # runner (the `chrome` binary never lands), so install a real Chrome and
-      # point Puppeteer at it instead of relying on the bundled download.
-      - name: Install Chrome
-        id: setup-chrome
-        uses: browser-actions/setup-chrome@v1
-        with:
-          chrome-version: stable
-      - name: Install dependencies
-        run: npm ci
-        env:
-          PUPPETEER_SKIP_DOWNLOAD: "true"
-      - name: Build site
-        run: npm run build
-        env:
-          PUPPETEER_EXECUTABLE_PATH: ${{ steps.setup-chrome.outputs.chrome-path }}
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
 
   deploy:
     needs: build

@@ -9,15 +9,10 @@
 	"scripts": {
 		"dev": "astro dev",
 		"start": "astro dev",
-		"generate-resume-html": "resumed render --theme jsonresume-theme-even --output=public/resume.html public/resume.json",
-		"generate-resume-pdf": "resumed export --puppeteer-arg=\"--no-sandbox\" --theme jsonresume-theme-even --output=public/resume.pdf public/resume.json",
-		"generate-resume": "npm run generate-resume-html && npm run generate-resume-pdf",
 		"build": "astro check && tsc --noEmit && astro build",
-		"prebuild": "npm run generate-resume",
 		"preview": "astro preview",
 		"astro": "astro",
-		"prepare": "husky",
-		"postinstall": "npx tsx scripts/stats-fetch.ts"
+		"prepare": "husky"
 	},
 	"dependencies": {
 		"@allindevelopers/prettier-config": "^1.1.0",
@@ -30,32 +25,21 @@
 		"@tailwindcss/typography": "^0.5.20",
 		"@tailwindcss/vite": "^4.3.1",
 		"@total-typescript/ts-reset": "^0.6.1",
-		"@types/js-yaml": "^4.0.9",
 		"@types/react": "^19.2.17",
 		"@types/react-dom": "^19.2.3",
 		"astro": "^5.18.2",
-		"cheerio": "^1.2.0",
-		"domhandler": "^5.0.3",
-		"gray-matter": "^4.0.3",
 		"husky": "^9.1.7",
-		"js-yaml": "^4.2.0",
-		"jsonresume-theme-even": "^0.26.1",
 		"lint-staged": "^16.4.0",
 		"prettier": "^3.8.4",
 		"prettier-plugin-astro": "^0.14.1",
 		"prettier-plugin-tailwindcss": "^0.7.4",
-		"puppeteer": "24.32.0",
 		"react": "^19.2.7",
-		"react-activity-calendar": "^3.2.0",
 		"react-dom": "^19.2.7",
-		"resumed": "^6.1.0",
 		"tailwindcss": "^4.1.4",
 		"tailwindcss-animated": "^2.1.0",
-		"tsx": "^4.22.4",
 		"typescript": "^5.9.3"
 	},
 	"lint-staged": {
-		"scripts/contributions/*.json": "npx tsx scripts/l10n-sort.ts",
 		"*": "npx prettier --write --ignore-unknown"
 	},
 	"commitlint": {
