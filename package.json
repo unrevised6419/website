@@ -51,5 +51,11 @@
 		"esbuild@0.27.7": true,
 		"fsevents@2.3.3": true,
 		"sharp@0.34.5": true
+	},
+	"devDependencies": {
+		"@fontsource/inter": "^5.2.8",
+		"satori": "^0.26.0",
+		"satori-html": "^0.3.2",
+		"sharp": "^0.35.1"
 	}
 }

@@ -28,7 +28,12 @@ const metadata = [
 ].filter(Boolean);
 ---
 
-<Layout>
+<Layout
+	title={post.data.title}
+	description={post.data.description}
+	ogImage={`og/${post.id}.png`}
+	ogType="article"
+>
 	<div class="px-6 py-5">
 		<div class="prose prose-invert">
 			<h1>{post.data.title}</h1>
