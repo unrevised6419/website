@@ -13,6 +13,10 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      # Pin one cache dir so the install step and the build (resumed/puppeteer)
+      # resolve Chrome from the exact same location.
+      PUPPETEER_CACHE_DIR: ${{ github.workspace }}/.cache/puppeteer
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
@@ -27,8 +31,14 @@ jobs:
           PUPPETEER_SKIP_DOWNLOAD: "true"
       - name: Install Chrome for Puppeteer
         run: |
-          rm -rf ~/.cache/puppeteer
+          rm -rf "$PUPPETEER_CACHE_DIR"
           npx puppeteer browsers install chrome
+          # puppeteer install is silent on success; fail loudly if the binary is missing.
+          # On linux `browsers list` prints: chrome@<ver> (linux) <path/to/chrome>
+          chrome_bin=$(npx puppeteer browsers list 2>/dev/null | awk '/^chrome@/{print $3; exit}')
+          test -n "$chrome_bin" && test -x "$chrome_bin" \
+            || { echo "Chrome binary not found after install (got: '$chrome_bin')"; ls -R "$PUPPETEER_CACHE_DIR" || true; exit 1; }
+          echo "Chrome installed at: $chrome_bin"
       - name: Build site
         run: npm run build
       - name: Upload Pages artifact
