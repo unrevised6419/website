@@ -23,13 +23,6 @@ let publicProviders: PublicProvider[] = [
 	},
 ];
 
-let fileProviders: FileProvider[] = [
-	{
-		id: "gitlab-jagaad",
-		access: "file",
-		name: "GitLab Jagaad",
-		type: "gitlab",
-	},
-];
+let fileProviders: FileProvider[] = [];
 
 export let providers: Provider[] = [...publicProviders, ...fileProviders];
