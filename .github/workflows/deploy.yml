@@ -13,10 +13,6 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      # Pin one cache dir so the install step and the build (resumed/puppeteer)
-      # resolve Chrome from the exact same location.
-      PUPPETEER_CACHE_DIR: ${{ github.workspace }}/.cache/puppeteer
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
@@ -25,22 +21,22 @@ jobs:
         with:
           node-version: 24.x
           cache: npm
+      # Puppeteer's own Chrome downloader extracts a corrupt/partial tree on this
+      # runner (the `chrome` binary never lands), so install a real Chrome and
+      # point Puppeteer at it instead of relying on the bundled download.
+      - name: Install Chrome
+        id: setup-chrome
+        uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: stable
       - name: Install dependencies
         run: npm ci
         env:
           PUPPETEER_SKIP_DOWNLOAD: "true"
-      - name: Install Chrome for Puppeteer
-        run: |
-          rm -rf "$PUPPETEER_CACHE_DIR"
-          npx puppeteer browsers install chrome
-          # puppeteer install is silent on success; fail loudly if the binary is missing.
-          # On linux `browsers list` prints: chrome@<ver> (linux) <path/to/chrome>
-          chrome_bin=$(npx puppeteer browsers list 2>/dev/null | awk '/^chrome@/{print $3; exit}')
-          test -n "$chrome_bin" && test -x "$chrome_bin" \
-            || { echo "Chrome binary not found after install (got: '$chrome_bin')"; ls -R "$PUPPETEER_CACHE_DIR" || true; exit 1; }
-          echo "Chrome installed at: $chrome_bin"
       - name: Build site
         run: npm run build
+        env:
+          PUPPETEER_EXECUTABLE_PATH: ${{ steps.setup-chrome.outputs.chrome-path }}
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
