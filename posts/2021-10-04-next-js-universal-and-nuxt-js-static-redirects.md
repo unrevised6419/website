@@ -1,5 +1,5 @@
 ---
-title: 🔗 Next.js, Universal and Nuxt.js static redirects
+title: ↪️ Next.js, Universal and Nuxt.js static redirects
 description: >-
   Frameworks like Next.js (React 💙), Nuxt.js (Vue 💚) and Universal (Angular
   ❤️) allow you to register...

@@ -1,5 +1,5 @@
 ---
-title: ♻️ TypeScript function overloading
+title: 🔀 TypeScript function overloading
 description: >-
   In this example I used ow for runtime arguments type checking, but you can
   check yourself typeof a...
