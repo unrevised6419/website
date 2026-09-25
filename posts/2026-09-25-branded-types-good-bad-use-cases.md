@@ -92,8 +92,6 @@ export function formatDate(date: ValidDate): string {
 }
 ```
 
-> 💡 That signature has a sharper version — an overload pair that keeps `string` for callers holding a `ValidDate` and returns `string | null` for everyone else. [Overloading on a branded type](/posts/2026-09-25-overloading-on-a-branded-type) goes through it.
-
 The handling happens once, where the string comes in:
 
 ```ts
