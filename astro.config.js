@@ -1,6 +1,5 @@
 import { defineConfig } from "astro/config";
 
-import react from "@astrojs/react";
 import inline from "@playform/inline";
 
 import tailwindcss from "@tailwindcss/vite";
@@ -9,7 +8,6 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
 	site: "https://all1n.dev/",
 	integrations: [
-		react(),
 		inline({
 			Beasties: {
 				pruneSource: false,

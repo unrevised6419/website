@@ -1,21 +1,8 @@
 ---
 import { Picture } from "astro:assets";
 import "../styles/global.css";
-import { ChevronDownIcon } from "@heroicons/react/16/solid";
 import Gtag from "../components/gtag.html";
 import Socials from "../components/Socials.astro";
-
-const tabs = [
-	{
-		name: "Posts",
-		href: "/",
-		exact: true,
-	},
-];
-
-function classNames(...classes: any[]) {
-	return classes.filter(Boolean).join(" ");
-}
 
 interface Props {
 	title?: string;
@@ -96,94 +83,6 @@ const ogImageURL = new URL(ogImage ?? "avatar.jpg", Astro.site);
 					<Socials />
 				</div>
 			</div>
-
-			<nav class="border-b border-white/10">
-				<div>
-					<div class="grid grid-cols-1 sm:hidden">
-						<select
-							id="pageChange"
-							aria-label="Select a tab"
-							class="col-start-1 row-start-1 w-full appearance-none bg-white/5 py-2 pr-8 pl-3 text-base text-gray-100 outline-white/10 *:bg-gray-800 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500"
-						>
-							{
-								tabs.map((tab) => (
-									<option
-										value={tab.href}
-										selected={
-											tab.exact
-												? tab.href ===
-													Astro.url.pathname
-												: Astro.url.pathname.startsWith(
-														tab.href,
-													)
-										}
-									>
-										{tab.name}
-									</option>
-								))
-							}
-						</select>
-						<script>
-							const select =
-								document.getElementById("pageChange");
-							select?.addEventListener("change", (event) => {
-								const target =
-									event.target as HTMLSelectElement;
-								window.location.href = target.value;
-							});
-						</script>
-						<ChevronDownIcon
-							aria-hidden="true"
-							className="pointer-events-none col-start-1 row-start-1 mr-2 size-5 self-center justify-self-end fill-gray-400"
-						/>
-					</div>
-					<div class="hidden overflow-x-auto sm:block">
-						<nav
-							aria-label="Tabs"
-							class="isolate flex divide-x divide-white/10 bg-gray-800/50 outline -outline-offset-1 outline-white/10"
-						>
-							{
-								tabs.map((tab) => {
-									const isCurrent = tab.exact
-										? tab.href === Astro.url.pathname
-										: Astro.url.pathname.startsWith(
-												tab.href,
-											);
-									return (
-										<Fragment>
-											<a
-												href={tab.href}
-												aria-current={
-													isCurrent
-														? "page"
-														: undefined
-												}
-												class={classNames(
-													isCurrent
-														? "text-white"
-														: "text-gray-400 hover:text-white",
-													"group relative px-4 py-4 text-center text-sm font-medium hover:bg-white/5 focus:z-10",
-												)}
-											>
-												<span>{tab.name}</span>
-												<span
-													aria-hidden="true"
-													class={classNames(
-														isCurrent
-															? "bg-indigo-400"
-															: "bg-transparent",
-														"absolute inset-x-0 bottom-0 h-0.5",
-													)}
-												/>
-											</a>
-										</Fragment>
-									);
-								})
-							}
-						</nav>
-					</div>
-				</div>
-			</nav>
 
 			<div>
 				<slot />
