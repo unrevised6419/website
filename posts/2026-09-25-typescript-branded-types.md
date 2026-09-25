@@ -17,6 +17,8 @@ declare const brand: unique symbol;
 type Brand<T, B> = T & { readonly [brand]: B };
 ```
 
+> 💡 Know all this already and just want the list? [When to use branded types, and when not to](/posts/2026-09-25-branded-types-good-bad-use-cases) is the follow-up.
+
 ## The bug it catches
 
 ```ts
@@ -171,5 +173,7 @@ saveName(trimmed("Andrei")); // TS2345, a Trimmed is not a Name
 Only reach for it if you actually stack brands. The single-value version reads better in errors, and most codebases never intersect two of these.
 
 > 💡 Every bit of this is erased. `Brand<string, "UserId">` is a `string` at runtime — no wrapper, no allocation, no check. You pay in casts, not in bytes.
+
+Next up: [where branding actually pays off, and where it is just noise](/posts/2026-09-25-branded-types-good-bad-use-cases).
 
 Thanks for reading my blog posts! 🎉
