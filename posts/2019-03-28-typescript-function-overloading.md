@@ -196,4 +196,6 @@ type R = ReturnType<typeof myMethod>; // [number, string]
 
 Not the union of all three, and not the first — the last. Which is the opposite end from where call resolution starts, so a type-level read of the function can disagree with an actual call to it.
 
+Where this gets genuinely useful is overloading on a type the caller has to earn, so that doing the work up front buys a better return type: [overloading on a branded type](/posts/2026-09-25-overloading-on-a-branded-type).
+
 Thanks for reading my blog posts! 🎉
