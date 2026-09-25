@@ -124,7 +124,7 @@ new Date(2026, 1, 30).toDateString(); // 'Mon Mar 02 2026'
 
 February 30th rolls over into March, in both spellings, and the result is a perfectly valid `Date`. `ValidDate` proves "not `NaN`" and nothing more.
 
-[`Temporal`](https://tc39.es/proposal-temporal/docs/) does not have the hole in the first place:
+[`Temporal`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal) does not have the hole in the first place:
 
 ```ts
 Temporal.PlainDate.from("2026-02-30");
