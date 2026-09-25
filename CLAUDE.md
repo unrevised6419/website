@@ -29,7 +29,7 @@ Blog posts are Markdown files in `/posts/` (named `YYYY-MM-DD-slug.md`), **not**
 
 ### Rendering stack
 
-- Astro with the React integration (`@astrojs/react`) — `.tsx` files would be interactive islands; React is also used to render `@heroicons/react` components inside `.astro` files.
+- Pure Astro — there is no UI framework integration. React and `@heroicons/react` were removed once the last component using them went away; don't reach for `.tsx` islands or React-only icon packages without adding the integration back first.
 - Tailwind CSS v4 via the Vite plugin (`@tailwindcss/vite`), not a separate config file; global styles in `src/styles/global.css`.
 - `@playform/inline` inlines CSS into `dist/index.html` at build time.
 - TypeScript uses `astro/tsconfigs/strictest` + `@total-typescript/ts-reset`.
