@@ -6,8 +6,8 @@ description: >-
     Deploy only the app, override away webpack, and delete the rest from the
     deploy output.
 tags: strapi, docker, pnpm, node
-created_at: "2026-10-04T09:00:00.000Z"
-published_at: "2026-10-04T10:00:00.000Z"
+created_at: "2026-10-04T05:45:04.000Z"
+published_at: "2026-10-04T05:45:04.000Z"
 edited_at: "2026-10-04T06:06:46.000Z"
 ---
 
