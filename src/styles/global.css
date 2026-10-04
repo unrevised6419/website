@@ -16,3 +16,16 @@
 .prose :is(h2, h3, h4, h5, h6) > a:hover {
 	text-decoration: underline;
 }
+
+/* A "#" after the text marks the heading as a link; the empty alt text keeps
+   screen readers from announcing it. */
+.prose :is(h2, h3, h4, h5, h6) > a::after {
+	content: "#" / "";
+	display: inline-block;
+	margin-left: 0.4em;
+	color: var(--color-gray-500);
+}
+
+.prose :is(h2, h3, h4, h5, h6) > a:hover::after {
+	color: var(--color-gray-300);
+}
