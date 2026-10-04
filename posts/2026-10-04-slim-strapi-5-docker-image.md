@@ -38,6 +38,22 @@ Inside the app, with the monorepo installed at the root just before step 1 (a 2.
 | Repo files (other apps, build cache, lockfile) | 74 MB    | 16 MB (the app's `dist` + lockfile) |
 | Packages in `node_modules/.pnpm`               | 3,041    | 1,551                               |
 
+**Contents**
+
+- [Why a Strapi image is big](#why-a-strapi-image-is-big)
+    - [0. Upgrade pnpm](#0-upgrade-pnpm)
+    - [1. Deploy only the Strapi app](#1-deploy-only-the-strapi-app)
+    - [2. Keep webpack out of the install](#2-keep-webpack-out-of-the-install)
+    - [3. Delete what `strapi start` never loads](#3-delete-what-strapi-start-never-loads)
+        - [The catch: `@strapi/admin` and `react` need a patch](#the-catch-strapiadmin-and-react-need-a-patch)
+- [What has to stay](#what-has-to-stay)
+- [Things that didn't work, or weren't worth it](#things-that-didnt-work-or-werent-worth-it)
+- [Next: one workspace per plugin slice](#next-one-workspace-per-plugin-slice)
+- [Verifying it](#verifying-it)
+- [What about a plain npm app?](#what-about-a-plain-npm-app)
+- [What Strapi could change](#what-strapi-could-change)
+- [The script](#the-script)
+
 ## Why a Strapi image is big
 
 The admin panel is a React app, and `strapi build` bundles it into `dist/build`. Once that's done, the server never loads the libraries the admin panel was built from. But Strapi's packages declare all of them as `dependencies`, so every production install keeps them:
@@ -106,7 +122,7 @@ RUN node scripts/slim-deploy.mjs /prod/cms
 
 > 💡 It has to be the same stage: deleting files in a later layer hides them without shrinking the image.
 
-The script, in full, is [at the end of this post](#the-scripts). In order, it:
+The script, in full, is [at the end of this post](#the-script). In order, it:
 
 1. Deletes `dist/admin` from every `@strapi/*` package, plus the unbuilt `admin/`, `server/` and `documentation/` folders `@strapi/plugin-users-permissions` publishes.
 2. Deletes source maps, `.d.ts`, `.ts`/`.tsx`, markdown, `__tests__`, and `test`/`docs`/`examples` folders at a package's root.
@@ -190,75 +206,7 @@ Everything above comes from a pnpm monorepo. To see what the same approach does 
 | After, Strapi as published (no patch)                                                                   | 749 MB       | 155 MB     |
 | After, with the lazy-command patch ([strapi/strapi#27910](https://github.com/strapi/strapi/pull/27910)) | **731 MB**   | **152 MB** |
 
-Inside the app (`/app`):
-
-|                                                             | Before   | After, no patch | After, patched |
-| ----------------------------------------------------------- | -------- | --------------- | -------------- |
-| App layer (`COPY /app`)                                     | 765 MB   | —               | 311 MB         |
-| `node_modules`                                              | 712 MB   | 293 MB          | 279 MB         |
-| Package installs                                            | 1,384    | 924             | 921            |
-| Source maps                                                 | 147.5 MB | 0               | 0              |
-| `.d.ts`                                                     | 75.8 MB  | 0               | 0              |
-| Markdown                                                    | 15.5 MB  | 0               | 0              |
-| App's own files (`dist`, `public`, `data`, lockfile, `src`) | 17.6 MB  | 17.6 MB         | 17.6 MB        |
-
-What that shows:
-
-- **It works without pnpm or a monorepo.** On a fresh npm app it cuts the image by 42% uncompressed (1.25 GB → 731 MB) and 30% compressed (217 → 152 MB).
-- **A fresh npm app starts much smaller** than our monorepo did (1.25 GB vs 3.2 GB), for two measured reasons: it has no other workspaces, and npm's flat `node_modules` has no pnpm peer-variant copies (1,384 installs, 1,191 distinct `name@version`).
-- **The patch is worth only 18 MB here** (749 → 731 MB). Most of the saving is available with Strapi as published.
-
-Gone after slimming: `webpack` and its loaders, `typedoc`, `styled-components`, `@strapi/design-system`, the Mux player and `hls.js`, `codemirror`, every `@types/*`, source maps, `.d.ts` files and markdown. The patched variant also drops `react`, `react-dom` and `@strapi/admin`'s `dist/admin`.
-
-Still there in both "after" images: `vite` 5, `esbuild` 0.21 and 0.28, `@swc/core`, `lightningcss`, `prettier`, `@babel/core` and `typescript`, all build tooling `@strapi/strapi` declares as `dependencies` and kept because nobody has tested `strapi start` without them. Plus `sharp` (`@strapi/upload`), `better-sqlite3` (this app's database) and `@strapi/types` (see [strapi/strapi#27911](https://github.com/strapi/strapi/issues/27911)).
-
-### What changes with npm
-
-- **No override for webpack.** npm [`overrides`](https://docs.npmjs.com/cli/configuring-npm/package-json#overrides) can't delete a dependency the way pnpm's `"-"` does, so the webpack toolchain from step 2 goes on the script's list instead.
-- **No store of symlinks to prune.** The script builds the dependency graph from `package.json` files, following Node's resolution rules (each package's `node_modules`, then its ancestors'), and deletes every installed package it can't reach.
-- **Keep the SQLite driver if production runs SQLite.** Drop `better-sqlite3` only when production runs Postgres or MySQL.
-
-The "before" image is the obvious build:
-
-```dockerfile
-ARG NODE_VERSION=24.21.0
-
-FROM node:${NODE_VERSION}-bookworm AS build
-WORKDIR /app
-COPY package.json package-lock.json ./
-RUN npm ci
-COPY . .
-# After the install, which would otherwise skip devDependencies (`typescript` is needed to
-# build), and before `strapi build`, which otherwise bundles React's development build.
-ENV NODE_ENV=production
-RUN npm run build
-RUN npm prune --omit=dev
-
-FROM node:${NODE_VERSION}-bookworm-slim
-WORKDIR /app
-ENV NODE_ENV=production
-COPY --from=build /app ./
-EXPOSE 1337
-CMD ["node", "node_modules/@strapi/strapi/bin/strapi.js", "start"]
-```
-
-The "after" image is the same, plus the patch and the script in the build stage:
-
-```dockerfile
-# in the build stage, after COPY . .
-ARG LAZY_COMMANDS=1
-RUN if [ "$LAZY_COMMANDS" = 1 ]; then \
-		git apply --directory=node_modules/@strapi/strapi patches/strapi-lazy-commands.patch; \
-	fi
-# ... ENV NODE_ENV=production, npm run build, npm prune --omit=dev, then:
-RUN LAZY_COMMANDS=$LAZY_COMMANDS node scripts/slim-node-modules.mjs .
-```
-
-`patches/strapi-lazy-commands.patch` is the `cli/commands/build` and `cli/commands/develop` hunks of [strapi/strapi#27910](https://github.com/strapi/strapi/pull/27910) against `@strapi/strapi` 5.56.0's `dist`. The script is [at the end of this post](#the-scripts).
-
-All three images were checked the same way: boot on SQLite, `/_health`, `/admin` and its entry asset, register an admin and log in, then `admin/users/me`, `admin/information`, content-manager `init`, content-type-builder, upload, i18n locales, and users-permissions roles and email settings all return 200. REST `/api/articles` returns 403 without permission and 401 with an admin token, and there's no `Cannot find module` in the log.
-
-> 📝 `review-workflows/workflows` and `content-releases` return 404 in all three images, "before" included. That's a fresh Community-edition project, not the slimming.
+That cuts the image by 42% uncompressed and 30% compressed, and most of the saving comes without the patch.
 
 ## What Strapi could change
 
@@ -271,9 +219,9 @@ All of the above works around how the packages are declared. These changes in St
 - support plugins whose admin half is a separate, build-time-only package, so plugin authors can keep admin libraries out of production installs;
 - publish without source maps and `dist/admin` in the server-facing packages, or ship them in separate packages.
 
-## The scripts
+## The script
 
-The pnpm version is tested with Strapi 5.56, pnpm 12 and Node 24.
+Tested with Strapi 5.56, pnpm 12 and Node 24.
 
 > 📝 What we run is this script plus our own plugins' entries in `FRONTEND_PACKAGES`; the version below only drops those entries.
 
@@ -577,300 +525,6 @@ for (const pkg of installed) {
 
 await unlinkBuildOnlyPackages();
 await pruneUnreachable();
-```
-
-</details>
-
-The npm version was run only on the fresh app above. Its lists are the pnpm script's lists plus the 11 webpack-toolchain names, and `react`/`react-dom` are only on the list when `LAZY_COMMANDS=1`.
-
-<details>
-<summary><code>scripts/slim-node-modules.mjs</code></summary>
-
-```js
-// Deletes from an npm production install of a Strapi app what `strapi start` never loads.
-// Usage: LAZY_COMMANDS=0|1 node scripts/slim-node-modules.mjs <app dir>
-//
-// Run it in the stage that installs node_modules: deleting in a later layer hides the
-// files without shrinking the image.
-
-import { readFile, readdir, rm, stat } from "node:fs/promises";
-import path from "node:path";
-
-// Set when patches/strapi-lazy-commands.patch (https://github.com/strapi/strapi/pull/27910)
-// is applied. Unpatched, the CLI loads its build command even for `start`, which reaches
-// `@strapi/admin/dist/admin/src/components/DefaultDocument.js` and `react`/`react-dom`.
-const lazyCommands = process.env.LAZY_COMMANDS === "1";
-
-const BUILD_ONLY_FILE = /\.(map|md|markdown|[cm]?tsx?)$/;
-const BUILD_ONLY_DIR = new Set(["__tests__"]);
-// Only at a package's root: `dist/test` and the like can be a published subpath.
-const BUILD_ONLY_ROOT_DIR = new Set([
-	"doc",
-	"docs",
-	"example",
-	"examples",
-	"test",
-	"tests",
-]);
-
-/** @type {Record<string, string[]>} */
-const UNBUILT_SOURCES = {
-	"@strapi/plugin-users-permissions": ["admin", "documentation", "server"],
-};
-
-// `@strapi/strapi` declares its deprecated webpack bundler as `dependencies`. npm's
-// `overrides` cannot remove a dependency, so the image drops it here instead.
-const WEBPACK_TOOLCHAIN = [
-	"@pmmmwh/react-refresh-webpack-plugin",
-	"css-loader",
-	"esbuild-loader",
-	"fork-ts-checker-webpack-plugin",
-	"html-webpack-plugin",
-	"mini-css-extract-plugin",
-	"style-loader",
-	"webpack",
-	"webpack-bundle-analyzer",
-	"webpack-dev-middleware",
-	"webpack-hot-middleware",
-];
-
-// The libraries the prebuilt admin panel was built from. No server code imports them,
-// except `react`/`react-dom` from `@strapi/strapi`'s `staticFiles.js` when unpatched.
-// Not `date-fns`: Strapi's server uses it.
-const FRONTEND_PACKAGES = [
-	"@mux/mux-player-react",
-	"@reduxjs/toolkit",
-	"@strapi/design-system",
-	"@strapi/icons",
-	"@strapi/ui-primitives",
-	"codemirror",
-	"formik",
-	"prismjs",
-	"react-dnd",
-	"react-dnd-html5-backend",
-	"react-helmet",
-	"react-intl",
-	"react-query",
-	"react-redux",
-	"react-router",
-	"react-router-dom",
-	"react-select",
-	"react-window",
-	"styled-components",
-	...(lazyCommands ? ["react", "react-dom"] : []),
-];
-
-// `@strapi/types` declares its API-docs generator as `dependencies`; nothing but these
-// three imports `typedoc`.
-const DOCS_GENERATOR_PACKAGES = [
-	"typedoc",
-	"typedoc-github-wiki-theme",
-	"typedoc-plugin-markdown",
-];
-
-const BUILD_ONLY_PACKAGES = new Set([
-	...WEBPACK_TOOLCHAIN,
-	...FRONTEND_PACKAGES,
-	...DOCS_GENERATOR_PACKAGES,
-]);
-
-/** @param {string} name */
-function isBuildOnlyPackage(name) {
-	return name.startsWith("@types/") || BUILD_ONLY_PACKAGES.has(name);
-}
-
-const [appArgument] = process.argv.slice(2);
-
-if (!appArgument) {
-	console.error("Usage: node scripts/slim-node-modules.mjs <app dir>");
-	process.exit(1);
-}
-
-const appDir = path.resolve(appArgument);
-
-/** @param {string} file */
-async function exists(file) {
-	return stat(file).then(
-		() => true,
-		() => false,
-	);
-}
-
-/** @param {string} dir */
-async function readManifest(dir) {
-	return JSON.parse(await readFile(path.join(dir, "package.json"), "utf8"));
-}
-
-/**
- * Finds `name` the way Node resolves a bare specifier from `fromDir`: in the
- * `node_modules` of `fromDir` and of each of its ancestors.
- *
- * @param {string} fromDir
- * @param {string} name
- */
-async function resolvePackage(fromDir, name) {
-	for (let dir = fromDir; ; dir = path.dirname(dir)) {
-		if (path.basename(dir) !== "node_modules") {
-			const candidate = path.join(dir, "node_modules", name);
-
-			if (await exists(path.join(candidate, "package.json"))) {
-				return candidate;
-			}
-		}
-
-		if (path.dirname(dir) === dir) {
-			return undefined;
-		}
-	}
-}
-
-/** Every package dir npm installed, nested ones included. */
-async function listInstalledPackages(
-	nodeModules = path.join(appDir, "node_modules"),
-) {
-	/** @type {{ name: string; dir: string }[]} */
-	const packages = [];
-	const entries = await readdir(nodeModules, { withFileTypes: true }).catch(
-		() => [],
-	);
-
-	for (const entry of entries) {
-		if (entry.name.startsWith(".") || !entry.isDirectory()) {
-			continue;
-		}
-
-		const names = entry.name.startsWith("@")
-			? (await readdir(path.join(nodeModules, entry.name))).map(
-					(scoped) => `${entry.name}/${scoped}`,
-				)
-			: [entry.name];
-
-		for (const name of names) {
-			const dir = path.join(nodeModules, name);
-
-			if (!(await exists(path.join(dir, "package.json")))) {
-				continue;
-			}
-
-			packages.push({ name, dir });
-			packages.push(
-				...(await listInstalledPackages(
-					path.join(dir, "node_modules"),
-				)),
-			);
-		}
-	}
-
-	return packages;
-}
-
-/**
- * The package dirs reachable from the app's production dependencies, following
- * `dependencies`, `optionalDependencies` and `peerDependencies` without entering a
- * build-only package.
- */
-async function findReachable() {
-	const reachable = new Set();
-	const root = await readManifest(appDir);
-	/** @type {[string, string][]} */
-	const pending = Object.keys({
-		...root.dependencies,
-		...root.optionalDependencies,
-	}).map((name) => [appDir, name]);
-
-	for (let next = pending.pop(); next !== undefined; next = pending.pop()) {
-		const [fromDir, name] = next;
-
-		if (isBuildOnlyPackage(name)) {
-			continue;
-		}
-
-		const dir = await resolvePackage(fromDir, name);
-
-		if (dir === undefined || reachable.has(dir)) {
-			continue;
-		}
-
-		reachable.add(dir);
-		const manifest = await readManifest(dir);
-
-		for (const dependency of Object.keys({
-			...manifest.dependencies,
-			...manifest.optionalDependencies,
-			...manifest.peerDependencies,
-		})) {
-			pending.push([dir, dependency]);
-		}
-	}
-
-	return reachable;
-}
-
-/**
- * @param {string} dir
- * @param {boolean} isPackageRoot
- */
-async function removeBuildOnlyFiles(dir, isPackageRoot) {
-	for (const entry of await readdir(dir, { withFileTypes: true }).catch(
-		() => [],
-	)) {
-		const location = path.join(dir, entry.name);
-
-		if (entry.isDirectory()) {
-			if (entry.name === "node_modules") {
-				continue;
-			}
-
-			if (
-				BUILD_ONLY_DIR.has(entry.name) ||
-				(isPackageRoot && BUILD_ONLY_ROOT_DIR.has(entry.name))
-			) {
-				await rm(location, { recursive: true, force: true });
-			} else {
-				await removeBuildOnlyFiles(location, false);
-			}
-
-			continue;
-		}
-
-		if (entry.isFile() && BUILD_ONLY_FILE.test(entry.name)) {
-			await rm(location, { force: true });
-		}
-	}
-}
-
-const before = await listInstalledPackages();
-const reachable = await findReachable();
-const unreachable = before.filter((pkg) => !reachable.has(pkg.dir));
-
-for (const pkg of unreachable) {
-	await rm(pkg.dir, { recursive: true, force: true });
-}
-
-const kept = before.filter((pkg) => reachable.has(pkg.dir));
-
-for (const pkg of kept) {
-	if (
-		pkg.name.startsWith("@strapi/") &&
-		(lazyCommands || pkg.name !== "@strapi/admin")
-	) {
-		for (const folder of [
-			"dist/admin",
-			...(UNBUILT_SOURCES[pkg.name] ?? []),
-		]) {
-			await rm(path.join(pkg.dir, folder), {
-				recursive: true,
-				force: true,
-			});
-		}
-	}
-
-	await removeBuildOnlyFiles(pkg.dir, true);
-}
-
-console.log(
-	`slim-node-modules: kept ${kept.length} of ${before.length} packages (lazy commands: ${lazyCommands})`,
-);
 ```
 
 </details>
