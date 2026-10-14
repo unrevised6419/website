@@ -1,6 +1,6 @@
 import { defineConfig } from "astro/config";
 
-import { rehypeHeadingIds } from "@astrojs/markdown-remark";
+import { rehypeHeadingIds, unified } from "@astrojs/markdown-remark";
 import tailwindcss from "@tailwindcss/vite";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
@@ -13,12 +13,14 @@ export default defineConfig({
 		inlineStylesheets: "always",
 	},
 	markdown: {
-		// Astro adds heading ids after user plugins run, so add them first for
-		// the autolink plugin to find.
-		rehypePlugins: [
-			rehypeHeadingIds,
-			[rehypeAutolinkHeadings, { behavior: "wrap" }],
-		],
+		processor: unified({
+			// Astro adds heading ids after user plugins run, so add them first for
+			// the autolink plugin to find.
+			rehypePlugins: [
+				rehypeHeadingIds,
+				[rehypeAutolinkHeadings, { behavior: "wrap" }],
+			],
+		}),
 	},
 	vite: {
 		plugins: [tailwindcss()],
