@@ -4,6 +4,7 @@ description: >-
     A CommonJS file resolves an ESM-only package through the require condition, so
     its types come back missing. The resolution-mode import attribute overrides
     that for a single import.
+og_description: "A CommonJS file loses an ESM-only package's types. The resolution-mode import attribute fixes it for a single import."
 tags: typescript, esm, commonjs, vite, node
 created_at: "2026-09-03T09:00:00.000Z"
 published_at: "2026-09-03T10:00:00.000Z"

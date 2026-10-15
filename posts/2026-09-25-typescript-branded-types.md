@@ -4,6 +4,7 @@ description: >-
     TypeScript compares types by shape, so a user id and a post id are both just
     a string and swapping them compiles. A brand makes them distinct at compile
     time and leaves nothing behind at runtime.
+og_description: "A user id and a post id are both strings, so swapping them compiles. A brand makes them distinct with zero runtime cost."
 tags: typescript, types, branded-types, nominal-typing
 created_at: "2026-09-25T09:00:00.000Z"
 published_at: "2026-09-25T10:00:00.000Z"

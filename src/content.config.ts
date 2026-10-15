@@ -11,6 +11,10 @@ const blog = defineCollection({
 		// OG image keep `title`.
 		og_title: z.string().optional(),
 		description: z.string(),
+		// Optional shorter description (≤125 characters) for og:description and
+		// twitter:description, which social previews truncate. Search results
+		// and the post list keep `description`.
+		og_description: z.string().optional(),
 		created_at: z.coerce.date(),
 		edited_at: z.coerce.date().optional(),
 		published_at: z.coerce.date().optional(),

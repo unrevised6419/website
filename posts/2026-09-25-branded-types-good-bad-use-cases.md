@@ -4,6 +4,7 @@ description: >-
     Branding pays off for the Invalid Date hole, sanitization state, money, ids
     and validated values. It is noise inside a single module, on types that are
     already distinct, and on anything mutable.
+og_description: "Brands pay off for dates, sanitization, money, ids and validated values, and are noise on mutable or already-distinct types."
 tags: typescript, types, branded-types, zod, date
 created_at: "2026-09-25T11:00:00.000Z"
 published_at: "2026-09-25T12:00:00.000Z"

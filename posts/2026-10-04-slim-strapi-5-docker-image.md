@@ -6,6 +6,7 @@ description: >-
     frontend libraries, which the server never loads once the panel is built.
     Deploy only the app, override away webpack, and delete the rest from the
     deploy output.
+og_description: "Cut a Strapi 5 image from 3.2 GB to 867 MB: deploy only the app, drop webpack and delete what the built admin never loads."
 tags: strapi, docker, pnpm, node
 created_at: "2026-10-04T05:45:04.000Z"
 published_at: "2026-10-04T05:45:04.000Z"

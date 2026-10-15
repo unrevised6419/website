@@ -6,6 +6,8 @@ import Logo from "../assets/all1ndev.svg";
 interface Props {
 	title?: string;
 	description?: string;
+	// Shorter description for social previews; defaults to `description`.
+	ogDescription?: string;
 	// Path relative to the site root, e.g. "og/2021-05-10-slug.jpg".
 	ogImage?: string;
 	ogType?: "website" | "article";
@@ -14,6 +16,7 @@ interface Props {
 const {
 	title = "All In Developer — Notes on TypeScript and Dev Tooling",
 	description = "Practical notes on TypeScript, Node tooling, git and Docker — short fixes, patterns and lessons from day-to-day development.",
+	ogDescription = description,
 	ogImage,
 	ogType = "website",
 } = Astro.props;
@@ -36,7 +39,7 @@ const ogImageURL = new URL(ogImage ?? "og.jpg", Astro.site);
 		<!-- Open Graph -->
 		<meta property="og:type" content={ogType} />
 		<meta property="og:title" content={title} />
-		<meta property="og:description" content={description} />
+		<meta property="og:description" content={ogDescription} />
 		<meta property="og:url" content={canonicalURL} />
 		<meta property="og:image" content={ogImageURL} />
 		<meta property="og:image:width" content="1200" />
@@ -46,7 +49,7 @@ const ogImageURL = new URL(ogImage ?? "og.jpg", Astro.site);
 		<!-- Twitter -->
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={title} />
-		<meta name="twitter:description" content={description} />
+		<meta name="twitter:description" content={ogDescription} />
 		<meta name="twitter:image" content={ogImageURL} />
 
 		{

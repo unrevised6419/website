@@ -31,6 +31,7 @@ const metadata = [
 <Layout
 	title={post.data.og_title ?? post.data.title}
 	description={post.data.description}
+	ogDescription={post.data.og_description ?? post.data.description}
 	ogImage={`og/${post.id}.jpg`}
 	ogType="article"
 >
