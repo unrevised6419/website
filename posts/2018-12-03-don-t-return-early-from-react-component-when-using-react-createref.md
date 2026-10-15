@@ -1,5 +1,6 @@
 ---
 title: 🔗 Don't return early from React.Component when using React.createRef
+og_title: "🔗 Don't return early in React.Component with createRef"
 description: "Add note for early return when using ref              #1456          ..."
 tags: react, javascript, refs, dom
 created_at: "2018-12-03T15:16:57.996Z"

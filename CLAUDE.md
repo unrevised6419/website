@@ -43,8 +43,9 @@ Posts originated as a dev.to export and follow a consistent house style. When cr
 - Filename: `YYYY-MM-DD-kebab-case-slug.md` (date = creation date).
 - `title`: starts with a single leading emoji, e.g. `🩹 Migrate from patch-package to pnpm patch`.
 - `description`: usually a folded scalar (`>-`) summarizing the takeaway in a sentence or two. It is rendered as `<meta name="description">`, `og:description` and `twitter:description` in `src/layouts/Layout.astro`, and as the subtitle in the post list, so keep it a clean standalone sentence. Do **not** prefix it with `tl;dr` (that belongs in the body blockquote), and do not paste truncated body text into it.
+- `og_title` (optional): a shorter title (≤60 characters) used for `<title>`, `og:title` and `twitter:title` when `title` is longer. The heading, post list and OG image still use `title`.
 - `created_at` / `published_at` / optional `edited_at`: quoted ISO-8601 timestamps.
-- `tags`: a comma-separated string is conventionally present, **but is not in the collection schema** (`src/content.config.ts`) and is ignored by the site. Don't add schema-unknown fields expecting them to render; only `title`/`description`/dates are used.
+- `tags`: a comma-separated string is conventionally present, **but is not in the collection schema** (`src/content.config.ts`) and is ignored by the site. Don't add schema-unknown fields expecting them to render; only `title`/`og_title`/`description`/dates are used.
 
 **Body structure**
 

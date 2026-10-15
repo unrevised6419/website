@@ -1,8 +1,9 @@
 ---
 title: 🗂️ What is the folder structure of project/library working on?
+og_title: "🗂️ What is the folder structure of your project/library?"
 description: >-
-  Follow Angular style guide https://angular.io/guide/styleguide    tree -I
-  'node_modules|build'       ...
+    Follow Angular style guide https://angular.io/guide/styleguide    tree -I
+    'node_modules|build'       ...
 tags: library, react, typescript, tree
 created_at: "2019-09-26T08:48:05.247Z"
 edited_at: "2023-09-15T17:11:22.515Z"

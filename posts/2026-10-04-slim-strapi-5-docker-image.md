@@ -1,5 +1,6 @@
 ---
 title: 🐳 Slimming a production Strapi 5 Docker image from 3.2 GB to 867 MB
+og_title: "🐳 Slimming a Strapi 5 Docker image from 3.2 GB to 867 MB"
 description: >-
     Most of a production Strapi image is the admin panel's build toolchain and
     frontend libraries, which the server never loads once the panel is built.
