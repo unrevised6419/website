@@ -52,25 +52,19 @@ const ogImageURL = new URL(ogImage ?? "og.jpg", Astro.site);
 		<meta name="twitter:description" content={ogDescription} />
 		<meta name="twitter:image" content={ogImageURL} />
 
-		{
-			import.meta.env.PROD && (
-				<script
-					is:inline
-					defer
-					src="https://cloud.umami.is/script.js"
-					data-website-id="f9d5680d-10cd-400f-b155-79121e4384e5"
-				/>
-			)
-		}
+		{import.meta.env.PROD && (
+			<script
+				is:inline
+				defer
+				src="https://cloud.umami.is/script.js"
+				data-website-id="f9d5680d-10cd-400f-b155-79121e4384e5"
+			/>
+		)}
 	</head>
 	<body class="bg-hexagon-pattern min-h-screen bg-green-900 p-4 text-white">
-		<main
-			class="mx-auto max-w-4xl rounded-lg bg-gray-800/50 shadow-sm outline -outline-offset-1 outline-white/10"
-		>
+		<main class="mx-auto max-w-4xl rounded-lg bg-gray-800/50 shadow-sm outline -outline-offset-1 outline-white/10">
 			<div class="border-b border-white/10 p-6">
-				<div
-					class="flex flex-wrap items-center justify-between gap-6 sm:flex-nowrap"
-				>
+				<div class="flex flex-wrap items-center justify-between gap-6 sm:flex-nowrap">
 					<div class="flex grow items-center">
 						<a class="shrink-0" href="/">
 							<Logo
@@ -99,14 +93,13 @@ const ogImageURL = new URL(ogImage ?? "og.jpg", Astro.site);
 			</div>
 		</main>
 
-		<div
-			class="mx-auto my-8 max-w-2xl justify-center [&>form]:bg-transparent!"
-		>
+		<div class="mx-auto my-8 max-w-2xl justify-center [&>form]:bg-transparent!">
 			<script
 				is:inline
 				async
 				data-uid="01b922e572"
-				src="https://all1n.kit.com/01b922e572/index.js"></script>
+				src="https://all1n.kit.com/01b922e572/index.js"
+			></script>
 		</div>
 	</body>
 </html>

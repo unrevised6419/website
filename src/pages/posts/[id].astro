@@ -43,18 +43,16 @@ const metadata = [
 
 		<div class="mt-6 border-t border-white/5">
 			<dl class="divide-y divide-white/5">
-				{
-					metadata.map((item) => (
-						<div class="px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">
-							<dt class="text-sm/6 font-medium text-white">
-								{item.name}
-							</dt>
-							<dd class="mt-1 text-sm/6 text-gray-400 sm:col-span-2 sm:mt-0">
-								{item.value}
-							</dd>
-						</div>
-					))
-				}
+				{metadata.map((item) => (
+					<div class="px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">
+						<dt class="text-sm/6 font-medium text-white">
+							{item.name}
+						</dt>
+						<dd class="mt-1 text-sm/6 text-gray-400 sm:col-span-2 sm:mt-0">
+							{item.value}
+						</dd>
+					</div>
+				))}
 			</dl>
 		</div>
 	</div>
