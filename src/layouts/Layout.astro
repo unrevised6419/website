@@ -12,14 +12,14 @@ interface Props {
 }
 
 const {
-	title = "All In Developer",
-	description = "Full stack developer!",
+	title = "All In Developer — Notes on TypeScript & Developer Tooling",
+	description = "Practical write-ups on TypeScript, JavaScript, Node tooling, git and Docker — short fixes, patterns and lessons learned from day-to-day development.",
 	ogImage,
 	ogType = "website",
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const ogImageURL = new URL(ogImage ?? "avatar.jpg", Astro.site);
+const ogImageURL = new URL(ogImage ?? "og.png", Astro.site);
 ---
 
 <!doctype html>

@@ -10,6 +10,7 @@ export const OG_HEIGHT = 630;
 
 const AUTHOR_NAME = "All In Developer";
 const SITE_LABEL = "all1n.dev";
+const SITE_TAGLINE = "Notes on TypeScript & developer tooling";
 
 // Resolve build-time assets from the project root. The build runs with the
 // repo root as the working directory, so this is stable in both `dev` and
@@ -40,11 +41,11 @@ async function loadFonts() {
 	];
 }
 
-// Pre-shrink the avatar to a small PNG and inline it as a data URI so Satori
-// can embed it without a network fetch.
-async function loadAvatarDataUri() {
+// Rasterize the logo to a PNG of the given size and inline it as a data URI
+// so Satori can embed it without a network fetch.
+async function loadAvatarDataUri(size: number) {
 	let buffer = await readFile(path.join(root, "src/assets/all1ndev.svg"));
-	let png = await sharp(buffer).resize(160, 160).png().toBuffer();
+	let png = await sharp(buffer).resize(size, size).png().toBuffer();
 	return `data:image/png;base64,${png.toString("base64")}`;
 }
 
@@ -52,6 +53,7 @@ async function loadAvatarDataUri() {
 // font reads and the avatar resize once per build.
 let fontsPromise: ReturnType<typeof loadFonts> | undefined;
 let avatarPromise: Promise<string> | undefined;
+let homeAvatarPromise: Promise<string> | undefined;
 
 function escapeHtml(value: string) {
 	return value
@@ -152,27 +154,42 @@ function markup({ title, date, tags = [] }: OgOptions) {
 // into the template string.
 const AVATAR_PLACEHOLDER = "__AVATAR__";
 
-function injectAvatar(node: any, dataUri: string) {
+// satori-html keeps HTML entities in text nodes as-is, so undo escapeHtml
+// there or an "&" in the text would render as "&amp;".
+function unescapeHtml(value: string) {
+	return value
+		.replaceAll("&lt;", "<")
+		.replaceAll("&gt;", ">")
+		.replaceAll("&quot;", '"')
+		.replaceAll("&amp;", "&");
+}
+
+function prepareTree(node: any, dataUri: string) {
 	if (node && typeof node === "object") {
 		if (node.props?.src === AVATAR_PLACEHOLDER) {
 			node.props.src = dataUri;
 		}
 		let children = node.props?.children;
 		if (Array.isArray(children)) {
-			for (let child of children) injectAvatar(child, dataUri);
+			node.props.children = children.map((child) =>
+				typeof child === "string" ? unescapeHtml(child) : child,
+			);
+			for (let child of children) prepareTree(child, dataUri);
+		} else if (typeof children === "string") {
+			node.props.children = unescapeHtml(children);
 		} else if (children) {
-			injectAvatar(children, dataUri);
+			prepareTree(children, dataUri);
 		}
 	}
 }
 
 export async function renderOgImage(options: OgOptions): Promise<Buffer> {
 	fontsPromise ??= loadFonts();
-	avatarPromise ??= loadAvatarDataUri();
+	avatarPromise ??= loadAvatarDataUri(160);
 	let [fonts, avatar] = await Promise.all([fontsPromise, avatarPromise]);
 
 	let tree = markup(options);
-	injectAvatar(tree, avatar);
+	prepareTree(tree, avatar);
 
 	// satori-html returns its own VNode type; satori's signature wants a
 	// ReactNode. They're structurally compatible at runtime.
@@ -206,4 +223,38 @@ export async function renderOgImage(options: OgOptions): Promise<Buffer> {
 		.composite([{ input: noise, blend: "overlay" }])
 		.png()
 		.toBuffer();
+}
+
+// The site-wide image (home page and any page without its own): the logo next
+// to the site name and tagline, on white with a light border so the card edge
+// stays visible on white backgrounds.
+function homeMarkup() {
+	return html(`
+		<div style="display:flex;align-items:center;width:100%;height:100%;padding:0 80px;background:#ffffff;border:2px solid #e5e7eb;font-family:Inter;color:#111827;">
+			<img src="${AVATAR_PLACEHOLDER}" style="width:340px;height:340px;" />
+			<div style="display:flex;flex-direction:column;flex:1;min-width:0;margin-left:56px;">
+				<div style="display:flex;font-size:64px;font-weight:700;line-height:1.1;">${escapeHtml(AUTHOR_NAME)}</div>
+				<div style="display:flex;font-size:36px;line-height:1.3;color:#4b5563;margin-top:20px;">${escapeHtml(SITE_TAGLINE)}</div>
+				<div style="display:flex;font-size:30px;font-weight:700;color:#266ef6;margin-top:36px;">${escapeHtml(SITE_LABEL)}</div>
+			</div>
+		</div>
+	`);
+}
+
+export async function renderHomeOgImage(): Promise<Buffer> {
+	fontsPromise ??= loadFonts();
+	homeAvatarPromise ??= loadAvatarDataUri(680);
+	let [fonts, avatar] = await Promise.all([fontsPromise, homeAvatarPromise]);
+
+	let tree = homeMarkup();
+	prepareTree(tree, avatar);
+
+	let svg = await satori(tree as Parameters<typeof satori>[0], {
+		width: OG_WIDTH,
+		height: OG_HEIGHT,
+		fonts,
+	});
+
+	// Flat colors only, so no dithering noise needed here.
+	return sharp(Buffer.from(svg)).png().toBuffer();
 }
