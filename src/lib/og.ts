@@ -107,6 +107,9 @@ async function loadEmojiSvg(emoji: string): Promise<string> {
 	return dataUri;
 }
 
+const BACKGROUND =
+	"linear-gradient(135deg,#052e16 0%,#064e3b 60%,#065f46 100%)";
+
 interface OgOptions {
 	title: string;
 	date: Date;
@@ -128,7 +131,7 @@ function markup({ title, date, tags = [] }: OgOptions) {
 			: "";
 
 	return html(`
-		<div style="display:flex;flex-direction:column;justify-content:space-between;width:100%;height:100%;padding:70px;background:linear-gradient(135deg,#052e16 0%,#064e3b 60%,#065f46 100%);font-family:Inter;color:#ffffff;">
+		<div style="display:flex;flex-direction:column;justify-content:space-between;width:100%;height:100%;padding:70px;background:${BACKGROUND};font-family:Inter;color:#ffffff;">
 			<div style="display:flex;align-items:center;font-size:28px;font-weight:700;color:#6ee7b7;letter-spacing:0.5px;">
 				${escapeHtml(SITE_LABEL)}
 			</div>
@@ -203,10 +206,14 @@ export async function renderOgImage(options: OgOptions): Promise<Buffer> {
 		},
 	});
 
-	// The gradient is a smooth vector, but flattening to an 8-bit PNG
-	// posterizes it into visible bands. Overlay faint gaussian noise to
-	// dither those steps away (mid-gray noise + "overlay" blend leaves the
-	// base color intact and only perturbs each pixel by a hair).
+	return rasterize(svg);
+}
+
+// The gradient is a smooth vector, but flattening to an 8-bit PNG posterizes
+// it into visible bands. Overlay faint gaussian noise to dither those steps
+// away (mid-gray noise + "overlay" blend leaves the base color intact and only
+// perturbs each pixel by a hair).
+async function rasterize(svg: string) {
 	let noise = await sharp({
 		create: {
 			width: OG_WIDTH,
@@ -226,16 +233,15 @@ export async function renderOgImage(options: OgOptions): Promise<Buffer> {
 }
 
 // The site-wide image (home page and any page without its own): the logo next
-// to the site name and tagline, on white with a light border so the card edge
-// stays visible on white backgrounds.
+// to the site name and tagline, in the same colors as the post images.
 function homeMarkup() {
 	return html(`
-		<div style="display:flex;align-items:center;width:100%;height:100%;padding:0 80px;background:#ffffff;border:2px solid #e5e7eb;font-family:Inter;color:#111827;">
-			<img src="${AVATAR_PLACEHOLDER}" style="width:340px;height:340px;" />
-			<div style="display:flex;flex-direction:column;flex:1;min-width:0;margin-left:56px;">
+		<div style="display:flex;align-items:center;width:100%;height:100%;padding:0 80px;background:${BACKGROUND};font-family:Inter;color:#ffffff;">
+			<img src="${AVATAR_PLACEHOLDER}" style="width:340px;height:340px;border-radius:9999px;border:4px solid rgba(255,255,255,0.2);" />
+			<div style="display:flex;flex-direction:column;flex:1;min-width:0;margin-left:64px;">
 				<div style="display:flex;font-size:64px;font-weight:700;line-height:1.1;">${escapeHtml(AUTHOR_NAME)}</div>
-				<div style="display:flex;font-size:36px;line-height:1.3;color:#4b5563;margin-top:20px;">${escapeHtml(SITE_TAGLINE)}</div>
-				<div style="display:flex;font-size:30px;font-weight:700;color:#266ef6;margin-top:36px;">${escapeHtml(SITE_LABEL)}</div>
+				<div style="display:flex;font-size:36px;line-height:1.3;color:#a7f3d0;margin-top:20px;">${escapeHtml(SITE_TAGLINE)}</div>
+				<div style="display:flex;font-size:30px;font-weight:700;color:#6ee7b7;letter-spacing:0.5px;margin-top:36px;">${escapeHtml(SITE_LABEL)}</div>
 			</div>
 		</div>
 	`);
@@ -255,6 +261,5 @@ export async function renderHomeOgImage(): Promise<Buffer> {
 		fonts,
 	});
 
-	// Flat colors only, so no dithering noise needed here.
-	return sharp(Buffer.from(svg)).png().toBuffer();
+	return rasterize(svg);
 }
