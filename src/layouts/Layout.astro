@@ -26,7 +26,7 @@ const ogImageURL = new URL(ogImage ?? "og.jpg", Astro.site);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="motion-safe:scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
@@ -93,7 +93,10 @@ const ogImageURL = new URL(ogImage ?? "og.jpg", Astro.site);
 			</div>
 		</main>
 
-		<div class="mx-auto my-8 max-w-2xl justify-center [&>form]:bg-transparent!">
+		<div
+			id="newsletter"
+			class="mx-auto my-8 max-w-2xl scroll-mt-8 justify-center [&>form]:bg-transparent!"
+		>
 			<script
 				is:inline
 				async
