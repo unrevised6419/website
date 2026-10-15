@@ -6,7 +6,7 @@ import Logo from "../assets/all1ndev.svg";
 interface Props {
 	title?: string;
 	description?: string;
-	// Path relative to the site root, e.g. "og/2021-05-10-slug.png".
+	// Path relative to the site root, e.g. "og/2021-05-10-slug.jpg".
 	ogImage?: string;
 	ogType?: "website" | "article";
 }
@@ -19,7 +19,7 @@ const {
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const ogImageURL = new URL(ogImage ?? "og.png", Astro.site);
+const ogImageURL = new URL(ogImage ?? "og.jpg", Astro.site);
 ---
 
 <!doctype html>

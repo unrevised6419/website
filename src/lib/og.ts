@@ -226,9 +226,11 @@ async function rasterize(svg: string) {
 		.png()
 		.toBuffer();
 
+	// JPEG, not PNG: the noise defeats lossless compression (~1.3 MB per
+	// image), while a JPEG of the same image is ~65 KB and looks identical.
 	return sharp(Buffer.from(svg))
 		.composite([{ input: noise, blend: "overlay" }])
-		.png()
+		.jpeg({ quality: 85, mozjpeg: true })
 		.toBuffer();
 }
 
