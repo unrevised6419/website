@@ -1,8 +1,10 @@
 ---
 title: 🧬 JSX at lowest level
+og_title: "🧬 JSX at lowest level"
 description: >-
-  this post is a precursor for upcoming JSX posts   So we all heard that JSX is
-  a specific JavaScript...
+    JSX looks like HTML in JavaScript, but it compiles to React.createElement or
+    jsx calls. A look at what JSX really turns into.
+og_description: "JSX looks like HTML in JavaScript, but it compiles to React.createElement or jsx calls. A look at what JSX really turns into."
 tags: react, jsx, javascript, html
 created_at: "2021-10-07T07:50:21.889Z"
 edited_at: "2021-10-20T08:33:59.412Z"

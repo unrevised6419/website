@@ -1,8 +1,10 @@
 ---
 title: 🧶 Implicit CLSX in React
+og_title: "🧶 Implicit CLSX in React"
 description: >-
-  Using clsx or classnames in React lately has become a trend with utility-first
-  CSS frameworks like...
+    Patch React so className accepts arrays and objects like Vue class bindings,
+    without importing clsx in every app component.
+og_description: "Patch React so className accepts arrays and objects like Vue class bindings, without importing clsx in every app component."
 tags: react, jsx, vue, clsx
 created_at: "2021-12-01T22:56:33.504Z"
 edited_at: "2025-02-14T15:37:46.381Z"

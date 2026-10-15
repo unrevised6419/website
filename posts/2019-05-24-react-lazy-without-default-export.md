@@ -1,8 +1,10 @@
 ---
 title: 🦥 React.lazy without a default export
+og_title: "🦥 React.lazy without a default export"
 description: >-
-  React v16.6.0 introduced React.lazy that allows to code split without any
-  external...
+    React.lazy expects a module with a default export. Map a named export to
+    default inside the dynamic import to lazy load it.
+og_description: "React.lazy expects a module with a default export. Map a named export to default inside the dynamic import to lazy load it."
 tags: react, lazy, esm
 created_at: "2019-05-24T10:08:13.758Z"
 edited_at: "2022-05-21T21:05:14.325Z"

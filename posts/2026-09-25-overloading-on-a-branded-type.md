@@ -1,9 +1,9 @@
 ---
 title: 🎯 Overloading on a branded type
+og_title: "🎯 Overloading on a branded type"
 description: >-
-    An overload set can hand the branded argument a precise return type and the
-    unbranded one a nullable type, so callers that already did the parse stop
-    handling a failure that cannot happen to them.
+    An overload set gives the branded argument a precise return type and the
+    unbranded one a nullable type, so parsed callers skip dead checks.
 og_description: "Give the branded argument a precise return type and the unbranded one a nullable type, so parsed callers skip dead checks."
 tags: typescript, types, branded-types, overload
 created_at: "2026-09-25T13:00:00.000Z"

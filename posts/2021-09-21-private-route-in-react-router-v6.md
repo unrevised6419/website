@@ -1,8 +1,10 @@
 ---
 title: 🔐 Private Route in React Router v6
+og_title: "🔐 Private Route in React Router v6"
 description: >-
-  Things are changing fast in WEB today, and react-router v6 is in beta already
-  and around the corner....
+    Private routes in React Router v5 wrapped Route and Redirect in a custom
+    component. Here is the same guard with the v6 beta.
+og_description: "Private routes in React Router v5 wrapped Route and Redirect in a custom component. Here is the same guard with the v6 beta."
 tags: react, router, security, authentication
 created_at: "2021-09-21T22:52:53.459Z"
 edited_at: "2023-03-10T08:04:45.614Z"

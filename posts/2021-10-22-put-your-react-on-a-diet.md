@@ -1,8 +1,10 @@
 ---
 title: 🥑 Put your React on a diet
+og_title: "🥑 Put your React on a diet"
 description: >-
-  For a long time I heard people complaining that React &amp; ReactDOM has a
-  huge size, and everyone...
+    Swap React for Preact in a Create React App project without ejecting, by
+    installing preact/compat under the React names.
+og_description: "Swap React for Preact in a Create React App project without ejecting, by installing preact/compat under the React names."
 tags: react, preact, npm, roataway
 created_at: "2021-10-22T01:02:15.885Z"
 edited_at: "2021-10-22T14:51:17.015Z"

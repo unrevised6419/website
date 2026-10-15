@@ -1,8 +1,10 @@
 ---
 title: 🔺 Flat React Doom Pyramid in 1LOC
+og_title: "🔺 Flat React Doom Pyramid in 1LOC"
 description: >-
-  Everyone was happy when React Team announced the new stable Context API, and
-  everyone ditched Redux....
+    Context providers pile up into a deeply nested pyramid at the app root.
+    Flatten them as a list with reduceRight in one line.
+og_description: "Context providers pile up into a deeply nested pyramid at the app root. Flatten them as a list with reduceRight in one line."
 tags: react, javascript, typescript
 created_at: "2021-09-22T21:10:26.362Z"
 edited_at: "2022-12-17T11:55:15.124Z"
@@ -90,7 +92,9 @@ Here is one more variation with TypeScript and different API
 ```tsx
 function Flatten(props: PropsWithChildren<{ elements: ReactElement[] }>) {
 	const { elements: e, children: init } = props;
-	return <>{e.reduceRight((c, e) => cloneElement(e, { children: c }), init)}</>;
+	return (
+		<>{e.reduceRight((c, e) => cloneElement(e, { children: c }), init)}</>
+	);
 }
 ```
 

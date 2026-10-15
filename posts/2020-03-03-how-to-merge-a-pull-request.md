@@ -1,6 +1,10 @@
 ---
 title: 🔥 How to merge a pull request
-description: Rules to take into consideration when merging a pull request
+og_title: "🔥 How to merge a pull request"
+description: >-
+    GitHub offers merge commit, squash and merge, and rebase and merge. When to
+    use each, based on the pull request commits.
+og_description: "GitHub offers merge commit, squash and merge, and rebase and merge. When to use each, based on the pull request commits."
 tags: github, git, repository, gitlab
 created_at: "2020-03-03T12:48:25.264Z"
 edited_at: "2021-10-06T15:46:50.716Z"

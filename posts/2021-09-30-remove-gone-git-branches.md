@@ -1,8 +1,10 @@
 ---
 title: 🍂 Remove gone git branches
+og_title: "🍂 Remove gone git branches"
 description: >-
-    Alias for removing local branches that are gone on remote     # ~/.gitconfig
-    file [alias]    ...
+    A git alias that fetches with prune and deletes every local branch whose
+    remote is gone, usually after a merged pull request.
+og_description: "A git alias that fetches with prune and deletes every local branch whose remote is gone, usually after a merged pull request."
 tags: github, git, gitlab, bitbucket
 created_at: "2021-09-30T08:54:36.039Z"
 edited_at: "2021-10-06T15:45:59.859Z"

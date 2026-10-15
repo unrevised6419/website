@@ -21,7 +21,7 @@ There is **no test framework** in this repo — do not invent test commands. Ver
 
 ### Content collections (blog)
 
-Blog posts are Markdown files in `/posts/` (named `YYYY-MM-DD-slug.md`), **not** under `src/`. They're loaded via Astro's content layer glob loader in `src/content.config.ts` with a Zod-validated frontmatter schema (`title`, `description`, `created_at`, optional `og_title`/`og_description`/`edited_at`/`published_at`). Pages: `src/pages/index.astro` lists posts; `src/pages/posts/[id].astro` renders one via `getStaticPaths`.
+Blog posts are Markdown files in `/posts/` (named `YYYY-MM-DD-slug.md`), **not** under `src/`. They're loaded via Astro's content layer glob loader in `src/content.config.ts` with a Zod-validated frontmatter schema (`title`, `description`, `created_at`, `og_title`, `og_description`, optional `edited_at`/`published_at`). Pages: `src/pages/index.astro` lists posts; `src/pages/posts/[id].astro` renders one via `getStaticPaths`.
 
 ### Generated / gitignored artifacts
 
@@ -43,8 +43,9 @@ Posts originated as a dev.to export and follow a consistent house style. When cr
 - Filename: `YYYY-MM-DD-kebab-case-slug.md` (date = creation date).
 - `title`: starts with a single leading emoji, e.g. `🩹 Migrate from patch-package to pnpm patch`.
 - `description`: usually a folded scalar (`>-`) summarizing the takeaway in a sentence or two. It is rendered as `<meta name="description">`, `og:description` and `twitter:description` in `src/layouts/Layout.astro`, and as the subtitle in the post list, so keep it a clean standalone sentence. Do **not** prefix it with `tl;dr` (that belongs in the body blockquote), and do not paste truncated body text into it.
-- `og_title` (optional): a shorter title (≤60 characters) used for `<title>`, `og:title` and `twitter:title` when `title` is longer. The heading, post list and OG image still use `title`.
-- `og_description` (optional): a shorter description (≤125 characters) used for `og:description` and `twitter:description`, which social previews truncate, when `description` is longer. Search results and the post list still use `description`.
+- `og_title` (required): the title used for `<title>`, `og:title` and `twitter:title`, at most 60 characters. Same as `title` unless that is longer. The heading, post list and OG image still use `title`.
+- `og_description` (required): the description used for `og:description` and `twitter:description`, which social previews truncate, at most 125 characters. Same as `description` unless that is longer. Search results and the post list still use `description`.
+- **Lengths are enforced** by the schema in `src/content.config.ts`, so `pnpm run build` fails when they are off: `og_title` at most 60 characters, `description` 120–160 and `og_description` at most 125. Avoid straight quotes (`'`, `"`) in descriptions: some meta-tag inspectors cut the value off at them.
 - `created_at` / `published_at` / optional `edited_at`: quoted ISO-8601 timestamps.
 - `tags`: a comma-separated string is conventionally present, **but is not in the collection schema** (`src/content.config.ts`) and is ignored by the site. Don't add schema-unknown fields expecting them to render; only `title`/`og_title`/`description`/`og_description`/dates are used.
 

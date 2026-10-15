@@ -1,8 +1,10 @@
 ---
 title: ♻️ Override DOM input typed character
+og_title: "♻️ Override DOM input typed character"
 description: >-
-  Problem trying to solve.   Map every keyboard (input source / layout) back to
-  EN-US. Why...
+    A QR code scanner types as a US keyboard, so other layouts get wrong text.
+    Catch keypress and map each key back to EN-US.
+og_description: "A QR code scanner types as a US keyboard, so other layouts get wrong text. Catch keypress and map each key back to EN-US."
 tags: javascript, dom, input, event
 created_at: "2018-07-17T11:05:00.191Z"
 edited_at: "2023-09-15T17:09:22.292Z"

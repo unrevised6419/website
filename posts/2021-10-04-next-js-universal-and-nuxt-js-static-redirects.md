@@ -1,8 +1,10 @@
 ---
 title: ↪️ Next.js, Universal and Nuxt.js static redirects
+og_title: "↪️ Next.js, Universal and Nuxt.js static redirects"
 description: >-
-  Frameworks like Next.js (React 💙), Nuxt.js (Vue 💚) and Universal (Angular
-  ❤️) allow you to register...
+    Next.js, Nuxt.js and Angular Universal need a server for redirects. On a
+    static site, use HTML pages with a meta refresh.
+og_description: "Next.js, Nuxt.js and Angular Universal need a server for redirects. On a static site, use HTML pages with a meta refresh."
 tags: angular, react, vue, javascript
 created_at: "2021-10-04T07:15:47.067Z"
 edited_at: "2021-10-05T17:46:39.047Z"

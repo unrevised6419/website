@@ -1,6 +1,10 @@
 ---
 title: 🚧 Configure MSW in NX
-description: Mock Service Worker (MSW) is an API mocking library for browser and Node. —...
+og_title: "🚧 Configure MSW in NX"
+description: >-
+    Set up Mock Service Worker in an Nx monorepo: install msw, generate the
+    service worker file and add it to the app assets.
+og_description: "Set up Mock Service Worker in an Nx monorepo: install msw, generate the service worker file and add it to the app assets."
 tags: msw, nx, javascript, typescript
 created_at: "2020-06-22T10:12:11.809Z"
 edited_at: "2021-09-30T07:46:14.139Z"

@@ -1,8 +1,10 @@
 ---
 title: ☢️ HTML Comment in React
+og_title: "☢️ HTML Comment in React"
 description: >-
-  If you ever started learning React and saw it's syntax JSX, you maybe thought.
-  "This looks like...
+    JSX does not allow HTML comments. For learning purposes, here is how to trick
+    React into rendering a real HTML comment node.
+og_description: "JSX does not allow HTML comments. For learning purposes, here is how to trick React into rendering a real HTML comment node."
 tags: html, react, javascript, typescript
 created_at: "2021-11-25T23:26:03.368Z"
 edited_at: null

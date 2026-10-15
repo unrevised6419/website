@@ -1,9 +1,9 @@
 ---
 title: 🔀 TypeScript function overloading
+og_title: "🔀 TypeScript function overloading"
 description: >-
-    One implementation, several call signatures. How to write them for
-    functions, methods, constructors and statics, and the three rules that
-    decide which signature a call actually gets.
+    One implementation, several call signatures: how to write them for
+    functions, methods, constructors and statics, and the rules that pick one.
 og_description: "One implementation, several call signatures: functions, methods, constructors and statics, and how a call picks one."
 tags: typescript, arguments, function, overload, class
 created_at: "2019-03-28T08:58:38.734Z"

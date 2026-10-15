@@ -1,6 +1,10 @@
 ---
 title: 🗄️ Create own React.Fragment
-description: Implement own `React.Fragment`
+og_title: "🗄️ Create own React.Fragment"
+description: >-
+    Stuck on a React version older than 16.2, with no fragments? A Fragment just
+    returns its children, so you can write your own.
+og_description: "Stuck on a React version older than 16.2, with no fragments? A Fragment just returns its children, so you can write your own."
 tags: react, fragment, jsx
 created_at: "2018-08-16T12:16:13.844Z"
 edited_at: "2021-10-11T23:05:35.856Z"

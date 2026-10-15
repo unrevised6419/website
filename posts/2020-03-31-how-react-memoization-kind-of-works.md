@@ -1,6 +1,10 @@
 ---
 title: 🐏 How React memoization works
-description: How to memoize your children to not trigger a re-render
+og_title: "🐏 How React memoization works"
+description: >-
+    JSX creates new children elements on every render, so React.memo alone does
+    not help. Memoize the children with useMemo too.
+og_description: "JSX creates new children elements on every render, so React.memo alone does not help. Memoize the children with useMemo too."
 tags: react, javascript, jsx
 created_at: "2020-03-31T15:50:09.842Z"
 edited_at: "2023-09-15T17:11:44.156Z"

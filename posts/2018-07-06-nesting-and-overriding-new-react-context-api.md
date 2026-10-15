@@ -1,8 +1,10 @@
 ---
 title: 🪆 Nesting and overriding new React Context API
+og_title: "🪆 Nesting and overriding new React Context API"
 description: >-
-  While learning react-router v4 I read some of their source code. And as we
-  know they are using...
+    How react-router v4 nests React context to override parent route info for
+    children, and how to do it with the Context API.
+og_description: "How react-router v4 nests React context to override parent route info for children, and how to do it with the Context API."
 tags: react, context, override, reactrouter
 created_at: "2018-07-06T07:55:54.121Z"
 edited_at: "2023-09-15T17:08:57.713Z"
@@ -124,7 +126,9 @@ const NestedPath = ({ location = "location/", children }) => (
 		{(router) => (
 			<React.Fragment>
 				<div>{router.location}</div>
-				<Provider value={{ ...router, location: router.location + location }}>
+				<Provider
+					value={{ ...router, location: router.location + location }}
+				>
 					{children || null}
 				</Provider>
 			</React.Fragment>

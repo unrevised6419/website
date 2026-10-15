@@ -1,6 +1,10 @@
 ---
 title: 💪🏼 Typed fetch Response in TypeScript
-description: Currently TypeScript lib.dom.d.ts does not implement Typed fetch...
+og_title: "💪🏼 Typed fetch Response in TypeScript"
+description: >-
+    The fetch Response type in lib.dom.d.ts returns any from json(). Extend it
+    with a generic TypedResponse for typed payloads.
+og_description: "The fetch Response type in lib.dom.d.ts returns any from json(). Extend it with a generic TypedResponse for typed payloads."
 tags: ""
 created_at: "2018-11-23T15:49:14.041Z"
 edited_at: "2023-09-15T17:10:12.348Z"

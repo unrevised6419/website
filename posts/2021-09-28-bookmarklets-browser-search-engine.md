@@ -1,8 +1,10 @@
 ---
 title: 🔍 Bookmarklets + Browser Search Engine
+og_title: "🔍 Bookmarklets + Browser Search Engine"
 description: >-
-  This post may be relevant mostly to developers or who loves automation. The
-  Post covers two topics,...
+    Add custom search engines to the browser address bar, write bookmarklets, then
+    combine both to run scripts from a query.
+og_description: "Add custom search engines to the browser address bar, write bookmarklets, then combine both to run scripts from a query."
 tags: javascript, bookmarklet, search, engine
 created_at: "2021-09-28T16:43:50.851Z"
 edited_at: null

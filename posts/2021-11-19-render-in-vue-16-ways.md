@@ -1,8 +1,10 @@
 ---
 title: 🎄 Render in Vue, 16+ ways
+og_title: "🎄 Render in Vue, 16+ ways"
 description: >-
-  In this blog post I will show you 16 ways how to render something in
-  Vue           🚀 So let's...
+    Sixteen ways to render something in Vue 3, from templates to render functions
+    and JSX, with a full example repository to try.
+og_description: "Sixteen ways to render something in Vue 3, from templates to render functions and JSX, with a full example repository to try."
 tags: vue, typescript, javascript, html
 created_at: "2021-11-19T10:57:24.801Z"
 edited_at: "2025-02-14T15:38:09.486Z"

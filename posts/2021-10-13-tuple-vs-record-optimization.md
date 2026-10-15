@@ -1,8 +1,10 @@
 ---
 title: 🗜️ Optimal Tuple vs Record
+og_title: "🗜️ Optimal Tuple vs Record"
 description: >-
-  Let's say we have this createStore function:   Ignore the implementation, we
-  focus only on return...
+    Should a function return a tuple or an object? Compare how each one minifies,
+    and which is smaller in the production bundle.
+og_description: "Should a function return a tuple or an object? Compare how each one minifies, and which is smaller in the production bundle."
 tags: javascript, react, webpack, vue
 created_at: "2021-10-13T12:42:36.564Z"
 edited_at: "2021-10-14T09:51:03.375Z"
@@ -13,6 +15,7 @@ Let's say we have this `createStore` function:
 
 > Ignore the implementation, we focus only on return value.
 
+<!-- prettier-ignore -->
 ```js
 function createStore() {
 	const state = 0;
