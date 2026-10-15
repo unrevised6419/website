@@ -43,7 +43,7 @@ async function loadFonts() {
 // Pre-shrink the avatar to a small PNG and inline it as a data URI so Satori
 // can embed it without a network fetch.
 async function loadAvatarDataUri() {
-	let buffer = await readFile(path.join(root, "public/allindeveloper.png"));
+	let buffer = await readFile(path.join(root, "src/assets/all1ndev.svg"));
 	let png = await sharp(buffer).resize(160, 160).png().toBuffer();
 	return `data:image/png;base64,${png.toString("base64")}`;
 }

@@ -1,0 +1,29 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+	<rect fill="#ffffff" width="512" height="512" x="0" y="0" />
+	<path
+		style="fill:none;stroke:#000000;stroke-width:6;stroke-linejoin:miter"
+		d="M 256,64 80,160 v 192 l 176,96 176,-96 V 160 Z"
+	/>
+	<g style="fill:none;stroke:#000000;stroke-width:6">
+		<path d="M 80,352 432,160" />
+		<path d="M 80,160 432,352" />
+		<path d="M 256,64 V 448" />
+	</g>
+	<g style="stroke:#000000;stroke-width:6">
+		<circle fill="#266ef6" cx="256" cy="64" r="16" />
+		<circle fill="#e429f2" cx="256" cy="448" r="16" />
+		<circle fill="#ff8b00" cx="80" cy="160" r="16" />
+		<circle fill="#12e772" cx="80" cy="352" r="16" />
+		<circle fill="#ff0130" cx="432" cy="352" r="16" />
+		<circle fill="#ffd300" cx="432" cy="160" r="16" />
+		<circle fill="#ffffff" cx="256" cy="256" r="80" />
+	</g>
+	<g
+		transform="rotate(15,256,256)"
+		style="fill:none;stroke:#000000;stroke-width:7;stroke-linecap:round;stroke-linejoin:round"
+	>
+		<path d="m 256,224 v 64" />
+		<path d="m 240,240 -16,16 16,16" />
+		<path d="m 272,240 16,16 -16,16" />
+	</g>
+</svg>

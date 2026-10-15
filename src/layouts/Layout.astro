@@ -1,7 +1,7 @@
 ---
-import { Picture } from "astro:assets";
 import "../styles/global.css";
 import Socials from "../components/Socials.astro";
+import Logo from "../assets/all1ndev.svg";
 
 interface Props {
 	title?: string;
@@ -70,12 +70,10 @@ const ogImageURL = new URL(ogImage ?? "avatar.jpg", Astro.site);
 				>
 					<div class="flex grow items-center">
 						<a class="shrink-0" href="/">
-							<Picture
-								src="https://avatars.githubusercontent.com/u/67485880"
-								width={256}
-								height={256}
-								class="size-16 rounded-2xl bg-gray-800 outline -outline-offset-1 outline-white/10"
-								alt="All In Developer Logo"
+							<Logo
+								class="size-16 rounded-2xl outline -outline-offset-1 outline-white/10"
+								role="img"
+								aria-label="All In Developer Logo"
 							/>
 						</a>
 						<div class="ml-4">
