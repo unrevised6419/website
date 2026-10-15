@@ -107,6 +107,8 @@ async function loadEmojiSvg(emoji: string): Promise<string> {
 	return dataUri;
 }
 
+// Root containers set `box-sizing:border-box`: newer Satori lays out
+// `width:100%` plus padding as content-box, pushing text past the right edge.
 const BACKGROUND =
 	"linear-gradient(135deg,#052e16 0%,#064e3b 60%,#065f46 100%)";
 
@@ -131,7 +133,7 @@ function markup({ title, date, tags = [] }: OgOptions) {
 			: "";
 
 	return html(`
-		<div style="display:flex;flex-direction:column;justify-content:space-between;width:100%;height:100%;padding:70px;background:${BACKGROUND};font-family:Inter;color:#ffffff;">
+		<div style="display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;width:100%;height:100%;padding:70px;background:${BACKGROUND};font-family:Inter;color:#ffffff;">
 			<div style="display:flex;align-items:center;font-size:28px;font-weight:700;color:#6ee7b7;letter-spacing:0.5px;">
 				${escapeHtml(SITE_LABEL)}
 			</div>
@@ -238,7 +240,7 @@ async function rasterize(svg: string) {
 // to the site name and tagline, in the same colors as the post images.
 function homeMarkup() {
 	return html(`
-		<div style="display:flex;align-items:center;width:100%;height:100%;padding:0 80px;background:${BACKGROUND};font-family:Inter;color:#ffffff;">
+		<div style="display:flex;align-items:center;box-sizing:border-box;width:100%;height:100%;padding:0 80px;background:${BACKGROUND};font-family:Inter;color:#ffffff;">
 			<img src="${AVATAR_PLACEHOLDER}" style="width:340px;height:340px;border-radius:9999px;border:4px solid rgba(255,255,255,0.2);" />
 			<div style="display:flex;flex-direction:column;flex:1;min-width:0;margin-left:64px;">
 				<div style="display:flex;font-size:64px;font-weight:700;line-height:1.1;">${escapeHtml(AUTHOR_NAME)}</div>
