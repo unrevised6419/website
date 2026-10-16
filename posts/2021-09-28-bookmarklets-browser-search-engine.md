@@ -11,6 +11,8 @@ edited_at: null
 published_at: "2021-09-29T19:38:37.255Z"
 ---
 
+Your browser's address bar can do a lot more than search the web. With custom search engines and bookmarklets you can turn it into a small command line for your own scripts, and combining the two is where it gets really fun.
+
 This post may be relevant mostly to developers or who loves automation. The Post covers two topics, and a combination of both in the end. But we will start with easy one first.
 
 - Bookmarklets (medium)

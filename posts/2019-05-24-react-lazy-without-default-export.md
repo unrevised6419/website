@@ -11,6 +11,8 @@ edited_at: "2022-05-21T21:05:14.325Z"
 published_at: "2019-05-24T10:21:20.360Z"
 ---
 
+`React.lazy` makes code splitting a one-liner, as long as the component you load is a default export. Most codebases I work in use named exports, so I needed a way to lazy load them without rewriting every module.
+
 React v16.6.0 introduced `React.lazy` that allows to code split without any external libraries.
 
 https://reactjs.org/blog/2018/10/23/react-v-16-6.html

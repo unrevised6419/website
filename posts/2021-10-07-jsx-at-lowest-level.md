@@ -11,6 +11,8 @@ edited_at: "2021-10-20T08:33:59.412Z"
 published_at: "2021-10-07T21:58:07.872Z"
 ---
 
+JSX looks so much like HTML that it's easy to forget it isn't. Before writing more about JSX, I wanted to strip it down to the lowest level and see what your components actually turn into.
+
 > **this post is a precursor for upcoming JSX posts**
 
 So we all heard that JSX is a specific JavaScript syntax that is used by React to render components. Well, I would say JSX is just HTML in JavaScript. Or **J**ava-**S**cript-**X**ml 😂 because HTML is a sibling of XML and children of [SGML](https://en.wikipedia.org/wiki/Standard_Generalized_Markup_Language). Or maybe is just **J**ava-**S**cript e-**X**-tended.

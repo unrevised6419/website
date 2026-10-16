@@ -12,6 +12,8 @@ created_at: "2026-10-16T09:00:00.000Z"
 published_at: "2026-10-16T09:00:00.000Z"
 ---
 
+For years I believed `verbatimModuleSyntax` was the TypeScript option that removes unused and type-only imports from the output. A types-only package that kept breaking at runtime showed me I had it exactly backwards 🙈.
+
 > **tl;dr** `verbatimModuleSyntax` doesn't remove imports, it stops TypeScript from removing them. Dropping imports that are only used as types was the default all along. If you want imports that are explicit and erased by every tool, write `import type { X }`, not `import { type X }`.
 
 ```ts
@@ -23,7 +25,7 @@ import type { Core } from "@strapi/types";
 import { type Core } from "@strapi/types";
 ```
 
-For years I believed `verbatimModuleSyntax` was the option that removes unused and type-only imports from the output. It's the opposite 🙈. Here's how I found out, and what each option actually does.
+Here's how I found out, and what each option actually does.
 
 ## How I found out
 

@@ -11,6 +11,8 @@ edited_at: "2023-03-10T08:04:45.614Z"
 published_at: "2021-09-21T23:37:28.524Z"
 ---
 
+Every React app with a login has some version of a `PrivateRoute`. React Router v6 changes the building blocks that component was made of, so the old pattern doesn't carry over as is. Let's rebuild it for v6.
+
 Things are changing fast in WEB today, and [`react-router`](https://reactrouter.com/) v6 is in beta already and around the corner. 🤔
 
 > This is just for learning purposes only, react-router v6 is still in beta, use at your own risk

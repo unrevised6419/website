@@ -11,6 +11,8 @@ edited_at: "2023-09-15T17:11:22.515Z"
 published_at: "2019-09-26T08:48:05.234Z"
 ---
 
+Every project starts with the same question: where do the files go? Here's how I lay out the folders of an app and of a library, and the style guide I lean on so I don't have to decide from scratch every time.
+
 Follow Angular style guide https://angular.io/guide/styleguide
 
 ```

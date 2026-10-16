@@ -11,4 +11,6 @@ edited_at: "2023-09-15T17:12:28.503Z"
 published_at: "2019-05-15T08:27:08.082Z"
 ---
 
+A ref created with `React.createRef` can quietly stay `null` in a class component, with no error and no warning. I ran into one case where that happens, and it was subtle enough that I proposed a note for the official React docs.
+
 {% github https://github.com/reactjs/reactjs.org/pull/1456 %}

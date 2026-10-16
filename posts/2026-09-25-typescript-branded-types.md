@@ -10,6 +10,8 @@ created_at: "2026-09-25T09:00:00.000Z"
 published_at: "2026-09-25T10:00:00.000Z"
 ---
 
+TypeScript compares types by their shape, so a user id and a post id are both just a `string` to it. Swap them by accident and everything compiles, until the wrong record gets deleted in production. There's a way to make them truly different types that costs nothing at runtime.
+
 > **tl;dr** Intersect the primitive with a phantom property, then hand out the branded value from exactly one function.
 
 ```ts

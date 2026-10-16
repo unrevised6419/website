@@ -11,6 +11,8 @@ edited_at: "2021-10-06T15:45:59.859Z"
 published_at: "2021-09-30T20:31:13.417Z"
 ---
 
+After a few weeks of merged pull requests, your local git branches pile up with no remote behind them anymore. Cleaning them up one by one gets old fast, so here's how I do it with a single command.
+
 > **tl;dr** Alias for removing local branches that are gone on remote
 
 ```properties

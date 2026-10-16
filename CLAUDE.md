@@ -51,7 +51,8 @@ Posts originated as a dev.to export and follow a consistent house style. When cr
 
 **Body structure**
 
-- Open with a `> **tl;dr** ...` blockquote, frequently followed immediately by the final solution (code/alias) before any explanation — answer first, explain after. Only 4 of the posts do this today, but it is the house style for anything new.
+- Every new post **must** open with a short intro paragraph that the author copies as the excerpt when cross-posting to other platforms (DEV, Hashnode, Medium, LinkedIn) and links back to the full post. It is a hook, not a summary: 2–4 sentences of plain prose that set up the problem or the surprise and make the reader want the answer, **without revealing the solution**. It must read fine on its own, without the title or the rest of the post: no code blocks, images, tables or links to sections of the post; inline backticked identifiers and external links are fine, but links to other posts must be absolute (`https://all1n.dev/posts/...`) so they still work when cross-posted.
+- Follow the intro with a `> **tl;dr** ...` blockquote, frequently followed immediately by the final solution (code/alias) before any explanation — answer first, explain after. The tl;dr is only for readers already on the site, so it does give the answer; never use it as the external excerpt. Only some older posts have one, but every new post **must**.
 - Number multi-step procedures with `####` headings (`#### 1. ...`).
 - Use blockquote callouts prefixed with an emoji for asides: `> 💡 ...`, `> 📝 ...`, `> ⚠️ ...`.
 - Always language-tag code fences (`bash`, `shell`, `jsx`, `js`, `ts`, `text`, `properties`); show command output in a separate `text` fence after the command.

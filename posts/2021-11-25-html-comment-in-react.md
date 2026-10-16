@@ -11,6 +11,8 @@ edited_at: null
 published_at: "2021-11-26T00:06:35.595Z"
 ---
 
+React won't let you write an HTML comment in JSX. Everyone learns that the hard way and settles for a JavaScript comment instead. But what if you really wanted a real `<!-- -->` in the DOM? For learning purposes, it turns out you can.
+
 If you ever started learning [React](https://reactjs.org/) and saw it's syntax JSX, you maybe thought. "This looks like HTML"
 
 And one day you want to comment something in JSX, and your first try would be to do:

@@ -11,6 +11,8 @@ edited_at: "2021-10-05T17:46:39.047Z"
 published_at: "2021-10-04T20:25:49.981Z"
 ---
 
+Next.js, Nuxt.js and Angular Universal all let you register redirects, but they need a server running to serve them. What if your app is fully static and there's no server at all? You can still redirect, with something browsers have supported forever.
+
 Frameworks like [`Next.js (React 💙)`](https://nextjs.org/), [`Nuxt.js (Vue 💚)`](https://nuxtjs.org/) and [`Universal (Angular ❤️)`](https://angular.io/guide/universal) allow you to register redirects.
 
 ---

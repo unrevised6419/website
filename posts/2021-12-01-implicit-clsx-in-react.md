@@ -11,9 +11,7 @@ edited_at: "2025-02-14T15:37:46.381Z"
 published_at: "2021-12-02T00:53:21.418Z"
 ---
 
-Using [`clsx`](https://github.com/lukeed/clsx) or [`classnames`](https://github.com/JedWatson/classnames) in [React](https://reactjs.org/) lately has become a trend with utility-first CSS frameworks like [Tailwind CSS](https://tailwindcss.com/), where you have to write a lot of classes, and sometimes also with conditionals.
-
-If you come from a framework like [Vue](https://vuejs.org/) you may saw that there you have this [Class Binding](https://vuejs.org/v2/guide/class-and-style.html) functionality out of the box.
+If you use [Tailwind CSS](https://tailwindcss.com/) with [React](https://reactjs.org/), you probably import [`clsx`](https://github.com/lukeed/clsx) or [`classnames`](https://github.com/JedWatson/classnames) into almost every component. [Vue](https://vuejs.org/) has [class bindings](https://vuejs.org/v2/guide/class-and-style.html) built in, so why can't React? With a bit of mischief, it can.
 
 In this blog post I will show you how you can patch React library, so you don't have import `clsx` everywhere where you need it, and to have this functionally out of the box also in React.
 

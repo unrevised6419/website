@@ -11,6 +11,8 @@ edited_at: "2022-12-17T11:55:15.124Z"
 published_at: "2021-09-22T21:47:08.657Z"
 ---
 
+Every React app I opened had the same thing at its root: a pyramid of context providers, each one nested inside the last. It works, but it's hard to read and painful to reorder. It turns out you can flatten it with a single line.
+
 Everyone was happy when React Team announced the new stable Context API, and everyone ditched Redux. But that's not the point.
 
 After 1 year every codebase entrypoint looked like this at least.

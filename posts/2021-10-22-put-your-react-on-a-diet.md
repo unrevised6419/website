@@ -11,6 +11,8 @@ edited_at: "2021-10-22T14:51:17.015Z"
 published_at: "2021-10-22T02:28:39.705Z"
 ---
 
+People have complained about the size of React and ReactDOM for years, and the usual advice is to switch to Preact. But what if you don't want to rewrite your app or eject from Create React App? You can put your React on a diet without touching your code.
+
 For a long time I heard people complaining that [`React & ReactDOM`](https://reactjs.org/) has a huge size, and everyone recommended to use [`Preact`](https://preactjs.com/) instead.
 
 > `react` & `react-dom` bundle

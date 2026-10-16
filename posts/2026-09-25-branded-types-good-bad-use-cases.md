@@ -10,6 +10,8 @@ created_at: "2026-09-25T11:00:00.000Z"
 published_at: "2026-09-25T12:00:00.000Z"
 ---
 
+Once you learn branded types, it's tempting to brand everything. Some brands catch real bugs that nothing else would; others just add ceremony and casts. Here's how I decide which is which, with the cases where branding pays off and the ones where it doesn't.
+
 > **tl;dr** Brand a type when a wrong value of the same underlying primitive is a real bug that nothing else can catch, and when there is one obvious place to mint it.
 
 If you need the helper, it is in the [previous post](/posts/2026-09-25-typescript-branded-types):

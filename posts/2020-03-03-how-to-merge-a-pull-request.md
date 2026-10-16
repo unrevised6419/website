@@ -11,6 +11,8 @@ edited_at: "2021-10-06T15:46:50.716Z"
 published_at: "2020-03-03T12:48:25.243Z"
 ---
 
+GitHub gives you three buttons to merge a pull request, and most teams pick one and use it for everything. Each of them leaves a very different history behind, though, and the right one depends on what's inside the pull request.
+
 There are some rules that are best to follow when merging a pull request.
 
 When merging a pull request, GitHub offers 3 options:

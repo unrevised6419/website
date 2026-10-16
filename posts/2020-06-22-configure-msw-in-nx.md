@@ -11,6 +11,8 @@ edited_at: "2021-09-30T07:46:14.139Z"
 published_at: "2020-06-23T15:05:14.453Z"
 ---
 
+Mock Service Worker is one of the nicest ways to mock APIs in the browser, and Nx is a great home for a monorepo. Getting the two to work together takes a couple of steps that aren't obvious from either project's docs.
+
 > Mock Service Worker (MSW) is an API mocking library for browser and Node.
 > — https://mswjs.io/
 

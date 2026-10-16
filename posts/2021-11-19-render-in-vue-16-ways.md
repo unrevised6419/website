@@ -11,6 +11,8 @@ edited_at: "2025-02-14T15:38:09.486Z"
 published_at: "2021-11-23T22:16:46.512Z"
 ---
 
+Vue gives you a surprising number of ways to put something on the screen. I counted at least sixteen, from the template everyone knows to some you've probably never thought of, and put them all in one repository you can play with.
+
 In this blog post I will show you 16 ways how to render something in [Vue](https://v3.vuejs.org/)
 
 ## 🚀 So let's start

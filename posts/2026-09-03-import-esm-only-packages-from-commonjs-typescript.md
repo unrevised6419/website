@@ -10,13 +10,15 @@ created_at: "2026-09-03T09:00:00.000Z"
 published_at: "2026-09-03T10:00:00.000Z"
 ---
 
+You ship a CommonJS tool, a [rollup](https://rollupjs.org/) plugin or a CLI, and all you want are the types of an ESM-only package like [Vite](https://vite.dev/). A type import should be harmless, yet TypeScript refuses it, and older versions fail with an error that points you in completely the wrong direction.
+
 > **tl;dr** Add an import attribute to the type-only import.
 
 ```ts
 import type { Plugin } from "vite" with { "resolution-mode": "import" };
 ```
 
-You ship a CommonJS tool, a [rollup](https://rollupjs.org/) plugin or a CLI, and you want [Vite](https://vite.dev/)'s types. With `"module": "node18"` and Vite `8.2.2`, the obvious import fails:
+With `"module": "node18"` and Vite `8.2.2`, the obvious import fails:
 
 ```ts
 import type { Plugin } from "vite";

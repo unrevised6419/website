@@ -11,6 +11,8 @@ edited_at: "2026-09-25T14:30:00.000Z"
 published_at: "2019-03-28T08:58:38.709Z"
 ---
 
+TypeScript lets one function accept different arguments and return different types depending on how you call it. The syntax looks simple, but the rules about which signature wins and what callers actually see trip up almost everyone the first time.
+
 > **tl;dr** Stack the call signatures above the implementation. The implementation signature is not one of them, and callers never see it.
 
 ```ts

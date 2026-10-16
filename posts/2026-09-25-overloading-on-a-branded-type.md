@@ -10,14 +10,14 @@ created_at: "2026-09-25T13:00:00.000Z"
 published_at: "2026-09-25T14:00:00.000Z"
 ---
 
+[Branded types](https://all1n.dev/posts/2026-09-25-typescript-branded-types) give you a type nobody can forge, and [the use cases post](https://all1n.dev/posts/2026-09-25-branded-types-good-bad-use-cases) covers where that is worth doing. Point them at [function overloading](https://all1n.dev/posts/2019-03-28-typescript-function-overloading) and you get something neither does alone: one function that is honest with careless callers and generous with careful ones.
+
 > **tl;dr** Two signatures, branded one first.
 
 ```ts
 function formatDate(date: ValidDate): string;
 function formatDate(date: Date): string | null;
 ```
-
-[Branded types](/posts/2026-09-25-typescript-branded-types) give you a type nobody can forge, and [the use cases post](/posts/2026-09-25-branded-types-good-bad-use-cases) covers where that is worth doing. Point them at [function overloading](/posts/2019-03-28-typescript-function-overloading) and you get something neither does alone: one function that is honest with careless callers and generous with careful ones.
 
 ## Why the pair works
 

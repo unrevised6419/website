@@ -11,6 +11,8 @@ edited_at: "2023-09-15T17:10:12.348Z"
 published_at: "2018-11-23T15:49:14.029Z"
 ---
 
+`fetch` is great until you call `response.json()` in TypeScript and get `any` back, throwing away your types right at the API boundary. There's a small, reusable way to get a properly typed response without casting at every call site.
+
 Currently TypeScript `lib.dom.d.ts` does not implement Typed fetch response
 https://github.com/Microsoft/TypeScript/blob/master/lib/lib.dom.d.ts#L2230
 Bellow you can see how we can override that

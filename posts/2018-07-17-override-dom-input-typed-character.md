@@ -11,6 +11,8 @@ edited_at: "2023-09-15T17:09:22.292Z"
 published_at: "2019-05-15T08:26:35.465Z"
 ---
 
+We have a QR code scanner at work that pretends to be a keyboard. It works perfectly on a US layout and types garbage on every other one. Here's how I made a web input understand it, no matter which keyboard layout the user has.
+
 ### Problem trying to solve.
 
 Map every keyboard (input source / layout) back to EN-US.

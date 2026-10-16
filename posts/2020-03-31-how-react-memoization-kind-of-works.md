@@ -11,6 +11,8 @@ edited_at: "2023-09-15T17:11:44.156Z"
 published_at: "2020-03-31T15:50:09.815Z"
 ---
 
+You wrapped a component in `React.memo`, and it still re-renders every time its parent does. It's one of the most common surprises in React, and it comes down to what JSX actually creates on every render.
+
 First you should know whats happening when using React and JSX
 
 ```jsx

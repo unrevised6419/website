@@ -11,11 +11,9 @@ edited_at: "2021-10-11T23:05:35.856Z"
 published_at: "2018-09-17T07:23:57.051Z"
 ---
 
-Do you want to use [`React.Fragment`](https://reactjs.org/blog/2017/11/28/react-v16.2.0-fragment-support.html) in your app?
-Are you using a React version lower than `16.2` that does not support fragments?
-For some reason you cannot update React to support it?
+Fragments are one of those React features you miss the moment you can't have them. If you're stuck on a React version older than `16.2` and can't upgrade, you might think you're out of luck. You're not, and the way out is smaller than you'd expect.
 
-Well I can tell you that you can create your own `Fragment`!
+Well I can tell you that you can create your own [`Fragment`](https://reactjs.org/blog/2017/11/28/react-v16.2.0-fragment-support.html)!
 
 ```jsx
 function Fragment(props) {

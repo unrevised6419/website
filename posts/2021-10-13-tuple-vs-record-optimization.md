@@ -11,6 +11,8 @@ edited_at: "2021-10-14T09:51:03.375Z"
 published_at: "2021-10-13T18:21:34.229Z"
 ---
 
+Should a function return a tuple or an object? Most of the time it's a matter of taste, but there's one angle people rarely look at: what each one costs in your production bundle after minification.
+
 Let's say we have this `createStore` function:
 
 > Ignore the implementation, we focus only on return value.

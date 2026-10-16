@@ -11,6 +11,8 @@ edited_at: "2021-10-06T15:45:44.340Z"
 published_at: "2021-07-13T23:21:35.007Z"
 ---
 
+Sometimes a git remote ends up full of stale branches, and the quickest fix is to remove it and add it back. Doing that by hand means looking up its URL first, every single time, so I turned it into one command.
+
 > **tl;dr** Alias for removing Git remote and adding it back
 
 ```shell

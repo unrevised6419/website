@@ -11,6 +11,8 @@ edited_at: "2023-09-15T17:08:57.713Z"
 published_at: "2018-07-06T08:09:51.186Z"
 ---
 
+Ever wondered how react-router lets a nested route see its own match instead of its parent's? I went digging through its source to find out, and the trick turned out to be something you can use in your own components with the new React Context API.
+
 While learning **react-router** v4 I read some of their source code. And as we know they are using current context for passing down router and route info overriding previous/parent route info
 
 {% github https://github.com/ReactTraining/react-router %}

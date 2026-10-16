@@ -10,9 +10,9 @@ created_at: "2026-06-17T09:30:00.000Z"
 published_at: "2026-06-17T10:00:00.000Z"
 ---
 
-> **tl;dr** A few simple steps to migrate your existing [`patch-package`](https://github.com/ds300/patch-package) patches to [`pnpm patch`](https://pnpm.io/cli/patch).
-
 If you moved your project to [pnpm](https://pnpm.io/), you probably still have a `patches/` folder full of `patch-package` patches. pnpm has its own patching mechanism built in, so there is no need to keep `patch-package` around as an extra dependency.
+
+> **tl;dr** A few simple steps to migrate your existing [`patch-package`](https://github.com/ds300/patch-package) patches to [`pnpm patch`](https://pnpm.io/cli/patch).
 
 The catch is that the two tools use a slightly different patch format. The diff content is the same, only the paths inside the patch point to a different location. So migrating is mostly a find & replace.
 

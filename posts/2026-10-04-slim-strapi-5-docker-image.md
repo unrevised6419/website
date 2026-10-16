@@ -12,6 +12,8 @@ published_at: "2026-10-04T05:45:04.000Z"
 edited_at: "2026-10-04T06:06:46.000Z"
 ---
 
+Our production Strapi 5 Docker image weighed 3.2 GB, and almost none of it was our own code. Most of it was tooling and libraries the running server never even loads. Here's how we got it under a gigabyte, and what has to stay so it still boots.
+
 > **tl;dr** `pnpm deploy --prod` only the Strapi app, drop the webpack bundler with pnpm `overrides`, then delete source maps, `.d.ts` files, `dist/admin` and the admin panel's frontend libraries from the deploy output in the same Docker stage. Boot-test the image after every Strapi upgrade. On a fresh npm app, the same approach takes the image from 1.25 GB to 731 MB.
 
 |                                                                      | Uncompressed | Compressed (pushed / pulled) |
