@@ -60,6 +60,21 @@ Posts originated as a dev.to export and follow a consistent house style. When cr
 - Link generously to docs, issues, and source repos via inline Markdown links and backticked identifiers.
 - Close with a sign-off line ("Thanks for reading my blog posts! 🎉") and, when applicable, a credit/source link below a `---` rule.
 
+**Cross-posting drafts**
+
+After writing a new post, also prepare drafts for sharing it elsewhere, in one file `cross-posts/<post-id>.md` (gitignored, never committed), with one section per platform, then open it with `code <file>`. The post URL is `https://all1n.dev/posts/<post-id>` (the filename without `.md`). Use the intro paragraph as the excerpt everywhere; never the tl;dr. Social posts hint at the story without technical details and don't reveal the solution.
+
+- **DEV**, **Hashnode** and **Medium**: never the full article, so readers come to the site. Each gets a short teaser post: the title, the intro, one or two sentences on what the full post covers (still without the solution) and a clear "Continue reading on all1n.dev" link to the post URL. For DEV, add frontmatter `title`, `published: false`, `description`, up to 4 `tags` and `canonical_url` set to the post URL; on Hashnode and Medium, note to set the canonical URL ("originally published at") in the post settings. Don't use Medium's "Import a story", which copies the whole post.
+- **LinkedIn**: the intro, rewritten as a hook, plus the link and 3–4 hashtags.
+- **X**: at most 280 characters, counting the link as 23.
+- **Bluesky**: at most 300 characters, link included.
+- **Mastodon**: at most 500 characters, with 2–4 hashtags.
+- **Reddit**: suggested subreddits, a title and a short body (the intro plus the link). Note that each subreddit's self-promotion rules apply.
+- **Hacker News**: a plain title (no emoji, at most 80 characters) and the URL.
+- **Lobsters**: a title and suggested tags.
+- **daily.dev**: the URL to submit.
+- **Newsletters** (JavaScript Weekly, Node Weekly, Frontend Focus, Bytes; only the ones that fit the topic): a 2–3 sentence pitch to the editors.
+
 ## Conventions
 
 - **Commits** must follow Conventional Commits — enforced by commitlint via the Husky `commit-msg` hook.
