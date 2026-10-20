@@ -3,12 +3,13 @@ import path from "node:path";
 import satori from "satori";
 import { html } from "satori-html";
 import sharp from "sharp";
+import { SITE_NAME } from "../consts";
 
 // Open Graph image dimensions (the de-facto 1.91:1 standard).
 export const OG_WIDTH = 1200;
 export const OG_HEIGHT = 630;
 
-const AUTHOR_NAME = "All In Developer";
+const AUTHOR_NAME = SITE_NAME;
 const SITE_LABEL = "all1n.dev";
 const SITE_TAGLINE = "Notes on TypeScript & developer tooling";
 
