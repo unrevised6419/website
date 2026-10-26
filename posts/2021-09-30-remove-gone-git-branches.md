@@ -145,7 +145,7 @@ git gone
 
 ```text
 Fetching origin
-From /Users/iamandrewluca/Temp/gone-bare
+From /Users/me/Temp/gone-bare
  - [deleted]         (none)     -> origin/feature-1
  - [deleted]         (none)     -> origin/feature-2
  - [deleted]         (none)     -> origin/feature-3

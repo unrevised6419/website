@@ -36,7 +36,7 @@ yarn add clsx
 yarn remove react
 ```
 
-#### Install `react` under `raw-react` name (More about [NPM Aliases](https://dev.to/iamandrewluca/put-your-react-on-a-diet-3c6d))
+#### Install `react` under `raw-react` name (More about [NPM Aliases](https://dev.to/all1ndev/put-your-react-on-a-diet-3c6d))
 
 ```shell
 yarn add raw-react@npm:react
@@ -50,19 +50,19 @@ yarn add raw-react@npm:react
 module.exports = require("raw-react");
 ```
 
-**my-react/jsx-runtime.js** (About [JSX Runtime](https://dev.to/iamandrewluca/jsx-at-lowest-level-371b))
+**my-react/jsx-runtime.js** (About [JSX Runtime](https://dev.to/all1ndev/jsx-at-lowest-level-371b))
 
 ```js
 module.exports = require("raw-react/jsx-runtime");
 ```
 
-**my-react/jsx-dev-runtime.js** (About [JSX Runtime](https://dev.to/iamandrewluca/jsx-at-lowest-level-371b))
+**my-react/jsx-dev-runtime.js** (About [JSX Runtime](https://dev.to/all1ndev/jsx-at-lowest-level-371b))
 
 ```js
 module.exports = require("raw-react/jsx-dev-runtime");
 ```
 
-#### Install `my-react` as `react` package (More about [NPM Aliases](https://dev.to/iamandrewluca/put-your-react-on-a-diet-3c6d))
+#### Install `my-react` as `react` package (More about [NPM Aliases](https://dev.to/all1ndev/put-your-react-on-a-diet-3c6d))
 
 ```shell
 yarn add react@file:my-react

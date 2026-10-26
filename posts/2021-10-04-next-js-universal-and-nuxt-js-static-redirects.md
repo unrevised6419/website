@@ -57,11 +57,11 @@ Taking this idea, we can apply it to our frameworks, and create static HTML redi
 
 ## Example (Next.js)
 
-Let's say that on my [`iamandrewluca.com`](https://iamandrewluca.com/) website I want to have addresses that redirect to my social profiles. This is a good example in case that you want someone to fast access your social profile, or in case you change it, Just change the redirect address e.g.
+Let's say that on my [`all1n.dev`](https://all1n.dev/) website I want to have addresses that redirect to my social profiles. This is a good example in case that you want someone to fast access your social profile, or in case you change it, Just change the redirect address e.g.
 
-- `iamandrewluca.com/dev` ➡️ `dev.to/iamandrewluca`
-- `iamandrewluca.com/github` ➡️ `github.com/iamandrewluca`
-- `iamandrewluca.com/twitter` ➡️ `twitter.com/iamandrewluca`
+- `all1n.dev/dev` ➡️ `dev.to/all1ndev`
+- `all1n.dev/github` ➡️ `github.com/all1ndev`
+- `all1n.dev/x` ➡️ `x.com/all1ndev`
 - `...`
 
 What I have to do now is to create 3 files in my `public` folder:
@@ -69,19 +69,19 @@ What I have to do now is to create 3 files in my `public` folder:
 **public/dev.html**
 
 ```html
-<meta http-equiv="Refresh" content="0; URL=https://dev.to/iamandrewluca" />
+<meta http-equiv="Refresh" content="0; URL=https://dev.to/all1ndev" />
 ```
 
 **public/github.html**
 
 ```html
-<meta http-equiv="Refresh" content="0; URL=https://github.com/iamandrewluca" />
+<meta http-equiv="Refresh" content="0; URL=https://github.com/all1ndev" />
 ```
 
-**public/twitter.html**
+**public/x.html**
 
 ```html
-<meta http-equiv="Refresh" content="0; URL=https://twitter.com/iamandrewluca" />
+<meta http-equiv="Refresh" content="0; URL=https://x.com/all1ndev" />
 ```
 
 Next we build our static html application:
@@ -92,14 +92,14 @@ npx next export # export as static html
 npx serve out # serve static at http://localhost:5000
 ```
 
-Now if I access `http://localhost:5000/dev` it will automatically go to `https://dev.to/iamandrewluca`.
+Now if I access `http://localhost:5000/dev` it will automatically go to `https://dev.to/all1ndev`.
 
 - No server
 - No JavaScript.
 
 ![sponge bob magic](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/0p0vj0k45lifg90a6ths.png)
 
-You can check this live example on my simple website [iamandrewluca.com](https://iamandrewluca.com/)
+You can check this live example on my simple website [all1n.dev](https://all1n.dev/)
 
 ---
 
@@ -138,9 +138,9 @@ Having **redirects.json**
 ```json
 {
 	"redirects": [
-		{ "from": "/dev", "to": "https://dev.to/iamandrewluca" },
-		{ "from": "/github", "to": "https://github.com/iamandrewluca" },
-		{ "from": "/twitter", "to": "https://twitter.com/iamandrewluca" }
+		{ "from": "/dev", "to": "https://dev.to/all1ndev" },
+		{ "from": "/github", "to": "https://github.com/all1ndev" },
+		{ "from": "/x", "to": "https://x.com/all1ndev" }
 	]
 }
 ```

@@ -58,7 +58,7 @@ Here is a very simple example. Create a bookmark and in place of URL put content
 javascript: alert("Hello World");
 ```
 
-I have a [list of such bookmarklets](https://gist.github.com/iamandrewluca/61feacf07bc4f2f50e70f986c2e9b2d2) that do different stuff.
+I have a [list of such bookmarklets](https://gist.github.com/unrevised6419/61feacf07bc4f2f50e70f986c2e9b2d2) that do different stuff.
 
 Here is a simple code template to get started (this is an [IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE)):
 
@@ -97,7 +97,7 @@ javascript: void (function (s) {
 
 ![mindblow](https://media.giphy.com/media/m8WzRSb4xDcMx2WbkV/giphy.gif)
 
-And a real exmple. Recently I made a static [Bookmarklet for Google Meet](https://gist.github.com/iamandrewluca/09b5cf4bddff0d3db30c90eeda6dac8b), when clicked, it will open my video using [Picture in Picture](https://developer.mozilla.org/en-US/docs/Web/API/Picture-in-Picture_API) mode
+And a real exmple. Recently I made a static [Bookmarklet for Google Meet](https://gist.github.com/unrevised6419/09b5cf4bddff0d3db30c90eeda6dac8b), when clicked, it will open my video using [Picture in Picture](https://developer.mozilla.org/en-US/docs/Web/API/Picture-in-Picture_API) mode
 
 Having this power of user input, we can register it as a custom search engine, and give user name in the input, and open a specific user video as Picture in Picture. So from bookmarklet I linked above we need to make a few changes.
 
@@ -129,7 +129,7 @@ For me when I realised that this is possible it was an `Eureka!!!` moment.
 
 Now I have to find different ways to simplify, automate and make faster my day to day web surfing experience!
 
-Here is again my current list of [Bookmarklets](https://gist.github.com/iamandrewluca/61feacf07bc4f2f50e70f986c2e9b2d2).
+Here is again my current list of [Bookmarklets](https://gist.github.com/unrevised6419/61feacf07bc4f2f50e70f986c2e9b2d2).
 If you have any crazy idea that could fill that list, I would be glad to implement it, if of course it will be possible 😃
 
 Thanks for reaching the bottom 😀

@@ -21,8 +21,8 @@ tree -I 'node_modules|build'
 
 An app
 
-{% gist https://gist.github.com/iamandrewluca/660904bf6f3715fb82d6781e685cdced %}
+{% gist https://gist.github.com/unrevised6419/660904bf6f3715fb82d6781e685cdced %}
 
 A library
 
-{% gist https://gist.github.com/iamandrewluca/f5073dbcd8443ecf0cd9dbd4b2b83aa2 %}
+{% gist https://gist.github.com/unrevised6419/f5073dbcd8443ecf0cd9dbd4b2b83aa2 %}
